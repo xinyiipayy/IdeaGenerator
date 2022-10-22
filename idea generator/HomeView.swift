@@ -10,22 +10,33 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         NavigationView{
-            VStack {
-                Text("Categories")
-                
+            VStack(spacing: 10) {
+                               
                 NavigationLink(destination: GeneratorView()) {
-                    Text("Arts & Craft")
+                    Image("Screenshot 2022-10-22 at 10.44.00 AM")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(10)
                 }
                 
                 NavigationLink(destination: GeneratorView()) {
-                    Text("Group Activities")
+                    Image("Screenshot 2022-10-22 at 10.48.41 AM")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(10)
                 }
                 
                 NavigationLink(destination: GeneratorView()) {
-                    Text("Places to Go")
+                    Image("Screenshot 2022-10-22 at 10.50.02 AM")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(10)
                 }
                 
+                Spacer(minLength: 75)
             }
+
+            .navigationTitle("Categories")
         }
         
     }
