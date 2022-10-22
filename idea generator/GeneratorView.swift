@@ -6,10 +6,24 @@
 //
 
 import SwiftUI
-
 struct GeneratorView: View {
+    
+    @State var isSheetPresented = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack {
+                Button {
+                    isSheetPresented = true
+                } label: {
+                    Text("activity one")
+                }
+
+            }
+        }
+        .sheet(isPresented: $isSheetPresented) {
+            ActivityDescriptionView()
+        }
     }
 }
 
