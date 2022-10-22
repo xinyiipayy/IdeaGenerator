@@ -9,30 +9,36 @@ import SwiftUI
 struct GeneratorView: View {
     
     @State var isSheetPresented = false
+    @State var num = 0
+    
     
     var body: some View {
         NavigationView {
             VStack {
                 Button {
                     isSheetPresented = true
+                    
                 } label: {
-                    Text("activity 1")
+                    Text(placesToGo[0].title)
                 }
                 
                 Button {
                     isSheetPresented = true
                 } label: {
-                    Text("activity 2")
+                    Text(placesToGo[1].title)
                 }
                 
                 Button {
                     isSheetPresented = true
                 } label: {
-                    Text("activity 3")
+                    Text(placesToGo[2].title)
                 }
                 
                 Button {
-                    print("..")
+                    placesToGo.shuffle()
+                    placesToGo = placesToGo.shuffled()
+                    
+                    // we need to make this update the ideas
                 } label: {
                     Text("reshuffle")
                     
