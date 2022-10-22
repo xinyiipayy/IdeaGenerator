@@ -16,16 +16,38 @@ struct GeneratorView: View {
                 Button {
                     isSheetPresented = true
                 } label: {
-                    Text("activity one")
+                    Text("activity 1")
                 }
-
+                
+                Button {
+                    isSheetPresented = true
+                } label: {
+                    Text("activity 2")
+                }
+                
+                Button {
+                    isSheetPresented = true
+                } label: {
+                    Text("activity 3")
+                }
+                
+                Button {
+                    print("..")
+                } label: {
+                    Text("reshuffle")
+                    
+                }
+                
             }
+            
         }
         .sheet(isPresented: $isSheetPresented) {
             ActivityDescriptionView()
         }
+        
     }
 }
+
 
 struct GeneratorView_Previews: PreviewProvider {
     static var previews: some View {
