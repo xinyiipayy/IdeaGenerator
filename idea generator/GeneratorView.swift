@@ -9,65 +9,85 @@ import SwiftUI
 struct GeneratorView: View {
     
     @State var isSheetPresented = false
-    @State var num = 0
-    
     
     var body: some View {
         NavigationView {
             VStack {
+                Spacer()
                 Button {
                     isSheetPresented = true
                     
                 } label: {
-                    Text(placesToGo[0].title)
-                        .padding()
-                        .frame(width: 350, height: 60)
-                        .foregroundColor(.black)
-                        .background(.yellow)
-                        .cornerRadius(10)
+                    ZStack {
+                        Rectangle()
+                            .frame(width: 360, height: 80)
+                            .cornerRadius(10)
+                            .foregroundColor(.init(red: 0.95, green: 0.827, blue: 0.533))
+                            .opacity(0.5)
                         
+                        Text(placesToGo[0].title)
+                            .foregroundColor(.init(red: 0.89, green: 0.7, blue: 0.243))
+                            .font(.system(size: 20, weight: .bold))
+                            .padding()
+                    }
                 }
-//                .padding()
                 
                 Button {
                     isSheetPresented = true
-                    num = 1
                     
                 } label: {
-                    Text(placesToGo[1].title)
-                        .padding()
-                        .frame(width: 350, height: 60)
-                        .foregroundColor(.black)
-                        .background(.yellow)
-                        .cornerRadius(10)
+                    ZStack {
+                        Rectangle()
+                            .frame(width: 360, height: 80)
+                            .cornerRadius(10)
+                            .foregroundColor(.init(red: 0.95, green: 0.827, blue: 0.533))
+                            .opacity(0.5)
+                        
+                        Text(placesToGo[1].title)
+                            .foregroundColor(.init(red: 0.89, green: 0.7, blue: 0.243))
+                            .font(.system(size: 20, weight: .bold))
+                            .padding()
+                    }
+
                 }
-                .padding()
                 
                 Button {
                     isSheetPresented = true
-                    num = 2
                     
                 } label: {
-                    Text(placesToGo[2].title)
-                        .padding()
-                        .frame(width: 350, height: 60)
-                        .foregroundColor(.black)
-                        .background(.yellow)
-                        .cornerRadius(10)
+                    ZStack {
+                        Rectangle()
+                            .frame(width: 360, height: 80)
+                            .cornerRadius(10)
+                            .foregroundColor(.init(red: 0.95, green: 0.827, blue: 0.533))
+                            .opacity(0.5)
+                        
+                        Text(placesToGo[2].title)
+                            .foregroundColor(.init(red: 0.89, green: 0.7, blue: 0.243))
+                            .font(.system(size: 20, weight: .bold))
+                            .padding()
+                    }
                 }
-//                .padding()
+                
+                Spacer()
                 
                 Button {
                     placesToGo = placesToGo.shuffled()
                     print(placesToGo)
                     
-                    // we need to make this update the ideas
                 } label: {
-                    Text("reshuffle")
+                    HStack {
+                        Image(systemName: "arrow.clockwise")
+                        Text("Reshuffle")
+                            .font(.system(size: 20, weight: .medium))
+                            .foregroundColor(.init(red: 215/255, green: 192/255, blue: 174/255))
+                    }
                     
                 }
                 
+                Spacer()
             }
+            .navigationTitle("Ideas for You")
             
         }
         .sheet(isPresented: $isSheetPresented) {
