@@ -24,19 +24,24 @@ struct GeneratorView: View {
                 
                 Button {
                     isSheetPresented = true
+                    num = 1
+                    
                 } label: {
                     Text(placesToGo[1].title)
                 }
                 
                 Button {
                     isSheetPresented = true
+                    num = 2
+                    
                 } label: {
                     Text(placesToGo[2].title)
                 }
                 
                 Button {
-                    placesToGo.shuffle()
+                    
                     placesToGo = placesToGo.shuffled()
+                    print(placesToGo)
                     
                     // we need to make this update the ideas
                 } label: {

@@ -11,7 +11,7 @@ struct Idea {
     var description: String
     var materials: String?
     var time: String?
-    var address: String?
+    var address: String
     var links: String?
     var openingHours: String?
     var isSaved: Bool = false
