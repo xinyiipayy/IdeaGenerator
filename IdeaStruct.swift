@@ -28,7 +28,7 @@ var placesToGo = [
          description: "Explore Southeast Asia's largest selection of luxury fashion, watch and jewellery brands at The Shoppes, Marina Bay Sands, a luxury shopping mall in Singapore.",
          address: "10 Bayfront Ave, Singapore 018956",
          openingHours: "10.30am - 11pm"),
-    Idea(title: "UNIVERSAL STUDIOS SINGAPORE",
+    Idea(title: "Universal Studios Singapore",
          description: "Universal Studios Singapore is a theme park located within the Resorts World Sentosa at Sentosa, Singapore. It features 28 rides, shows, and attractions in seven themed zones. It is one of the six Universal Studios theme parks around the world.",
          address: "8 Sentosa Gateway, 098269",
          links: "https://www.rwsentosa.com/en/attractions/universal-studios-singapore",
