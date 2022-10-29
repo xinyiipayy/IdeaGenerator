@@ -9,7 +9,38 @@ import SwiftUI
 
 struct SavedView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List {
+                Section("Art & Craft") {
+                    ForEach(placesToGo) { idea in
+                        NavigationLink {
+                            ActivityDescriptionView()
+                        } label: {
+                            Text(idea.title)
+                        }
+                    }
+                }
+                Section("Group Activities") {
+                    ForEach(placesToGo) { idea in
+                        NavigationLink {
+                            ActivityDescriptionView()
+                        } label: {
+                            Text(idea.title)
+                        }
+                    }
+                }
+                Section("Places to Go") {
+                    ForEach(placesToGo) { idea in
+                        NavigationLink {
+                            ActivityDescriptionView()
+                        } label: {
+                            Text(idea.title)
+                        }
+                    }
+                }
+            }
+            .navigationTitle("Saved")
+        }
     }
 }
 

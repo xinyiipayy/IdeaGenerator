@@ -6,7 +6,9 @@
 //
 
 import Foundation
-struct Idea {
+struct Idea: Identifiable, Codable {
+    var id = UUID()
+    
     var title: String
     var description: String
     var materials: String?

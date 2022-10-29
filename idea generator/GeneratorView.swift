@@ -39,7 +39,6 @@ struct GeneratorView: View {
                 }
                 
                 Button {
-                    
                     placesToGo = placesToGo.shuffled()
                     print(placesToGo)
                     
