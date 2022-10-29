@@ -20,7 +20,14 @@ struct GeneratorView: View {
                     
                 } label: {
                     Text(placesToGo[0].title)
+                        .padding()
+                        .frame(width: 350, height: 60)
+                        .foregroundColor(.black)
+                        .background(.yellow)
+                        .cornerRadius(10)
+                        
                 }
+//                .padding()
                 
                 Button {
                     isSheetPresented = true
@@ -28,7 +35,13 @@ struct GeneratorView: View {
                     
                 } label: {
                     Text(placesToGo[1].title)
+                        .padding()
+                        .frame(width: 350, height: 60)
+                        .foregroundColor(.black)
+                        .background(.yellow)
+                        .cornerRadius(10)
                 }
+                .padding()
                 
                 Button {
                     isSheetPresented = true
@@ -36,7 +49,13 @@ struct GeneratorView: View {
                     
                 } label: {
                     Text(placesToGo[2].title)
+                        .padding()
+                        .frame(width: 350, height: 60)
+                        .foregroundColor(.black)
+                        .background(.yellow)
+                        .cornerRadius(10)
                 }
+//                .padding()
                 
                 Button {
                     placesToGo = placesToGo.shuffled()
