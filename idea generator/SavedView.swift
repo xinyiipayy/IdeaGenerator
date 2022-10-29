@@ -71,7 +71,7 @@ struct SavedView: View {
                         Text(savedPlaceToGo.title)
                         .padding()
                         .frame(width: 350, height: 55)
-                        .background(Color(red: 255/255, green: 250/255, blue: 200/255))
+                        .background(Color(red: 0.95, green: 0.827, blue: 0.533))
                         .cornerRadius(10)
                         .foregroundColor(Color(red: 200/255, green: 140/255, blue: 50/255))
                     }
