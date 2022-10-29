@@ -81,13 +81,13 @@ struct GeneratorView: View {
                             .frame(width: 180, height: 50)
                             .cornerRadius(15)
                             .foregroundColor(.white)
-                            .shadow(color: .gray, radius: 0.25, x: 0, y: 4)
+                            .shadow(color: .gray, radius: 3, x: 0, y: 2)
                         
                         HStack {
                             Image(systemName: "arrow.clockwise")
                                 .foregroundColor(.init(red: 215/255, green: 192/255, blue: 174/255))
                             Text("Reshuffle")
-                                .font(.system(size: 30, weight: .medium))
+                                .font(.system(size: 20, weight: .medium))
                                 .foregroundColor(.init(red: 215/255, green: 192/255, blue: 174/255))
                         }
                     }
