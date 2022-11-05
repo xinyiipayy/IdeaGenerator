@@ -8,51 +8,9 @@
 import SwiftUI
 
 struct SavedView: View {
-    var savedPlacesToGo = placesToGo.filter { $0.isSaved == true}
+    
+    var savedPlacesToGo = $placesToGo.filter { $0.isSaved == true}
     var body: some View {
-        /*NavigationView {
-            List {
-                Section("Art & Craft") {
-                    ForEach(placesToGo.filter { $0.isSaved == true}) { idea in
-                        NavigationLink {
-                            ActivityDescriptionView()
-                        } label: {
-                            Text(idea.title)
-                        }
-                    }
-                }
-                .foregroundColor(.yellow)
-                Section("Group Activities") {
-                    ForEach(placesToGo.filter { $0.isSaved == true}) { idea in
-                        NavigationLink {
-                            ActivityDescriptionView()
-                        } label: {
-                            Text(idea.title)
-                        }
-                    }
-                }
-                .foregroundColor(.blue)
-                ZStack {
-                    //                    Color(red: 227/255, green: 179/255, blue: 62/255)
-                    VStack {
-                        Section("**Places to Go**") {
-                            ForEach(placesToGo.filter { $0.isSaved == true}) { idea in
-                                NavigationLink {
-                                    ActivityDescriptionView()
-                                } label: {
-                                    Text(idea.title)
-                                }
-                            }
-                        }
-                        .foregroundColor(Color(red: 182/255, green: 102/255, blue: 83/255))
-                        //                        .background(.red)
-                    }
-                }
-                
-            }
-            .navigationTitle("Saved")
-        } */
-        //        Text("")
         NavigationView {
             VStack {
                 HStack {
