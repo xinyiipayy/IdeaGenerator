@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		87A5565A2903957C00A990D3 /* IdeaStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A556592903957C00A990D3 /* IdeaStruct.swift */; };
+		87DAF52629160AE30026F107 /* persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DAF52529160AE30026F107 /* persistance.swift */; };
 		D9CFF77A29037E68006F2B50 /* idea_generatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CFF77929037E68006F2B50 /* idea_generatorApp.swift */; };
 		D9CFF77C29037E68006F2B50 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CFF77B29037E68006F2B50 /* ContentView.swift */; };
 		D9CFF77E29037E6A006F2B50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9CFF77D29037E6A006F2B50 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		87A556592903957C00A990D3 /* IdeaStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaStruct.swift; sourceTree = "<group>"; };
+		87DAF52529160AE30026F107 /* persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = persistance.swift; sourceTree = "<group>"; };
 		D9CFF77629037E68006F2B50 /* idea generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "idea generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9CFF77929037E68006F2B50 /* idea_generatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = idea_generatorApp.swift; sourceTree = "<group>"; };
 		D9CFF77B29037E68006F2B50 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,6 +47,7 @@
 		D9CFF76D29037E68006F2B50 = {
 			isa = PBXGroup;
 			children = (
+				87DAF52529160AE30026F107 /* persistance.swift */,
 				87A556592903957C00A990D3 /* IdeaStruct.swift */,
 				D9CFF78F290392B5006F2B50 /* ActivityDescriptionView.swift */,
 				D9CFF77829037E68006F2B50 /* idea generator */,
@@ -157,6 +160,7 @@
 				D9CFF78C29038A23006F2B50 /* SavedView.swift in Sources */,
 				D9CFF78A290389AF006F2B50 /* HomeView.swift in Sources */,
 				D9CFF77C29037E68006F2B50 /* ContentView.swift in Sources */,
+				87DAF52629160AE30026F107 /* persistance.swift in Sources */,
 				D9CFF77A29037E68006F2B50 /* idea_generatorApp.swift in Sources */,
 				D9CFF78E29038B51006F2B50 /* GeneratorView.swift in Sources */,
 			);

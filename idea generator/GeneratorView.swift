@@ -10,6 +10,7 @@ struct GeneratorView: View {
     
     @State var isSheetPresented = false
     @Binding var place: Place
+    @Binding var placesToGo: [Place]
     
     var body: some View {
         VStack {
@@ -98,7 +99,11 @@ struct GeneratorView: View {
         }
         .navigationTitle("Ideas for You")
         .sheet(isPresented: $isSheetPresented) {
+<<<<<<< HEAD
             ActivityDescriptionView(place: $placesToGo)
+=======
+            ActivityDescriptionView(placesToGo: $placesToGo)
+>>>>>>> bce36fd (bindings)
         }
     }
     
@@ -108,6 +113,6 @@ struct GeneratorView: View {
 
 struct GeneratorView_Previews: PreviewProvider {
     static var previews: some View {
-        GeneratorView()
+        GeneratorView(placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", openingHours: "demo", link: "Demo")]))
     }
 }

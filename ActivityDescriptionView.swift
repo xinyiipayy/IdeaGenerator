@@ -10,6 +10,8 @@ import SwiftUI
 struct ActivityDescriptionView: View {
     var num = 0
     
+    @Binding var placesToGo: [Place]
+   
     var body: some View {
         VStack {
             HStack {
@@ -45,6 +47,6 @@ struct ActivityDescriptionView: View {
 
 struct ActivityDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-        ActivityDescriptionView()
+        ActivityDescriptionView(placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", openingHours: "demo", link: "demo")]))
     }
 }

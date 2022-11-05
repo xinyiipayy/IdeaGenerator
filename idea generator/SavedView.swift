@@ -9,7 +9,9 @@ import SwiftUI
 
 struct SavedView: View {
     
-    var savedPlacesToGo = $placesToGo.filter { $0.isSaved == true}
+    @Binding var placesToGo: [Place]
+    var savedPlacesToGo = placesToGo.filter { $0.isSaved == true}
+
     var body: some View {
         NavigationView {
             VStack {
@@ -22,11 +24,11 @@ struct SavedView: View {
                     Spacer()
                 }
                 
-                ForEach(savedPlacesToGo) { savedPlaceToGo in
+                ForEach(savedPlacesToGo) { _ in
                     NavigationLink {
-                        ActivityDescriptionView()
+                        ActivityDescriptionView(placesToGo: $placesToGo)
                     } label: {
-                        Text(savedPlaceToGo.title)
+                        Text(savedPlacesToGo.title)
                         .padding()
                         .frame(width: 350, height: 55)
                         .background(Color("lightYellow"))
@@ -44,11 +46,11 @@ struct SavedView: View {
                     Spacer()
                 }
                 
-                ForEach(savedPlacesToGo) { savedPlaceToGo in
+                ForEach(savedPlacesToGo) { _ in
                     NavigationLink {
-                        ActivityDescriptionView()
+                        ActivityDescriptionView(placesToGo: $placesToGo)
                     } label: {
-                        Text(savedPlaceToGo.title)
+                        Text(savedPlacesToGo.title)
                             .padding()
                             .frame(width: 350, height: 55)
                             .background(Color("lightBlue"))
@@ -66,11 +68,11 @@ struct SavedView: View {
                     Spacer()
                 }
                 
-                ForEach(savedPlacesToGo) { savedPlaceToGo in
+                ForEach(savedPlacesToGo) { _ in
                     NavigationLink {
-                        ActivityDescriptionView()
+                        ActivityDescriptionView(placesToGo: $placesToGo)
                     } label: {
-                        Text(savedPlaceToGo.title)
+                        Text(savedPlacesToGo.title)
                             .padding()
                             .frame(width: 350, height: 55)
                             .background(Color("lightRed"))
@@ -88,6 +90,6 @@ struct SavedView: View {
 
 struct SavedView_Previews: PreviewProvider {
     static var previews: some View {
-        SavedView()
+        SavedView(placesToGo: [Place (title: "demo", description: "dem", address: "demp", openingHours: "demo", link: "demo")])
     }
 }

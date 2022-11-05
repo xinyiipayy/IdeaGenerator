@@ -8,25 +8,31 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @Binding var placesToGo: [Place]
+    
     var body: some View {
         NavigationView{
             VStack(spacing: 10) {
                                
-                NavigationLink(destination: GeneratorView()) {
+                // arts and craft
+                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo)) {
                     Image("Screenshot 2022-10-22 at 10.44.00 AM")
                         .resizable()
                         .scaledToFit()
                         .padding(10)
                 }
                 
-                NavigationLink(destination: GeneratorView()) {
-                    Image("Screenshot 2022-10-22 at 10.48.41 AM")
+                // sports
+                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo)) {
+                    Image("Screenshot 2022-11-05 at 10.26.16 AM")
                         .resizable()
                         .scaledToFit()
                         .padding(10)
                 }
                 
-                NavigationLink(destination: GeneratorView()) {
+                // places
+                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo)) {
                     Image("Screenshot 2022-10-22 at 10.50.02 AM")
                         .resizable()
                         .scaledToFit()
@@ -45,6 +51,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(placesToGo: .constant([Place(title: "Demo", description: "demo", address: "demo", openingHours: "demo", link: "demo")]))
     }
 }

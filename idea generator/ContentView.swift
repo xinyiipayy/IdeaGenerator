@@ -13,7 +13,7 @@ struct ContentView: View {
                                    description: "One of Asia's premier horticultural destinations, Gardens by the Bay offers a scenic paradise for nature and photography lovers, as well as the whole family.",
                                    address: "18 Marina Gardens Dr, Singapore 018953",
                                    openingHours: "5am - 2am",
-                                   link: "https://ticket.gardensbythebay.com.sg "),
+                                   link:"https://ticket.gardensbythebay.com.sg "),
                              Place(title: "Universal Studios Singapore",
                                    description: "Universal Studios Singapore is a theme park located within the Resorts World Sentosa at Sentosa, Singapore. It features 28 rides, shows, and attractions in seven themed zones. It is one of the six Universal Studios theme parks around the world.",
                                    address: "8 Sentosa Gateway, 098269",
@@ -27,11 +27,11 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            HomeView()
+            HomeView(placesToGo: $placesToGo)
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
-            SavedView()
+            SavedView(placesToGo: $placesToGo)
                 .tabItem {
                     Label("Saved", systemImage: "bookmark.fill")
                 }
