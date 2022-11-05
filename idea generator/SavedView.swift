@@ -71,9 +71,9 @@ struct SavedView: View {
                         Text(savedPlaceToGo.title)
                         .padding()
                         .frame(width: 350, height: 55)
-                        .background(Color(red: 0.95, green: 0.827, blue: 0.533))
+                        .background(Color("lightYellow"))
                         .cornerRadius(10)
-                        .foregroundColor(Color(red: 200/255, green: 140/255, blue: 50/255))
+                        .foregroundColor(Color("darkYellow"))
                     }
                 }
                 
@@ -93,9 +93,9 @@ struct SavedView: View {
                         Text(savedPlaceToGo.title)
                             .padding()
                             .frame(width: 350, height: 55)
-                            .background(Color(red: 200/255, green: 240/255, blue: 255/255))
+                            .background(Color("lightBlue"))
                             .cornerRadius(10)
-                            .foregroundColor(Color(red: 40/255, green: 100/255, blue: 250/255))
+                            .foregroundColor(Color("darkBlue"))
                     }
                 }
                 
@@ -115,9 +115,9 @@ struct SavedView: View {
                         Text(savedPlaceToGo.title)
                             .padding()
                             .frame(width: 350, height: 55)
-                            .background(Color(red: 230/255, green: 180/255, blue: 170/255))
+                            .background(Color("lightRed"))
                             .cornerRadius(10)
-                            .foregroundColor(Color(red: 160/255, green: 80/255, blue: 60/255))
+                            .foregroundColor(Color("darkRed"))
                     }
                 }
                 Spacer()

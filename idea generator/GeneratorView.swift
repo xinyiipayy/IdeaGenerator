@@ -21,11 +21,11 @@ struct GeneratorView: View {
                     Rectangle()
                         .frame(width: 360, height: 80)
                         .cornerRadius(10)
-                        .foregroundColor(.init(red: 0.95, green: 0.827, blue: 0.533))
+                        .foregroundColor(Color("lightBlue"))
                         .opacity(0.5)
                     
                     Text(placesToGo[0].title)
-                        .foregroundColor(.init(red: 0.89, green: 0.7, blue: 0.243))
+                        .foregroundColor(Color("darkBlue"))
                         .font(.system(size: 20, weight: .bold))
                         .padding()
                 }
@@ -39,11 +39,11 @@ struct GeneratorView: View {
                     Rectangle()
                         .frame(width: 360, height: 80)
                         .cornerRadius(10)
-                        .foregroundColor(.init(red: 0.95, green: 0.827, blue: 0.533))
+                        .foregroundColor(Color("lightYellow"))
                         .opacity(0.5)
                     
                     Text(placesToGo[1].title)
-                        .foregroundColor(.init(red: 0.89, green: 0.7, blue: 0.243))
+                        .foregroundColor(Color("darkYellow"))
                         .font(.system(size: 20, weight: .bold))
                         .padding()
                 }
@@ -58,11 +58,11 @@ struct GeneratorView: View {
                     Rectangle()
                         .frame(width: 360, height: 80)
                         .cornerRadius(10)
-                        .foregroundColor(.init(red: 0.95, green: 0.827, blue: 0.533))
+                        .foregroundColor(Color("lightRed"))
                         .opacity(0.5)
                     
                     Text(placesToGo[2].title)
-                        .foregroundColor(.init(red: 0.89, green: 0.7, blue: 0.243))
+                        .foregroundColor(Color("darkRed"))
                         .font(.system(size: 20, weight: .bold))
                         .padding()
                 }
@@ -84,10 +84,10 @@ struct GeneratorView: View {
                     
                     HStack {
                         Image(systemName: "arrow.clockwise")
-                            .foregroundColor(.init(red: 215/255, green: 192/255, blue: 174/255))
+                            .foregroundColor(Color("darkYellow"))
                         Text("Reshuffle")
                             .font(.system(size: 20, weight: .medium))
-                            .foregroundColor(.init(red: 215/255, green: 192/255, blue: 174/255))
+                            .foregroundColor(Color("darkYellow"))
                     }
                 }
             }
