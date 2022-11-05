@@ -16,15 +16,15 @@ struct ActivityDescriptionView: View {
         VStack {
             HStack {
                 Spacer()
-                Text($placesToGo[num].title)
+                Text(placesToGo[num].title)
                     .font(.title)
                     .bold()
                 Spacer()
-                Image(systemName: $placesToGo[num].isSaved ?  "bookmark.fill" : "bookmark")
+                Image(systemName: placesToGo[num].isSaved ?  "bookmark.fill" : "bookmark")
                     .foregroundColor(.gray)
                     .font(.title)
                     .onTapGesture {
-                        $placesToGo[num].isSaved.toggle()
+                        placesToGo[num].isSaved.toggle()
                     }
                     
             }
@@ -32,13 +32,13 @@ struct ActivityDescriptionView: View {
             
             HStack(alignment:.top) {
                 Text("Description")
-                Text($placesToGo[num].description)
+                Text(placesToGo[num].description)
             }
             .padding(25)
             
             HStack(alignment:.top) {
                 Text("Address")
-                Text($placesToGo[num].address)
+                Text(placesToGo[num].address)
             }
             .padding(25)
         }
