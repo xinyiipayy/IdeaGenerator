@@ -98,11 +98,7 @@ struct GeneratorView: View {
         }
         .navigationTitle("Ideas for You")
         .sheet(isPresented: $isSheetPresented) {
-<<<<<<< HEAD
-            ActivityDescriptionView(place: $placesToGo)
-=======
             ActivityDescriptionView(placesToGo: $placesToGo)
->>>>>>> bce36fd (bindings)
         }
     }
     
