@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+        
     @State var placesToGo = [Place(title: "Gardens By The Bay",
                                    description: "One of Asia's premier horticultural destinations, Gardens by the Bay offers a scenic paradise for nature and photography lovers, as well as the whole family.",
                                    address: "18 Marina Gardens Dr, Singapore 018953",
