@@ -26,7 +26,7 @@ struct GeneratorView: View {
                         .foregroundColor(Color("lightBlue"))
                         .opacity(0.5)
                     
-                    Text($placesToGo[0].title)
+                    Text(placesToGo[0].title)
                         .foregroundColor(Color("darkBlue"))
                         .font(.system(size: 20, weight: .bold))
                         .padding()
@@ -44,7 +44,7 @@ struct GeneratorView: View {
                         .foregroundColor(Color("lightYellow"))
                         .opacity(0.5)
                     
-                    Text($placesToGo[1].title)
+                    Text(placesToGo[1].title)
                         .foregroundColor(Color("darkYellow"))
                         .font(.system(size: 20, weight: .bold))
                         .padding()
@@ -63,7 +63,7 @@ struct GeneratorView: View {
                         .foregroundColor(Color("lightRed"))
                         .opacity(0.5)
                     
-                    Text($placesToGo[2].title)
+                    Text(placesToGo[2].title)
                         .foregroundColor(Color("darkRed"))
                         .font(.system(size: 20, weight: .bold))
                         .padding()
@@ -73,8 +73,8 @@ struct GeneratorView: View {
             Spacer()
             
             Button {
-                $placesToGo = $placesToGo.shuffled()
-                print($placesToGo)
+                placesToGo = placesToGo.shuffled()
+                print(placesToGo)
                 
             } label: {
                 ZStack {
