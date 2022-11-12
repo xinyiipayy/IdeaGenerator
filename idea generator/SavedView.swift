@@ -10,7 +10,6 @@ import SwiftUI
 struct SavedView: View {
     
     @Binding var placesToGo: [Place]
-    var savedPlacesToGo = placesToGo.filter { $0.isSaved == true}
 
     var body: some View {
         NavigationView {
@@ -24,16 +23,18 @@ struct SavedView: View {
                     Spacer()
                 }
                 
-                ForEach(savedPlacesToGo) { _ in
-                    NavigationLink {
-                        ActivityDescriptionView(placesToGo: $placesToGo)
-                    } label: {
-                        Text(savedPlacesToGo.title)
-                        .padding()
-                        .frame(width: 350, height: 55)
-                        .background(Color("lightYellow"))
-                        .cornerRadius(10)
-                        .foregroundColor(Color("darkYellow"))
+                ForEach(placesToGo) { placeToGo in
+                    if placeToGo.isSaved == true {
+                        NavigationLink {
+                            ActivityDescriptionView(placesToGo: $placesToGo)
+                        } label: {
+                            Text(placeToGo.title)
+                                .padding()
+                                .frame(width: 350, height: 55)
+                                .background(Color("lightYellow"))
+                                .cornerRadius(10)
+                                .foregroundColor(Color("darkYellow"))
+                        }
                     }
                 }
                 
@@ -46,19 +47,20 @@ struct SavedView: View {
                     Spacer()
                 }
                 
-                ForEach(savedPlacesToGo) { _ in
-                    NavigationLink {
-                        ActivityDescriptionView(placesToGo: $placesToGo)
-                    } label: {
-                        Text(savedPlacesToGo.title)
-                            .padding()
-                            .frame(width: 350, height: 55)
-                            .background(Color("lightBlue"))
-                            .cornerRadius(10)
-                            .foregroundColor(Color("darkBlue"))
+                ForEach(placesToGo) { placeToGo in
+                    if placeToGo.isSaved == true {
+                        NavigationLink {
+                            ActivityDescriptionView(placesToGo: $placesToGo)
+                        } label: {
+                            Text(placeToGo.title)
+                                .padding()
+                                .frame(width: 350, height: 55)
+                                .background(Color("lightBlue"))
+                                .cornerRadius(10)
+                                .foregroundColor(Color("darkBlue"))
+                        }
                     }
                 }
-                
                 HStack {
                     Text("Places to Go")
                         .bold()
@@ -68,16 +70,18 @@ struct SavedView: View {
                     Spacer()
                 }
                 
-                ForEach(savedPlacesToGo) { _ in
-                    NavigationLink {
-                        ActivityDescriptionView(placesToGo: $placesToGo)
-                    } label: {
-                        Text(savedPlacesToGo.title)
-                            .padding()
-                            .frame(width: 350, height: 55)
-                            .background(Color("lightRed"))
-                            .cornerRadius(10)
-                            .foregroundColor(Color("darkRed"))
+                ForEach(placesToGo) { placeToGo in
+                    if placeToGo.isSaved == true {
+                        NavigationLink {
+                            ActivityDescriptionView(placesToGo: $placesToGo)
+                        } label: {
+                            Text(placeToGo.title)
+                                .padding()
+                                .frame(width: 350, height: 55)
+                                .background(Color("lightRed"))
+                                .cornerRadius(10)
+                                .foregroundColor(Color("darkRed"))
+                        }
                     }
                 }
                 Spacer()
@@ -90,6 +94,6 @@ struct SavedView: View {
 
 struct SavedView_Previews: PreviewProvider {
     static var previews: some View {
-        SavedView(placesToGo: [Place (title: "demo", description: "demo", address: "demp", openingHours: "demo", link: "demo")])
+        SavedView(placesToGo: .constant([Place (title: "demo", description: "demo", address: "demp", openingHours: "demo", link: "demo")]))
     }
 }
