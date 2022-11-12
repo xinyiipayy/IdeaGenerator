@@ -90,6 +90,6 @@ struct SavedView: View {
 
 struct SavedView_Previews: PreviewProvider {
     static var previews: some View {
-        SavedView(placesToGo: [Place (title: "demo", description: "dem", address: "demp", openingHours: "demo", link: "demo")])
+        SavedView(placesToGo: [Place (title: "demo", description: "demo", address: "demp", openingHours: "demo", link: "demo")])
     }
 }

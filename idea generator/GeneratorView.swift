@@ -9,7 +9,6 @@ import SwiftUI
 struct GeneratorView: View {
     
     @State var isSheetPresented = false
-    @Binding var place: Place
     @Binding var placesToGo: [Place]
     
     var body: some View {
