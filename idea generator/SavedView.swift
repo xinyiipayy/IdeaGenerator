@@ -10,7 +10,7 @@ import SwiftUI
 struct SavedView: View {
     
     @Binding var placesToGo: [Place]
-
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -24,20 +24,22 @@ struct SavedView: View {
                 }
                 
                 ForEach(placesToGo) { placeToGo in
-                    if placeToGo.isSaved == true {
-                        NavigationLink {
-                            ActivityDescriptionView(placesToGo: $placesToGo)
-                        } label: {
-                            Text(placeToGo.title)
-                                .padding()
-                                .frame(width: 350, height: 55)
-                                .background(Color("lightYellow"))
-                                .cornerRadius(10)
-                                .foregroundColor(Color("darkYellow"))
+                    if placeToGo.category == .craft {
+                        if placeToGo.isSaved == true {
+                            NavigationLink {
+                                ActivityDescriptionView(placesToGo: $placesToGo)
+                            } label: {
+                                Text(placeToGo.title)
+                                    .padding()
+                                    .frame(width: 350, height: 55)
+                                    .background(Color("lightYellow"))
+                                    .cornerRadius(10)
+                                    .foregroundColor(Color("darkYellow"))
+                            }
                         }
                     }
                 }
-                
+                """
                 HStack {
                     Text("Sports")
                         .bold()
@@ -48,7 +50,7 @@ struct SavedView: View {
                 }
                 
                 ForEach(placesToGo) { placeToGo in
-                    if placeToGo.isSaved == true {
+                    if placeToGo.category == .sport && placeToGo.isSaved == true {
                         NavigationLink {
                             ActivityDescriptionView(placesToGo: $placesToGo)
                         } label: {
@@ -71,7 +73,7 @@ struct SavedView: View {
                 }
                 
                 ForEach(placesToGo) { placeToGo in
-                    if placeToGo.isSaved == true {
+                    if placeToGo.category == .place && placeToGo.isSaved == true {
                         NavigationLink {
                             ActivityDescriptionView(placesToGo: $placesToGo)
                         } label: {
@@ -84,6 +86,7 @@ struct SavedView: View {
                         }
                     }
                 }
+                """
                 Spacer()
             }
             .padding()

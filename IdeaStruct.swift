@@ -6,9 +6,18 @@
 //
 
 import Foundation
+
+enum Category: Codable {
+    case craft
+    case sport
+    case place
+}
+
+
 struct Craft: Identifiable, Codable {
     var id = UUID()
     
+    var category: Category = .craft
     var title: String
     var description: String
     var materials: String
@@ -22,6 +31,7 @@ struct Craft: Identifiable, Codable {
 struct Sport: Identifiable, Codable {
     var id = UUID()
     
+    var category: Category = .sport
     var title: String
     var description: String
     var equipment: String
@@ -35,6 +45,7 @@ struct Sport: Identifiable, Codable {
 struct Place: Identifiable, Codable {
     var id = UUID()
     
+    var category: Category = .place
     var title: String
     var description: String
     var address: String
