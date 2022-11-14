@@ -17,92 +17,94 @@ struct SavedView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                HStack {
-                    Text("Arts & Craft")
-                        .bold()
-                        .padding()
-                        .font(.headline)
+            ScrollView {
+                VStack {
+                    HStack {
+                        Text("Arts & Craft")
+                            .bold()
+                            .padding()
+                            .font(.headline)
+                        
+                        Spacer()
+                    }
+                    
+                    ForEach(crafts) { craft in
+                        if craft.isSaved == true {
+                            NavigationLink {
+                                ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num)
+                            } label: {
+                                Text(craft.title)
+                                    .padding()
+                                    .frame(width: 350, height: 55)
+                                    .background(Color("lightYellow"))
+                                    .cornerRadius(10)
+                                    .foregroundColor(Color("darkYellow"))
+                            }
+                            
+                        } else {
+                            EmptyView()
+                        }
+                        //num += 1
+                    }
+                    
+                    HStack {
+                        Text("Sports")
+                            .bold()
+                            .padding()
+                            .font(.headline)
+                        
+                        Spacer()
+                    }
+                    
+                    ForEach(sports) { sport in
+                        if sport.isSaved == true {
+                            
+                            NavigationLink {
+                                ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num)
+                            } label: {
+                                Text(sport.title)
+                                    .padding()
+                                    .frame(width: 350, height: 55)
+                                    .background(Color("lightBlue"))
+                                    .cornerRadius(10)
+                                    .foregroundColor(Color("darkBlue"))
+                            }
+                            
+                        } else {
+                            EmptyView()
+                        }
+                    }
+                    
+                    HStack {
+                        Text("Places to Go")
+                            .bold()
+                            .padding()
+                            .font(.headline)
+                        
+                        Spacer()
+                    }
+                    
+                    ForEach(placesToGo) { placeToGo in
+                        
+                        if placeToGo.isSaved == true {
+                            NavigationLink {
+                                ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num)
+                            } label: {
+                                Text(placeToGo.title)
+                                    .padding()
+                                    .frame(width: 350, height: 55)
+                                    .background(Color("lightRed"))
+                                    .cornerRadius(10)
+                                    .foregroundColor(Color("darkRed"))
+                            }
+                            
+                        } else {
+                            EmptyView()
+                        }
+                    }
                     
                     Spacer()
                 }
-                
-                ForEach(crafts) { craft in
-                    if craft.isSaved == true {
-                        NavigationLink {
-                            ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num)
-                        } label: {
-                            Text(craft.title)
-                                .padding()
-                                .frame(width: 350, height: 55)
-                                .background(Color("lightYellow"))
-                                .cornerRadius(10)
-                                .foregroundColor(Color("darkYellow"))
-                        }
-                        
-                    } else {
-                        EmptyView()
-                    }
-                    //num += 1
-                }
-                
-                HStack {
-                    Text("Sports")
-                        .bold()
-                        .padding()
-                        .font(.headline)
-                    
-                    Spacer()
-                }
-                
-                ForEach(sports) { sport in
-                    if sport.isSaved == true {
-                        
-                        NavigationLink {
-                            ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num)
-                        } label: {
-                            Text(sport.title)
-                                .padding()
-                                .frame(width: 350, height: 55)
-                                .background(Color("lightBlue"))
-                                .cornerRadius(10)
-                                .foregroundColor(Color("darkBlue"))
-                        }
-                        
-                    } else {
-                        EmptyView()
-                    }
-                }
-                
-                HStack {
-                    Text("Places to Go")
-                        .bold()
-                        .padding()
-                        .font(.headline)
-                    
-                    Spacer()
-                }
-                
-                ForEach(placesToGo) { placeToGo in
-                    
-                    if placeToGo.isSaved == true {
-                        NavigationLink {
-                            ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num)
-                        } label: {
-                            Text(placeToGo.title)
-                                .padding()
-                                .frame(width: 350, height: 55)
-                                .background(Color("lightRed"))
-                                .cornerRadius(10)
-                                .foregroundColor(Color("darkRed"))
-                        }
-                        
-                    } else {
-                        EmptyView()
-                    }
-                }
-                
-                Spacer()
             }
             .padding()
             .navigationTitle("Saved ideas")
