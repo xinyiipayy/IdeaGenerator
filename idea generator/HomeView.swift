@@ -25,7 +25,7 @@ struct HomeView: View {
                 }
                 
                 // sports
-                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo)) {
+                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts)) {
                     Image("Screenshot 2022-11-05 at 10.26.16 AM")
                         .resizable()
                         .scaledToFit()
@@ -33,7 +33,7 @@ struct HomeView: View {
                 }
                 
                 // places
-                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo)) {
+                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts)) {
                     Image("Screenshot 2022-10-22 at 10.50.02 AM")
                         .resizable()
                         .scaledToFit()
