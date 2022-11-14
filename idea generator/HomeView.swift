@@ -20,9 +20,6 @@ struct HomeView: View {
             VStack(spacing: 10) {
                 
                 // arts and craft
-                
-               
-                    
                 NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, cat: $cat).onAppear {
                     cat = .craft
                 } ){
@@ -32,11 +29,7 @@ struct HomeView: View {
                         .padding(10)
                 }
                 
-                
-                
                 // sports
-                
-                
                 NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, cat: $cat).onAppear {
                     cat = .sport
                 } ) {
@@ -45,8 +38,6 @@ struct HomeView: View {
                         .scaledToFit()
                         .padding(10)
                 }
-                
-                
                 // places
                 NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, cat: $cat).onAppear {
                     cat = .place

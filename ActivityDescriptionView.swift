@@ -12,6 +12,7 @@ struct ActivityDescriptionView: View {
     @Binding var crafts: [Craft]
     @Binding var sports: [Sport]
     @Binding var num: Int
+    @Binding var cat: Category
    
     var body: some View {
         VStack {
@@ -51,6 +52,6 @@ struct ActivityDescriptionView_Previews: PreviewProvider {
         ActivityDescriptionView(placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", openingHours: "demo", link: "demo")]),
                                 crafts: .constant([Craft(title: "demo", description: "demo", materials: "demo", link: "demo")]),
                                 sports: .constant([Sport(title: "demo", description: "demo", benefits: "demo", equipment: "demo", link: "demo")]),
-                                num: .constant(0))
+                                num: .constant(0), cat: .constant(Category.sport))
     }
 }

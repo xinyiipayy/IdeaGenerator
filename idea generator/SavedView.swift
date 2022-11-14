@@ -14,6 +14,7 @@ struct SavedView: View {
     @Binding var sports: [Sport]
    
     @State var num = 0
+    @State var cat: Category = .place
     
     var body: some View {
         NavigationView {
@@ -30,10 +31,16 @@ struct SavedView: View {
                     
                     ForEach(crafts) { craft in
                         if craft.isSaved == true {
-                            NavigationLink {
-                                ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num)
-                            } label: {
+                            NavigationLink(destination: ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num, cat: $cat).onAppear {
+                                cat = .craft
+                                num = 0
+                                while crafts[num].title != craft.title {
+                                    num += 1
+                                }
+                            })
+                            {
                                 Text(craft.title)
+                                    .bold()
                                     .padding()
                                     .frame(width: 350, height: 55)
                                     .background(Color("lightYellow"))
@@ -59,10 +66,17 @@ struct SavedView: View {
                     ForEach(sports) { sport in
                         if sport.isSaved == true {
                             
-                            NavigationLink {
-                                ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num)
-                            } label: {
+                            NavigationLink (destination:
+                                            ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num, cat: $cat).onAppear {
+                                cat = .sport
+                                num = 0
+                                while sports[num].title != sport.title {
+                                    num += 1 
+                                }
+                            })
+                            {
                                 Text(sport.title)
+                                    .bold()
                                     .padding()
                                     .frame(width: 350, height: 55)
                                     .background(Color("lightBlue"))
@@ -87,10 +101,17 @@ struct SavedView: View {
                     ForEach(placesToGo) { placeToGo in
                         
                         if placeToGo.isSaved == true {
-                            NavigationLink {
-                                ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num)
-                            } label: {
+                            NavigationLink(destination:
+                                            ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num, cat: $cat).onAppear {
+                                cat = .place
+                                num = 0
+                                while placesToGo[num].title != placeToGo.title {
+                                    num += 1
+                                }
+                            })
+                            {
                                 Text(placeToGo.title)
+                                    .bold()
                                     .padding()
                                     .frame(width: 350, height: 55)
                                     .background(Color("lightRed"))
