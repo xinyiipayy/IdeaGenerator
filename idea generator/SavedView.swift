@@ -12,6 +12,8 @@ struct SavedView: View {
     @Binding var placesToGo: [Place]
     @Binding var crafts: [Craft]
     @Binding var sports: [Sport]
+   
+    @State var num = 0
     
     var body: some View {
         NavigationView {
@@ -110,6 +112,6 @@ struct SavedView: View {
 
 struct SavedView_Previews: PreviewProvider {
     static var previews: some View {
-        SavedView(placesToGo: .constant([Place (title: "demo", description: "demo", address: "demp", openingHours: "demo", link: "demo")]), crafts: .constant([Craft(title: "demo", description: "demo", materials: "demo", link: "demo")]))
+        SavedView(placesToGo: .constant([Place (title: "demo", description: "demo", address: "demp", openingHours: "demo", link: "demo")]), crafts: .constant([Craft(title: "demo", description: "demo", materials: "demo", link: "demo")]), sports: .constant([Sport(title: "demo", description: "demo", benefits: "demo", equipment: "demo", link: "demo")]))
     }
 }

@@ -11,6 +11,7 @@ struct GeneratorView: View {
     @State var isSheetPresented = false
     @Binding var placesToGo: [Place]
     @Binding var crafts: [Craft]
+    @Binding var sports: [Sport]
 
     @State var num = 0
     
