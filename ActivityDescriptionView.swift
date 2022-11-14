@@ -13,36 +13,72 @@ struct ActivityDescriptionView: View {
     @Binding var sports: [Sport]
     @Binding var num: Int
     @Binding var cat: Category
-   
+    
     var body: some View {
         VStack {
             HStack {
                 Spacer()
-                Text(placesToGo[num].title)
+                Text(cat == .craft ? crafts[num].title : cat == .sport ? sports[num].title : placesToGo[num].title)
                     .font(.title)
                     .bold()
                 Spacer()
-                Image(systemName: placesToGo[num].isSaved ?  "bookmark.fill" : "bookmark")
-                    .foregroundColor(.gray)
-                    .font(.title)
-                    .onTapGesture {
+                Image(systemName: cat == .craft ?
+                      crafts[num].isSaved ?  "bookmark.fill" : "bookmark"
+                      : cat == .place ?
+                      placesToGo[num].isSaved ? "bookmark.fill" : "bookmark"
+                      : sports[num].isSaved ? "bookmark.fill" : "bookmark")
+                .foregroundColor(.gray)
+                .font(.title)
+                .onTapGesture {
+                    if cat == .craft {
+                        crafts[num].isSaved.toggle()
+                    } else if cat == .sport {
+                        sports[num].isSaved.toggle()
+                    } else {
                         placesToGo[num].isSaved.toggle()
                     }
-                    
+                }
+                
             }
             .padding(25)
             
-            HStack(alignment:.top) {
+            VStack(alignment:.leading) {
                 Text("Description")
-                Text(placesToGo[num].description)
+                    .bold()
+                Text(cat == .craft ? crafts[num].description : cat == .sport ? sports[num].description : placesToGo[num].description)
             }
             .padding(25)
             
-            HStack(alignment:.top) {
-                Text("Address")
-                Text(placesToGo[num].address)
+            if cat == .place {
+                VStack(alignment:.leading) {
+                    Text("Address")
+                        .bold()
+                    Text(placesToGo[num].address)
+                }
+                .padding(25)
+            } else {
+                EmptyView()
             }
-            .padding(25)
+            
+            if cat == .craft {
+                VStack(alignment: .leading) {
+                    Text("materials")
+                        .bold()
+                    Text(crafts[num].materials)
+                }
+            } else {
+                EmptyView()
+            }
+            
+            if cat == .sport {
+                VStack(alignment: .leading) {
+                    Text("Equipment")
+                        .bold()
+                    Text(sports[num].equipment)
+                }
+            } else {
+                EmptyView()
+            }
         }
     }
 }
