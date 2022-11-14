@@ -11,11 +11,7 @@ struct SavedView: View {
     
     @Binding var placesToGo: [Place]
     @Binding var crafts: [Craft]
-    @State var num = 0
-//    var savedPlacesToGo: [Place] {
-//            placesToGo.filter { $0.isSaved }
-//        }
-    
+    @Binding var sports: [Sport]
     
     var body: some View {
         NavigationView {

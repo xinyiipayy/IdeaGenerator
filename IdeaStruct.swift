@@ -33,6 +33,7 @@ struct Sport: Identifiable, Codable {
     var category: Category = .sport
     var title: String
     var description: String
+    var benefits: String
     var equipment: String
     var link: String
     var otherInfo: String?
