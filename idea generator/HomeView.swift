@@ -12,33 +12,46 @@ struct HomeView: View {
     @Binding var placesToGo: [Place]
     @Binding var crafts: [Craft]
     @Binding var sports: [Sport]
+    @State var category: Category = .place
     
     var body: some View {
         NavigationView{
             VStack(spacing: 10) {
                                
                 // arts and craft
-                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports)) {
-                    Image("Screenshot 2022-10-22 at 10.44.00 AM")
-                        .resizable()
-                        .scaledToFit()
-                        .padding(10)
+                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, category: $category)) {
+                    Button {
+                        category = .craft
+                    } label: {
+                        Image("Screenshot 2022-10-22 at 10.44.00 AM")
+                            .resizable()
+                            .scaledToFit()
+                            .padding(10)
+                    }
                 }
                 
                 // sports
-                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports)) {
-                    Image("Screenshot 2022-11-05 at 10.26.16 AM")
-                        .resizable()
-                        .scaledToFit()
-                        .padding(10)
+                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, category: $category)) {
+                    Button {
+                        category = .sport
+                    } label: {
+                        Image("Screenshot 2022-11-05 at 10.26.16 AM")
+                            .resizable()
+                            .scaledToFit()
+                            .padding(10)
+                    }
                 }
                 
                 // places
-                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports)) {
-                    Image("Screenshot 2022-10-22 at 10.50.02 AM")
-                        .resizable()
-                        .scaledToFit()
-                        .padding(10)
+                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, category: $category)) {
+                    Button {
+                        category = .place
+                    } label: {
+                        Image("Screenshot 2022-10-22 at 10.50.02 AM")
+                            .resizable()
+                            .scaledToFit()
+                            .padding(10)
+                    }
                 }
                 
                 Spacer(minLength: 75)

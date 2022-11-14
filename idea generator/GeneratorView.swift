@@ -12,7 +12,8 @@ struct GeneratorView: View {
     @Binding var placesToGo: [Place]
     @Binding var crafts: [Craft]
     @Binding var sports: [Sport]
-
+    @Binding var category: Category 
+        
     @State var num = 0
     
     var body: some View {
@@ -29,11 +30,11 @@ struct GeneratorView: View {
                         .frame(width: 360, height: 80)
                         .cornerRadius(10)
                         //.foregroundColor(Color("lightBlue"))
-                        .foregroundColor(Color(placesToGo[0].category == .craft ? "lightYellow" : placesToGo[1].category == .place ? "lightRed" : "lightBlue"))
+                        .foregroundColor(Color(category == .craft ? "lightYellow" : category == .place ? "lightRed" : "lightBlue"))
                         .opacity(0.5)
                     
                     Text(placesToGo[0].title)
-                        .foregroundColor(Color("darkBlue"))
+                        .foregroundColor(Color(category == .craft ? "darkYellow" : category == .place ? "darkRed" : "darkBlue"))
                         .font(.system(size: 20, weight: .bold))
                         .padding()
                 }
@@ -48,11 +49,11 @@ struct GeneratorView: View {
                     Rectangle()
                         .frame(width: 360, height: 80)
                         .cornerRadius(10)
-                        .foregroundColor(Color("lightYellow"))
+                        .foregroundColor(Color(category == .craft ? "lightYellow" : category == .place ? "lightRed" : "lightBlue"))
                         .opacity(0.5)
                     
                     Text(placesToGo[1].title)
-                        .foregroundColor(Color("darkYellow"))
+                        .foregroundColor(Color(category == .craft ? "darkYellow" : category == .place ? "darkRed" : "darkBlue"))
                         .font(.system(size: 20, weight: .bold))
                         .padding()
                 }
@@ -68,11 +69,11 @@ struct GeneratorView: View {
                     Rectangle()
                         .frame(width: 360, height: 80)
                         .cornerRadius(10)
-                        .foregroundColor(Color("lightRed"))
+                        .foregroundColor(Color(category == .craft ? "lightYellow" : category == .place ? "lightRed" : "lightBlue"))
                         .opacity(0.5)
                     
                     Text(placesToGo[2].title)
-                        .foregroundColor(Color("darkRed"))
+                        .foregroundColor(Color(category == .craft ? "darkYellow" : category == .place ? "darkRed" : "darkBlue"))
                         .font(.system(size: 20, weight: .bold))
                         .padding()
                 }
@@ -117,6 +118,6 @@ struct GeneratorView: View {
 struct GeneratorView_Previews: PreviewProvider {
     static var previews: some View {
         GeneratorView(placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", openingHours: "demo", link: "Demo")]),
-                      crafts: .constant([Craft(title: "demo", description: "demo", materials: "demo", link: "demo")]), sports: .constant([Sport(title: "demo", description: "demo", benefits: "demo", equipment: "demo", link: "demo")]))
+                      crafts: .constant([Craft(title: "demo", description: "demo", materials: "demo", link: "demo")]), sports: .constant([Sport(title: "demo", description: "demo", benefits: "demo", equipment: "demo", link: "demo")]), category: .constant(Category.place))
     }
 }
