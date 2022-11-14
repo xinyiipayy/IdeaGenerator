@@ -44,6 +44,7 @@ struct SavedView: View {
                     } else {
                         EmptyView()
                     }
+                    //num += 1
                 }
                 
                 HStack {
