@@ -21,7 +21,6 @@ struct Craft: Identifiable, Codable {
     var title: String
     var description: String
     var materials: String
-    var estTime: String
     var link: String
     var otherInfo: String?
     var isSaved: Bool = false
@@ -35,7 +34,6 @@ struct Sport: Identifiable, Codable {
     var title: String
     var description: String
     var equipment: String
-    var estTime: String
     var link: String
     var otherInfo: String?
     var isSaved: Bool = false

@@ -10,6 +10,7 @@ struct GeneratorView: View {
     
     @State var isSheetPresented = false
     @Binding var placesToGo: [Place]
+    @Binding var crafts: [Craft]
     
     var body: some View {
         VStack {

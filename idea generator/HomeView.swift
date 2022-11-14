@@ -10,13 +10,14 @@ import SwiftUI
 struct HomeView: View {
     
     @Binding var placesToGo: [Place]
+    @Binding var crafts: [Craft]
     
     var body: some View {
         NavigationView{
             VStack(spacing: 10) {
                                
                 // arts and craft
-                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo)) {
+                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts)) {
                     Image("Screenshot 2022-10-22 at 10.44.00 AM")
                         .resizable()
                         .scaledToFit()

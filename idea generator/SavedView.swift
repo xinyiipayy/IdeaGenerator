@@ -10,6 +10,7 @@ import SwiftUI
 struct SavedView: View {
     
     @Binding var placesToGo: [Place]
+    @Binding var crafts: [Craft]
     
     var body: some View {
         NavigationView {
