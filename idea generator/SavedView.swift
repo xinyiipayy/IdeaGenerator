@@ -11,6 +11,11 @@ struct SavedView: View {
     
     @Binding var placesToGo: [Place]
     @Binding var crafts: [Craft]
+    @State var num = 0
+//    var savedPlacesToGo: [Place] {
+//            placesToGo.filter { $0.isSaved }
+//        }
+    
     
     var body: some View {
         NavigationView {
@@ -25,21 +30,19 @@ struct SavedView: View {
                 }
                 
                 ForEach(placesToGo) { placeToGo in
-                    if placeToGo.category == .craft {
-                        if placeToGo.isSaved == true {
-                            NavigationLink {
-                                ActivityDescriptionView(placesToGo: $placesToGo)
-                            } label: {
-                                Text(placeToGo.title)
-                                    .padding()
-                                    .frame(width: 350, height: 55)
-                                    .background(Color("lightYellow"))
-                                    .cornerRadius(10)
-                                    .foregroundColor(Color("darkYellow"))
-                            }
-                        } else {
-                            EmptyView()
+                    if placeToGo.isSaved == true {
+                        
+                        NavigationLink {
+                            ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, num: $num)
+                        } label: {
+                            Text(placeToGo.title)
+                                .padding()
+                                .frame(width: 350, height: 55)
+                                .background(Color("lightYellow"))
+                                .cornerRadius(10)
+                                .foregroundColor(Color("darkYellow"))
                         }
+                        
                     } else {
                         EmptyView()
                     }
@@ -55,21 +58,24 @@ struct SavedView: View {
                 }
                 
                 ForEach(placesToGo) { placeToGo in
-                    if placeToGo.category == .sport && placeToGo.isSaved == true {
+                    if placeToGo.isSaved == true {
+                        
                         NavigationLink {
-                            ActivityDescriptionView(placesToGo: $placesToGo)
+                            ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, num: $num)
                         } label: {
                             Text(placeToGo.title)
                                 .padding()
                                 .frame(width: 350, height: 55)
-                                .background(Color("lightBlue"))
+                                .background(Color("lightYellow"))
                                 .cornerRadius(10)
-                                .foregroundColor(Color("darkBlue"))
+                                .foregroundColor(Color("darkYellow"))
                         }
+                        
                     } else {
                         EmptyView()
                     }
                 }
+                
                 HStack {
                     Text("Places to Go")
                         .bold()
@@ -80,17 +86,19 @@ struct SavedView: View {
                 }
                 
                 ForEach(placesToGo) { placeToGo in
-                    if placeToGo.category == .place && placeToGo.isSaved == true {
+                    
+                    if placeToGo.isSaved == true {
                         NavigationLink {
-                            ActivityDescriptionView(placesToGo: $placesToGo)
+                            ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, num: $num)
                         } label: {
                             Text(placeToGo.title)
                                 .padding()
                                 .frame(width: 350, height: 55)
-                                .background(Color("lightRed"))
+                                .background(Color("lightYellow"))
                                 .cornerRadius(10)
-                                .foregroundColor(Color("darkRed"))
+                                .foregroundColor(Color("darkYellow"))
                         }
+                        
                     } else {
                         EmptyView()
                     }

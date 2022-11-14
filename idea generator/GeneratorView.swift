@@ -11,6 +11,8 @@ struct GeneratorView: View {
     @State var isSheetPresented = false
     @Binding var placesToGo: [Place]
     @Binding var crafts: [Craft]
+
+    @State var num = 0
     
     var body: some View {
         VStack {
@@ -18,6 +20,7 @@ struct GeneratorView: View {
             
             Button {
                 isSheetPresented = true
+                num = 0
                 
             } label: {
                 ZStack {
@@ -37,6 +40,7 @@ struct GeneratorView: View {
             
             Button {
                 isSheetPresented = true
+                num = 1
                 
             } label: {
                 ZStack {
@@ -56,6 +60,7 @@ struct GeneratorView: View {
             
             Button {
                 isSheetPresented = true
+                num = 2
                 
             } label: {
                 ZStack {
@@ -100,7 +105,7 @@ struct GeneratorView: View {
         }
         .navigationTitle("Ideas for You")
         .sheet(isPresented: $isSheetPresented) {
-            ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts)
+            ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, num: $num)
         }
     }
     

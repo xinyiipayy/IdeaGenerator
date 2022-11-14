@@ -10,20 +10,21 @@ import SwiftUI
 struct ActivityDescriptionView: View {
     @Binding var placesToGo: [Place]
     @Binding var crafts: [Craft]
+    @Binding var num: Int
    
     var body: some View {
         VStack {
             HStack {
                 Spacer()
-                Text(placesToGo[0].title)
+                Text(placesToGo[num].title)
                     .font(.title)
                     .bold()
                 Spacer()
-                Image(systemName: placesToGo[0].isSaved ?  "bookmark.fill" : "bookmark")
+                Image(systemName: placesToGo[num].isSaved ?  "bookmark.fill" : "bookmark")
                     .foregroundColor(.gray)
                     .font(.title)
                     .onTapGesture {
-                        placesToGo[0].isSaved.toggle()
+                        placesToGo[num].isSaved.toggle()
                     }
                     
             }
@@ -31,13 +32,13 @@ struct ActivityDescriptionView: View {
             
             HStack(alignment:.top) {
                 Text("Description")
-                Text(placesToGo[0].description)
+                Text(placesToGo[num].description)
             }
             .padding(25)
             
             HStack(alignment:.top) {
                 Text("Address")
-                Text(placesToGo[0].address)
+                Text(placesToGo[num].address)
             }
             .padding(25)
         }
@@ -46,6 +47,6 @@ struct ActivityDescriptionView: View {
 
 struct ActivityDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-        ActivityDescriptionView(placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", openingHours: "demo", link: "demo")]), crafts: .constant([Craft(title: "demo", description: "demo", materials: "demo", link: "demo")]))
+        ActivityDescriptionView(placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", openingHours: "demo", link: "demo")]), crafts: .constant([Craft(title: "demo", description: "demo", materials: "demo", link: "demo")]), num: .constant(1))
     }
 }
