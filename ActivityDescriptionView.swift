@@ -15,7 +15,7 @@ struct ActivityDescriptionView: View {
     @Binding var cat: Category
     
     var body: some View {
-        VStack {
+        VStack (alignment: .leading) {
             HStack {
                 Spacer()
                 Text(cat == .craft ? crafts[num].title : cat == .sport ? sports[num].title : placesToGo[num].title)
@@ -42,43 +42,68 @@ struct ActivityDescriptionView: View {
             }
             .padding(25)
             
-            VStack(alignment:.leading) {
-                Text("Description")
-                    .bold()
-                Text(cat == .craft ? crafts[num].description : cat == .sport ? sports[num].description : placesToGo[num].description)
-            }
-            .padding(25)
-            
-            if cat == .place {
+            VStack (alignment: .leading) {
                 VStack(alignment:.leading) {
-                    Text("Address")
+                    Text("Description")
                         .bold()
-                    Text(placesToGo[num].address)
+                    Text(cat == .craft ? crafts[num].description : cat == .sport ? sports[num].description : placesToGo[num].description)
                 }
-                .padding(25)
-            } else {
-                EmptyView()
-            }
-            
-            if cat == .craft {
+                .padding(10)
+                
+                if cat == .place {
+                    VStack(alignment:.leading) {
+                        Text("Address")
+                            .bold()
+                        Text(placesToGo[num].address)
+                    }
+                    .padding(10)
+                    VStack(alignment:.leading) {
+                        Text("Opening Hours")
+                            .bold()
+                        Text(placesToGo[num].openingHours)
+                    }
+                    .padding(10)
+                } else {
+                    EmptyView()
+                }
+                
+                if cat == .craft {
+                    VStack(alignment: .leading) {
+                        Text("Materials")
+                            .bold()
+                        Text(crafts[num].materials)
+                    }
+                    .padding(10)
+                } else {
+                    EmptyView()
+                }
+                
+                if cat == .sport {
+                    VStack(alignment: .leading) {
+                        Text("Equipment")
+                            .bold()
+                        Text(sports[num].equipment)
+                    }
+                    .padding(10)
+                    VStack(alignment: .leading) {
+                        Text("Benefits")
+                            .bold()
+                        Text(sports[num].benefits)
+                    }
+                    .padding(10)
+                } else {
+                    EmptyView()
+                }
+                
                 VStack(alignment: .leading) {
-                    Text("materials")
+                    Text("Link")
                         .bold()
-                    Text(crafts[num].materials)
+                    Text(cat == .craft ? crafts[num].link : cat == .sport ? sports[num].link : placesToGo[num].link)
                 }
-            } else {
-                EmptyView()
+                .padding(10)
+                
             }
-            
-            if cat == .sport {
-                VStack(alignment: .leading) {
-                    Text("Equipment")
-                        .bold()
-                    Text(sports[num].equipment)
-                }
-            } else {
-                EmptyView()
-            }
+            .padding(15)
         }
     }
 }
