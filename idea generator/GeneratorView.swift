@@ -23,7 +23,8 @@ struct GeneratorView: View {
                     Rectangle()
                         .frame(width: 360, height: 80)
                         .cornerRadius(10)
-                        .foregroundColor(Color("lightBlue"))
+                        //.foregroundColor(Color("lightBlue"))
+                        .foregroundColor(Color(placesToGo[0].category == .craft ? "lightYellow" : placesToGo[1].category == .place ? "lightRed" : "lightBlue"))
                         .opacity(0.5)
                     
                     Text(placesToGo[0].title)
