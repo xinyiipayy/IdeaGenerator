@@ -36,10 +36,14 @@ struct SavedView: View {
                                     .cornerRadius(10)
                                     .foregroundColor(Color("darkYellow"))
                             }
+                        } else {
+                            EmptyView()
                         }
+                    } else {
+                        EmptyView()
                     }
                 }
-                """
+                
                 HStack {
                     Text("Sports")
                         .bold()
@@ -61,6 +65,8 @@ struct SavedView: View {
                                 .cornerRadius(10)
                                 .foregroundColor(Color("darkBlue"))
                         }
+                    } else {
+                        EmptyView()
                     }
                 }
                 HStack {
@@ -84,9 +90,11 @@ struct SavedView: View {
                                 .cornerRadius(10)
                                 .foregroundColor(Color("darkRed"))
                         }
+                    } else {
+                        EmptyView()
                     }
                 }
-                """
+                
                 Spacer()
             }
             .padding()
