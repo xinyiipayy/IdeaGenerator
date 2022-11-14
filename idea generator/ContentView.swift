@@ -20,7 +20,15 @@ struct ContentView: View {
                          Craft(title: "Calligraphy",
                                description: "Calligraphy is a visual art related to writing. It is the design and execution of lettering with a pen, ink brush, or other writing instrument.",
                                materials: "Notebook, brush pen ",
-                               link: "https://www.youtube.com/watch?v=sBoVGqiSzr4&vl=en ")]
+                               link: "https://www.youtube.com/watch?v=sBoVGqiSzr4&vl=en "),
+                         Craft(title: "Resin Art",
+                               description: "Resin art is anything created through the use of combining some resin and hardener for purely aesthetic purposes.",
+                               materials: "Resin",
+                               link: "https://youtu.be/7byPuhRgUNo "),
+                         Craft(title: "Painting",
+                               description: "Painting, the expression of ideas and emotions, with the creation of certain aesthetic qualities, in a two-dimensional visual language",
+                               materials: "canvas, paintbrushes, paint, water",
+                               link: "https://youtu.be/7whhcFfz51Q")]
     
     @State var sports = [Sport(title: "Soccer",
                                description: "Soccer is a game played by two teams of eleven players using a round ball. Players kick the ball to each other and try to score goals by kicking the ball into a large net.",
@@ -36,7 +44,12 @@ struct ContentView: View {
                                description: "a game in which you roll a heavy ball down a narrow track towards a group of wooden objects and try to knock down as many of them as possible",
                                benefits: "Muscle toning and strengthening, Weight loss, Improve social life, Reduce risk of disease, Stress relief, Healthy heart, improves Hand-eye coordination",
                                equipment: "bowling ball, a pair of bowling shoes",
-                               link: "https://www.youtube.com/watch?v=0DzlSU6CaW8")]
+                               link: "https://www.youtube.com/watch?v=0DzlSU6CaW8"),
+                         Sport(title: "Capture The Flag",
+                               description: "Capture the flag is a traditional outdoor sport where two or more teams each have a flag and the objective is to capture the other team's flag, located at the team's 'base', and bring it safely back to their own base.",
+                               benefits: "improves cardiovascular health",
+                               equipment: "Two flags",
+                               link: "https://www.youtube.com/watch?v=AwQKf5Mn5Zc")]
     
     @State var placesToGo = [Place(title: "Universal Studios Singapore",
                                    description: "Universal Studios Singapore is a theme park located within the Resorts World Sentosa at Sentosa, Singapore. It features 28 rides, shows, and attractions in seven themed zones. It is one of the six Universal Studios theme parks around the world.",
