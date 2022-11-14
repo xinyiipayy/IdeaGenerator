@@ -12,7 +12,8 @@ struct HomeView: View {
     @Binding var placesToGo: [Place]
     @Binding var crafts: [Craft]
     @Binding var sports: [Sport]
-    @State var cat: Category = .place
+    @State var cat: Category = .sport
+    @State var moveToNewView = false
     
     var body: some View {
         NavigationView{
@@ -20,42 +21,42 @@ struct HomeView: View {
                 
                 // arts and craft
                 
-                Button {
+               
+                    
+                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, cat: $cat).onAppear {
                     cat = .craft
-                } label: {
-                    NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, cat: $cat)) {
-                        Image("Screenshot 2022-10-22 at 10.44.00 AM")
-                            .resizable()
-                            .scaledToFit()
-                            .padding(10)
-                    }
+                } ){
+                    Image("Screenshot 2022-10-22 at 10.44.00 AM")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(10)
                 }
+                
+                
                 
                 // sports
                 
-                Button {
+                
+                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, cat: $cat).onAppear {
                     cat = .sport
-                } label: {
-                    NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, cat: $cat)) {
-                        Image("Screenshot 2022-11-05 at 10.26.16 AM")
-                            .resizable()
-                            .scaledToFit()
-                            .padding(10)
-                    }
+                } ) {
+                    Image("Screenshot 2022-11-05 at 10.26.16 AM")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(10)
                 }
+                
                 
                 // places
-                
-                Button {
+                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, cat: $cat).onAppear {
                     cat = .place
-                } label: {
-                    NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, cat: $cat)) {
-                        Image("Screenshot 2022-10-22 at 10.50.02 AM")
-                            .resizable()
-                            .scaledToFit()
-                            .padding(10)
-                    }
+                } ) {
+                    Image("Screenshot 2022-10-22 at 10.50.02 AM")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(10)
                 }
+            
                 
                 Spacer(minLength: 75)
             }
