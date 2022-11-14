@@ -52,6 +52,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(placesToGo: .constant([Place(title: "Demo", description: "demo", address: "demo", openingHours: "demo", link: "demo")]))
+        HomeView(placesToGo: .constant([Place(title: "Demo", description: "demo", address: "demo", openingHours: "demo", link: "demo")]), crafts: .constant([Craft(title: "demo", description: "demo", materials: "demo", link: "demo")]))
     }
 }
