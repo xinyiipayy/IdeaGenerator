@@ -106,7 +106,7 @@ struct GeneratorView: View {
             
             Spacer()
         }
-        .navigationTitle("Ideas for You")
+        .navigationTitle(cat == .craft ? "Arts & Craft" : cat == .sport ? "Sports" : "Places to Go")
         .sheet(isPresented: $isSheetPresented) {
             ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num, cat: $cat)
         }
