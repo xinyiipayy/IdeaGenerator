@@ -107,7 +107,7 @@ struct GeneratorView: View {
         }
         .navigationTitle("Ideas for You")
         .sheet(isPresented: $isSheetPresented) {
-            ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, num: $num)
+            ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num)
         }
     }
     

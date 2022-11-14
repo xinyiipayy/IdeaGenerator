@@ -27,13 +27,12 @@ struct SavedView: View {
                     Spacer()
                 }
                 
-                ForEach(placesToGo) { placeToGo in
-                    if placeToGo.isSaved == true {
-                        
+                ForEach(crafts) { craft in
+                    if craft.isSaved == true {
                         NavigationLink {
-                            ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, num: $num)
+                            ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num)
                         } label: {
-                            Text(placeToGo.title)
+                            Text(craft.title)
                                 .padding()
                                 .frame(width: 350, height: 55)
                                 .background(Color("lightYellow"))
@@ -56,18 +55,18 @@ struct SavedView: View {
                     Spacer()
                 }
                 
-                ForEach(placesToGo) { placeToGo in
-                    if placeToGo.isSaved == true {
+                ForEach(sports) { sport in
+                    if sport.isSaved == true {
                         
                         NavigationLink {
-                            ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, num: $num)
+                            ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num)
                         } label: {
-                            Text(placeToGo.title)
+                            Text(sport.title)
                                 .padding()
                                 .frame(width: 350, height: 55)
-                                .background(Color("lightYellow"))
+                                .background(Color("lightBlue"))
                                 .cornerRadius(10)
-                                .foregroundColor(Color("darkYellow"))
+                                .foregroundColor(Color("darkBlue"))
                         }
                         
                     } else {
@@ -88,14 +87,14 @@ struct SavedView: View {
                     
                     if placeToGo.isSaved == true {
                         NavigationLink {
-                            ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, num: $num)
+                            ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num)
                         } label: {
                             Text(placeToGo.title)
                                 .padding()
                                 .frame(width: 350, height: 55)
-                                .background(Color("lightYellow"))
+                                .background(Color("lightRed"))
                                 .cornerRadius(10)
-                                .foregroundColor(Color("darkYellow"))
+                                .foregroundColor(Color("darkRed"))
                         }
                         
                     } else {
