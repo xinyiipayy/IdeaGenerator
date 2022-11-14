@@ -67,6 +67,10 @@ struct ContentView: View {
                                    openingHours: "12pm - 6pm",
                                    link: "https://www.wildwildwet.com")]
     
+    @StateObject var craftsManager = CraftsManager()
+    @StateObject var sportsManager = SportsManager()
+    @StateObject var placesToGoManager = PlacesToGoManager()
+    
 
     
     var body: some View {
