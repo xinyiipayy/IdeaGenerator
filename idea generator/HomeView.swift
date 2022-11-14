@@ -18,7 +18,7 @@ struct HomeView: View {
             VStack(spacing: 10) {
                                
                 // arts and craft
-                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sport: $sports)) {
+                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports)) {
                     Image("Screenshot 2022-10-22 at 10.44.00 AM")
                         .resizable()
                         .scaledToFit()
@@ -26,7 +26,7 @@ struct HomeView: View {
                 }
                 
                 // sports
-                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sport: $sports)) {
+                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports)) {
                     Image("Screenshot 2022-11-05 at 10.26.16 AM")
                         .resizable()
                         .scaledToFit()
@@ -34,7 +34,7 @@ struct HomeView: View {
                 }
                 
                 // places
-                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sport: $sports)) {
+                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports)) {
                     Image("Screenshot 2022-10-22 at 10.50.02 AM")
                         .resizable()
                         .scaledToFit()

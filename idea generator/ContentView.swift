@@ -58,11 +58,11 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            HomeView(placesToGo: $placesToGo, crafts: $crafts, sport: $sports)
+            HomeView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports)
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
-            SavedView(placesToGo: $placesToGo, crafts: $crafts, sport: $sports)
+            SavedView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports)
                 .tabItem {
                     Label("Saved", systemImage: "bookmark.fill")
                 }
