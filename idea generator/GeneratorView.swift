@@ -33,7 +33,7 @@ struct GeneratorView: View {
                         .foregroundColor(Color(cat == .craft ? "lightYellow" : cat == .place ? "lightRed" : "lightBlue"))
                         .opacity(0.5)
                     
-                    Text(placesToGo[0].title)
+                    Text(cat == .craft ? crafts[0].title : cat == .place ? placesToGo[0].title : sports[0].title)
                         .foregroundColor(Color(cat == .craft ? "darkYellow" : cat == .place ? "darkRed" : "darkBlue"))
                         .font(.system(size: 20, weight: .bold))
                         .padding()
@@ -52,7 +52,7 @@ struct GeneratorView: View {
                         .foregroundColor(Color(cat == .craft ? "lightYellow" : cat == .place ? "lightRed" : "lightBlue"))
                         .opacity(0.5)
                     
-                    Text(placesToGo[1].title)
+                    Text(cat == .craft ? crafts[1].title : cat == .place ? placesToGo[1].title : sports[1].title)
                         .foregroundColor(Color(cat == .craft ? "darkYellow" : cat == .place ? "darkRed" : "darkBlue"))
                         .font(.system(size: 20, weight: .bold))
                         .padding()
@@ -72,7 +72,7 @@ struct GeneratorView: View {
                         .foregroundColor(Color(cat == .craft ? "lightYellow" : cat == .place ? "lightRed" : "lightBlue"))
                         .opacity(0.5)
                     
-                    Text(placesToGo[2].title)
+                    Text(cat == .craft ? crafts[2].title : cat == .place ? placesToGo[2].title : sports[2].title)
                         .foregroundColor(Color(cat == .craft ? "darkYellow" : cat == .place ? "darkRed" : "darkBlue"))
                         .font(.system(size: 20, weight: .bold))
                         .padding()
@@ -83,7 +83,8 @@ struct GeneratorView: View {
             
             Button {
                 placesToGo = placesToGo.shuffled()
-                print(placesToGo)
+                crafts = crafts.shuffled()
+                sports = sports.shuffled()
                 
             } label: {
                 ZStack {
@@ -114,11 +115,11 @@ struct GeneratorView: View {
     
 }
 
-/*
+
 struct GeneratorView_Previews: PreviewProvider {
     static var previews: some View {
         GeneratorView(placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", openingHours: "demo", link: "Demo")]),
                       crafts: .constant([Craft(title: "demo", description: "demo", materials: "demo", link: "demo")]), sports: .constant([Sport(title: "demo", description: "demo", benefits: "demo", equipment: "demo", link: "demo")]), cat: .constant(Category.place))
     }
 }
-*/
+
