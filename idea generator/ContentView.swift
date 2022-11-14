@@ -22,6 +22,22 @@ struct ContentView: View {
                                materials: "Notebook, brush pen ",
                                link: "https://www.youtube.com/watch?v=sBoVGqiSzr4&vl=en ")]
     
+    @State var sports = [Sport(title: "Soccer",
+                               description: "Soccer is a game played by two teams of eleven players using a round ball. Players kick the ball to each other and try to score goals by kicking the ball into a large net.",
+                               benefits: "increases aerobic capacity and cardiovascular health, lowers body fat and improves muscle tone, builds strength, flexibility and endurance, increases muscle and bone strength, improves health due to shifts between walking, running and sprinting.",
+                               equipment: "Football, shin guards",
+                               link: "https://www.onlinesocceracademy.com/soccer-training-videos"),
+                         Sport(title: "Badminton",
+                               description: "A game with rackets in which a shuttlecock is hit back and forth across a net.",
+                               benefits: "Aids weight loss, Tones your body, Improves heart function, Improves metabolic rate, Increases bone density, Minimises the risk of diabetes, Increases concentration, Decreases stress.",
+                               equipment: "Racket and shuttlecock",
+                               link: "https://www.youtube.com/watch?v=S2-G_tbIj80"),
+                         Sport(title: "Bowling",
+                               description: "a game in which you roll a heavy ball down a narrow track towards a group of wooden objects and try to knock down as many of them as possible",
+                               benefits: "Muscle toning and strengthening, Weight loss, Improve social life, Reduce risk of disease, Stress relief, Healthy heart, improves Hand-eye coordination",
+                               equipment: "bowling ball, a pair of bowling shoes",
+                               link: "https://www.youtube.com/watch?v=0DzlSU6CaW8")]
+    
     @State var placesToGo = [Place(title: "Universal Studios Singapore",
                                    description: "Universal Studios Singapore is a theme park located within the Resorts World Sentosa at Sentosa, Singapore. It features 28 rides, shows, and attractions in seven themed zones. It is one of the six Universal Studios theme parks around the world.",
                                    address: "8 Sentosa Gateway, 098269",
@@ -42,11 +58,11 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            HomeView(placesToGo: $placesToGo, crafts: $crafts)
+            HomeView(placesToGo: $placesToGo, crafts: $crafts, sport: $sports)
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
-            SavedView(placesToGo: $placesToGo, crafts: $crafts)
+            SavedView(placesToGo: $placesToGo, crafts: $crafts, sport: $sports)
                 .tabItem {
                     Label("Saved", systemImage: "bookmark.fill")
                 }

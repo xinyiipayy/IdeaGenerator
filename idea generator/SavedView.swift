@@ -11,6 +11,7 @@ struct SavedView: View {
     
     @Binding var placesToGo: [Place]
     @Binding var crafts: [Craft]
+    @Binding var sports: [Sport]
     
     var body: some View {
         NavigationView {
