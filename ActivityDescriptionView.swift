@@ -10,6 +10,7 @@ import SwiftUI
 struct ActivityDescriptionView: View {
     @Binding var placesToGo: [Place]
     @Binding var crafts: [Craft]
+    @Binding var sports: [Sport]
     @Binding var num: Int
    
     var body: some View {
@@ -47,6 +48,9 @@ struct ActivityDescriptionView: View {
 
 struct ActivityDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-        ActivityDescriptionView(placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", openingHours: "demo", link: "demo")]), crafts: .constant([Craft(title: "demo", description: "demo", materials: "demo", link: "demo")]), num: .constant(0))
+        ActivityDescriptionView(placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", openingHours: "demo", link: "demo")]),
+                                crafts: .constant([Craft(title: "demo", description: "demo", materials: "demo", link: "demo")]),
+                                sports: .constant([Sport(title: "demo", description: "demo", benefits: "demo", equipment: "demo", link: "demo")]),
+                                num: .constant(0))
     }
 }
