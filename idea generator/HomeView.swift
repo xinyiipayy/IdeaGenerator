@@ -12,17 +12,18 @@ struct HomeView: View {
     @Binding var placesToGo: [Place]
     @Binding var crafts: [Craft]
     @Binding var sports: [Sport]
-    @State var category: Category = .place
+    @State var cat: Category = .place
     
     var body: some View {
         NavigationView{
             VStack(spacing: 10) {
-                               
+                
                 // arts and craft
-                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, category: $category)) {
-                    Button {
-                        category = .craft
-                    } label: {
+                
+                Button {
+                    cat = .craft
+                } label: {
+                    NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, cat: $cat)) {
                         Image("Screenshot 2022-10-22 at 10.44.00 AM")
                             .resizable()
                             .scaledToFit()
@@ -31,10 +32,11 @@ struct HomeView: View {
                 }
                 
                 // sports
-                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, category: $category)) {
-                    Button {
-                        category = .sport
-                    } label: {
+                
+                Button {
+                    cat = .sport
+                } label: {
+                    NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, cat: $cat)) {
                         Image("Screenshot 2022-11-05 at 10.26.16 AM")
                             .resizable()
                             .scaledToFit()
@@ -43,10 +45,11 @@ struct HomeView: View {
                 }
                 
                 // places
-                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, category: $category)) {
-                    Button {
-                        category = .place
-                    } label: {
+                
+                Button {
+                    cat = .place
+                } label: {
+                    NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, cat: $cat)) {
                         Image("Screenshot 2022-10-22 at 10.50.02 AM")
                             .resizable()
                             .scaledToFit()
@@ -56,7 +59,7 @@ struct HomeView: View {
                 
                 Spacer(minLength: 75)
             }
-
+            
             .navigationTitle("Categories")
         }
         
