@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-        
+    
     @StateObject var craftsManager = CraftsManager()
     @StateObject var sportsManager = SportsManager()
     @StateObject var placesToGoManager = PlacesToGoManager()

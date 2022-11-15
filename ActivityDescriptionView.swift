@@ -97,81 +97,80 @@ struct ActivityDescriptionView: View {
                     }
                     
                 } .padding(10)
-                
-                VStack (alignment: .leading) {
-                    VStack(alignment:.leading) {
-                        Text("Description")
-                            .bold()
-                        Text(cat == .craft ? crafts[num].description : cat == .sport ? sports[num].description : placesToGo[num].description)
-                    }
-                    .padding(10)
-                    
-                    if cat == .place {
+                    VStack (alignment: .leading) {
                         VStack(alignment:.leading) {
-                            Text("Address")
+                            Text("Description")
                                 .bold()
-                            Text(placesToGo[num].address)
-                        }
-                        .padding(10)
-                        VStack(alignment:.leading) {
-                            Text("Opening Hours")
-                                .bold()
-                            Text(placesToGo[num].openingHours)
-                        }
-                        .padding(10)
-                    } else {
-                        EmptyView()
-                    }
-                    
-                    if cat == .craft {
-                        VStack(alignment: .leading) {
-                            Text("Materials")
-                                .bold()
-                            ForEach(crafts[num].materials, id: \.self) { material in
-                                Text("  - \(material)")
+                            Text(cat == .craft ? crafts[num].description : cat == .sport ? sports[num].description : placesToGo[num].description)
                             }
-                        }
                         .padding(10)
-                    } else {
-                        EmptyView()
-                    }
-                    
-                    if cat == .sport {
-                        VStack(alignment: .leading) {
-                            Text("Benefits")
-                                .bold()
-                            ForEach(sports[num].benefits, id: \.self) {benefit in
-                                Text("  - \(benefit)")
-                            }
-                        }
-                        .padding(10)
-
-                        VStack(alignment: .leading) {
-                            Text("Equipment")
-                                .bold()
-                            ForEach(sports[num].equipment, id: \.self) { equipment in
-                                Text("  - \(equipment)")
-                            }
-                        }
-                        .padding(10)
-                    } else {
-                        EmptyView()
-                    }
-                    
-                    VStack(alignment: .leading) {
-                        Text("Link")
-                            .bold()
                         
-                        Link((cat == .craft ? crafts[num].link[0] : cat == .sport ? sports[num].link[0] : placesToGo[num].link[0]), destination: URL(string: (cat == .craft ? crafts[num].link[1] : cat == .sport ? sports[num].link[1] : placesToGo[num].link[1]))!)
+                        if cat == .place {
+                            VStack(alignment:.leading) {
+                                Text("Address")
+                                    .bold()
+                                Text(placesToGo[num].address)
+                            }
+                            .padding(10)
+                            VStack(alignment:.leading) {
+                                Text("Opening Hours")
+                                    .bold()
+                                Text(placesToGo[num].openingHours)
+                            }
+                            .padding(10)
+                        } else {
+                            EmptyView()
+                        }
+                        
+                        if cat == .craft {
+                            VStack(alignment: .leading) {
+                                Text("Materials")
+                                    .bold()
+                                ForEach(crafts[num].materials, id: \.self) { material in
+                                    Text("  - \(material)")
+                                }
+                            }
+                            .padding(10)
+                        } else {
+                            EmptyView()
+                        }
+                        
+                        if cat == .sport {
+                            VStack(alignment: .leading) {
+                                Text("Benefits")
+                                    .bold()
+                                ForEach(sports[num].benefits, id: \.self) {benefit in
+                                    Text("  - \(benefit)")
+                                }
+                            }
+                            .padding(10)
+                            
+                            VStack(alignment: .leading) {
+                                Text("Equipment")
+                                    .bold()
+                                ForEach(sports[num].equipment, id: \.self) { equipment in
+                                    Text("  - \(equipment)")
+                                }
+                            }
+                            .padding(10)
+                        } else {
+                            EmptyView()
+                        }
+                        
+                        VStack(alignment: .leading) {
+                            Text("Link")
+                                .bold()
+                            
+                            Link((cat == .craft ? crafts[num].link[0] : cat == .sport ? sports[num].link[0] : placesToGo[num].link[0]), destination: URL(string: (cat == .craft ? crafts[num].link[1] : cat == .sport ? sports[num].link[1] : placesToGo[num].link[1]))!)
+                            
+                        }
+                        .padding(10)
                         
                     }
-                    .padding(10)
-                    
                 }
             } .padding(15)
         }
     }
-}
 
 struct ActivityDescriptionView_Previews: PreviewProvider {
     static var previews: some View {

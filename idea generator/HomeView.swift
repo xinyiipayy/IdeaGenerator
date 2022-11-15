@@ -47,7 +47,7 @@ struct HomeView: View {
                         .scaledToFit()
                         .padding(10)
                 }
-            
+                
                 
                 Spacer(minLength: 75)
             }

@@ -26,9 +26,9 @@ struct SavedView: View {
                     .bold()
                 
                 Text("Arts & Craft")
-                        .bold()
-                        .padding()
-                        .font(.headline)
+                    .bold()
+                    .padding()
+                    .font(.headline)
                 ForEach(crafts) { craft in
                     if craft.isSaved == true {
                         Button {

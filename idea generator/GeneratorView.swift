@@ -13,7 +13,7 @@ struct GeneratorView: View {
     @Binding var crafts: [Craft]
     @Binding var sports: [Sport]
     @Binding var cat: Category
-        
+    
     @State var num = 0
     
     var body: some View {
@@ -29,7 +29,7 @@ struct GeneratorView: View {
                     Rectangle()
                         .frame(width: 360, height: 80)
                         .cornerRadius(10)
-                        //.foregroundColor(Color("lightBlue"))
+                    //.foregroundColor(Color("lightBlue"))
                         .foregroundColor(Color(cat == .craft ? "lightYellow" : cat == .place ? "lightRed" : "lightBlue"))
                         .opacity(0.5)
                     
