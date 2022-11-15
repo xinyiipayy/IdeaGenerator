@@ -12,124 +12,124 @@ struct SavedView: View {
     @Binding var placesToGo: [Place]
     @Binding var crafts: [Craft]
     @Binding var sports: [Sport]
-   
+    
     @State var num = 0
     @State var cat: Category = .place
+    @State var isSheetShown = false
     
     var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack {
-                    HStack {
-                        Text("Arts & Craft")
-                            .bold()
-                            .padding()
-                            .font(.headline)
-                        
-                        Spacer()
-                    }
-                    
-                    ForEach(crafts) { craft in
-                        if craft.isSaved == true {
-                            NavigationLink(destination: ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num, cat: $cat).onAppear {
-                                cat = .craft
-                                num = 0
-                                while crafts[num].title != craft.title {
-                                    num += 1
-                                }
-                            })
-                            {
-                                Text(craft.title)
-                                    .bold()
-                                    .padding()
-                                    .frame(width: 350, height: 55)
-                                    .background(Color("lightYellow"))
-                                    .cornerRadius(10)
-                                    .foregroundColor(Color("darkYellow"))
-                            }
-                            
-                        } else {
-                            EmptyView()
-                        }
-                    }
-                    
-                    HStack {
-                        Text("Sports")
-                            .bold()
-                            .padding()
-                            .font(.headline)
-                        
-                        Spacer()
-                    }
-                    
-                    ForEach(sports) { sport in
-                        if sport.isSaved == true {
-                            
-                            NavigationLink (destination:
-                                            ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num, cat: $cat).onAppear {
-                                cat = .sport
-                                num = 0
-                                while sports[num].title != sport.title {
-                                    num += 1 
-                                }
-                            })
-                            {
-                                Text(sport.title)
-                                    .bold()
-                                    .padding()
-                                    .frame(width: 350, height: 55)
-                                    .background(Color("lightBlue"))
-                                    .cornerRadius(10)
-                                    .foregroundColor(Color("darkBlue"))
-                            }
-                            
-                        } else {
-                            EmptyView()
-                        }
-                    }
-                    
-                    HStack {
-                        Text("Places to Go")
-                            .bold()
-                            .padding()
-                            .font(.headline)
-                        
-                        Spacer()
-                    }
-                    
-                    ForEach(placesToGo) { placeToGo in
-                        
-                        if placeToGo.isSaved == true {
-                            NavigationLink(destination:
-                                            ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num, cat: $cat).onAppear {
-                                cat = .place
-                                num = 0
-                                while placesToGo[num].title != placeToGo.title {
-                                    num += 1
-                                }
-                            })
-                            {
-                                Text(placeToGo.title)
-                                    .bold()
-                                    .padding()
-                                    .frame(width: 350, height: 55)
-                                    .background(Color("lightRed"))
-                                    .cornerRadius(10)
-                                    .foregroundColor(Color("darkRed"))
-                            }
-                            
-                        } else {
-                            EmptyView()
-                        }
-                    }
+        
+        ScrollView {
+            VStack {
+                HStack {
+                    Text("Arts & Craft")
+                        .bold()
+                        .padding()
+                        .font(.headline)
                     
                     Spacer()
                 }
+                
+                ForEach(crafts) { craft in
+                    if craft.isSaved == true {
+                        Button {
+                            cat = .craft
+                            num = 0
+                            while crafts[num].title != craft.title {
+                                num += 1
+                            }
+                            isSheetShown = true
+                        } label: {
+                            Text(craft.title)
+                                .bold()
+                                .padding()
+                                .frame(width: 350, height: 55)
+                                .background(Color("lightYellow"))
+                                .cornerRadius(10)
+                                .foregroundColor(Color("darkYellow"))
+                        }
+                    } else {
+                        EmptyView()
+                    }
+                }
+                
+                HStack {
+                    Text("Sports")
+                        .bold()
+                        .padding()
+                        .font(.headline)
+                    
+                    Spacer()
+                }
+                
+                ForEach(sports) { sport in
+                    if sport.isSaved == true {
+                        Button {
+                            cat = .sport
+                            num = 0
+                            while sports[num].title != sport.title {
+                                num += 1
+                            }
+                            isSheetShown = true
+                        } label: {
+                            Text(sport.title)
+                                .bold()
+                                .padding()
+                                .frame(width: 350, height: 55)
+                                .background(Color("lightBlue"))
+                                .cornerRadius(10)
+                                .foregroundColor(Color("darkBlue"))
+                        }
+                        
+                    } else {
+                        EmptyView()
+                    }
+                }
+                
+                HStack {
+                    Text("Places to Go")
+                        .bold()
+                        .padding()
+                        .font(.headline)
+                    
+                    Spacer()
+                }
+                
+                ForEach(placesToGo) { placeToGo in
+                    
+                    if placeToGo.isSaved == true {
+                        Button {
+                            cat = .place
+                            num = 0
+                            while placesToGo[num].title != placeToGo.title {
+                                num += 1
+                            }
+                            isSheetShown = true
+                        } label: {
+                            Text(placeToGo.title)
+                                .bold()
+                                .padding()
+                                .frame(width: 350, height: 55)
+                                .background(Color("lightRed"))
+                                .cornerRadius(10)
+                                .foregroundColor(Color("darkRed"))
+                        }
+                        
+                    } else {
+                        EmptyView()
+                    }
+                }
+                
+                Spacer()
+                
             }
             .padding()
-            .navigationTitle("Saved ideas")
+            .sheet(isPresented: $isSheetShown) {
+                ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num, cat: $cat)
+            }
         }
     }
+    
 }
 
 struct SavedView_Previews: PreviewProvider {
