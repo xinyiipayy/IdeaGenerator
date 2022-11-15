@@ -14,10 +14,27 @@ struct ActivityDescriptionView: View {
     @Binding var num: Int
     @Binding var cat: Category
     
+    @State var imageNum = 0
+    
     var body: some View {
         VStack (alignment: .leading) {
+            Image(cat == .craft ? crafts[num].image[imageNum] : cat == .sport ? sports[num].image[imageNum] : placesToGo[num].image[imageNum])
+                .resizable()
+                .scaledToFit()
+                .padding()
+            
+            Button {
+                if imageNum < 2 {
+                    imageNum = imageNum + 1
+                } else {
+                    imageNum = 1
+                }
+            } label: {
+                Text("change picture")
+            }
+
+            
             HStack {
-                Spacer()
                 Text(cat == .craft ? crafts[num].title : cat == .sport ? sports[num].title : placesToGo[num].title)
                     .font(.title)
                     .bold()
@@ -98,7 +115,9 @@ struct ActivityDescriptionView: View {
                 VStack(alignment: .leading) {
                     Text("Link")
                         .bold()
-                    Text(cat == .craft ? crafts[num].link : cat == .sport ? sports[num].link : placesToGo[num].link)
+                    
+                    Link((cat == .craft ? crafts[num].link[0] : cat == .sport ? sports[num].link[0] : placesToGo[num].link[0]), destination: URL(string: (cat == .craft ? crafts[num].link[1] : cat == .sport ? sports[num].link[1] : placesToGo[num].link[1]))!)
+                    
                 }
                 .padding(10)
                 
@@ -110,9 +129,9 @@ struct ActivityDescriptionView: View {
 
 struct ActivityDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-        ActivityDescriptionView(placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", openingHours: "demo", link: "demo")]),
-                                crafts: .constant([Craft(title: "demo", description: "demo", materials: "demo", link: "demo")]),
-                                sports: .constant([Sport(title: "demo", description: "demo", benefits: "demo", equipment: "demo", link: "demo")]),
+        ActivityDescriptionView(placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", openingHours: "demo", link: ["demo"], image: ["demo"])]),
+                                crafts: .constant([Craft(title: "demo", description: "demo", materials: "demo", link: ["demo"], image: ["demo"])]),
+                                sports: .constant([Sport(title: "demo", description: "demo", benefits: "demo", equipment: "demo", link: ["demo"], image: ["demo"])]),
                                 num: .constant(0), cat: .constant(Category.sport))
     }
 }

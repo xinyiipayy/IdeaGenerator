@@ -118,8 +118,10 @@ struct GeneratorView: View {
 
 struct GeneratorView_Previews: PreviewProvider {
     static var previews: some View {
-        GeneratorView(placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", openingHours: "demo", link: "Demo")]),
-                      crafts: .constant([Craft(title: "demo", description: "demo", materials: "demo", link: "demo")]), sports: .constant([Sport(title: "demo", description: "demo", benefits: "demo", equipment: "demo", link: "demo")]), cat: .constant(Category.place))
+        GeneratorView(placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", openingHours: "demo", link: ["demo"], image: ["demo"])]),
+                      crafts: .constant([Craft(title: "demo", description: "demo", materials: "demo", link: ["demo"], image: ["demo"])]),
+                      sports: .constant([Sport(title: "demo", description: "demo", benefits: "demo", equipment: "demo", link: ["demo"], image: ["demo"])]),
+                      cat: .constant(Category.place))
     }
 }
 
