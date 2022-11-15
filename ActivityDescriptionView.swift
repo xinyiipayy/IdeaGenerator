@@ -118,7 +118,7 @@ struct ActivityDescriptionView: View {
                             Text("Materials")
                                 .bold()
                             ForEach(crafts[num].materials, id: \.self) { material in
-                                Text("- \(material)")
+                                Text("  - \(material)")
                             }
                         }
                         .padding(10)
@@ -128,18 +128,19 @@ struct ActivityDescriptionView: View {
                     
                     if cat == .sport {
                         VStack(alignment: .leading) {
-                            Text("Equipment")
-                                .bold()
-                            ForEach(sports[num].equipment, id: \.self) { equipment in
-                                Text("- \(equipment)")
-                            }
-                        }
-                        .padding(10)
-                        VStack(alignment: .leading) {
                             Text("Benefits")
                                 .bold()
                             ForEach(sports[num].benefits, id: \.self) {benefit in
-                                Text("- \(benefit)")
+                                Text("  - \(benefit)")
+                            }
+                        }
+                        .padding(10)
+
+                        VStack(alignment: .leading) {
+                            Text("Equipment")
+                                .bold()
+                            ForEach(sports[num].equipment, id: \.self) { equipment in
+                                Text("  - \(equipment)")
                             }
                         }
                         .padding(10)
