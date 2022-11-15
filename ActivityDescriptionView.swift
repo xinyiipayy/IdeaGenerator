@@ -20,46 +20,56 @@ struct ActivityDescriptionView: View {
     var body: some View {
         ScrollView {
             VStack (alignment: .leading) {
+                Image(cat == .craft ? crafts[num].image[imageNum] : cat == .sport ? sports[num].image[imageNum] : placesToGo[num].image[imageNum])
+                    .resizable()
+                    .scaledToFit()
+                    .cornerRadius(10)
+                    .padding(10)
                 HStack {
-                    Button {
-                        if imageNum != 0 {
-                            imageNum = imageNum - 1
-                        } else {
-                            if cat == .craft {
-                                imageNum = crafts[num].image.count - 1
-                            } else if cat == .sport {
-                                imageNum = sports[num].image.count - 1
-                            } else if cat == .place {
-                                imageNum = placesToGo[num].image.count - 1
+                    VStack {
+                        Button {
+                            if imageNum != 0 {
+                                imageNum = imageNum - 1
+                            } else {
+                                if cat == .craft {
+                                    imageNum = crafts[num].image.count - 1
+                                } else if cat == .sport {
+                                    imageNum = sports[num].image.count - 1
+                                } else if cat == .place {
+                                    imageNum = placesToGo[num].image.count - 1
+                                }
                             }
+                        } label: {
+                            Image(systemName: "lessthan.circle.fill")
+                                .foregroundColor(.gray)
+                                .font(.title)
                         }
-                    } label: {
-                        Image(systemName: "lessthan.circle.fill")
+                        Text("Previous")
                             .foregroundColor(.gray)
-                            .font(.title)
-                            .opacity(0.75)
+                            .font(.subheadline)
                     }
-                    Image(cat == .craft ? crafts[num].image[imageNum] : cat == .sport ? sports[num].image[imageNum] : placesToGo[num].image[imageNum])
-                        .resizable()
-                        .scaledToFit()
-                        .cornerRadius(10)
-                    Button {
-                        imageNum2 = imageNum + 1
-                        if imageNum2 < crafts[num].image.count && cat == .craft{
-                            imageNum += 1
-                        } else if imageNum2 < sports[num].image.count && cat == .sport {
-                            imageNum += 1
-                        } else if imageNum2 < placesToGo[num].image.count && cat == .place {
-                            imageNum += 1
-                        } else {
-                            imageNum = 0
+                    Spacer()
+                    VStack {
+                        Button {
+                            imageNum2 = imageNum + 1
+                            if imageNum2 < crafts[num].image.count && cat == .craft{
+                                imageNum += 1
+                            } else if imageNum2 < sports[num].image.count && cat == .sport {
+                                imageNum += 1
+                            } else if imageNum2 < placesToGo[num].image.count && cat == .place {
+                                imageNum += 1
+                            } else {
+                                imageNum = 0
+                            }
+                        } label: {
+                            Image(systemName: "lessthan.circle.fill")
+                                .foregroundColor(.gray)
+                                .font(.title)
+                                .rotationEffect(Angle.degrees(180))
                         }
-                    } label: {
-                        Image(systemName: "lessthan.circle.fill")
+                        Text("Next")
                             .foregroundColor(.gray)
-                            .font(.title)
-                            .opacity(0.75)
-                            .rotationEffect(Angle.degrees(180))
+                            .font(.subheadline)
                     }
                 }
                 .padding(10)

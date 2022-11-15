@@ -20,16 +20,15 @@ struct SavedView: View {
     var body: some View {
         
         ScrollView {
-            VStack {
-                HStack {
-                    Text("Arts & Craft")
+            VStack (alignment: .leading) {
+                Text("Saved Ideas")
+                    .font(.title)
+                    .bold()
+                
+                Text("Arts & Craft")
                         .bold()
                         .padding()
                         .font(.headline)
-                    
-                    Spacer()
-                }
-                
                 ForEach(crafts) { craft in
                     if craft.isSaved == true {
                         Button {
@@ -53,15 +52,11 @@ struct SavedView: View {
                     }
                 }
                 
-                HStack {
-                    Text("Sports")
-                        .bold()
-                        .padding()
-                        .font(.headline)
-                    
-                    Spacer()
-                }
                 
+                Text("Sports")
+                    .bold()
+                    .padding()
+                    .font(.headline)
                 ForEach(sports) { sport in
                     if sport.isSaved == true {
                         Button {
@@ -86,15 +81,10 @@ struct SavedView: View {
                     }
                 }
                 
-                HStack {
-                    Text("Places to Go")
-                        .bold()
-                        .padding()
-                        .font(.headline)
-                    
-                    Spacer()
-                }
-                
+                Text("Places to Go")
+                    .bold()
+                    .padding()
+                    .font(.headline)
                 ForEach(placesToGo) { placeToGo in
                     
                     if placeToGo.isSaved == true {
