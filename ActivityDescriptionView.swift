@@ -60,10 +60,9 @@ struct ActivityDescriptionView: View {
                             .font(.title)
                             .opacity(0.75)
                             .rotationEffect(Angle.degrees(180))
-                            
                     }
-                    
                 }
+                .padding(10)
                 
                 HStack {
                     Text(cat == .craft ? crafts[num].title : cat == .sport ? sports[num].title : placesToGo[num].title)
@@ -87,8 +86,7 @@ struct ActivityDescriptionView: View {
                         }
                     }
                     
-                }
-                .padding(25)
+                } .padding(10)
                 
                 VStack (alignment: .leading) {
                     VStack(alignment:.leading) {
@@ -119,7 +117,9 @@ struct ActivityDescriptionView: View {
                         VStack(alignment: .leading) {
                             Text("Materials")
                                 .bold()
-                            Text(crafts[num].materials)
+                            ForEach(crafts[num].materials, id: \.self) { material in
+                                Text("- \(material)")
+                            }
                         }
                         .padding(10)
                     } else {
@@ -130,13 +130,17 @@ struct ActivityDescriptionView: View {
                         VStack(alignment: .leading) {
                             Text("Equipment")
                                 .bold()
-                            Text(sports[num].equipment)
+                            ForEach(sports[num].equipment, id: \.self) { equipment in
+                                Text("- \(equipment)")
+                            }
                         }
                         .padding(10)
                         VStack(alignment: .leading) {
                             Text("Benefits")
                                 .bold()
-                            Text(sports[num].benefits)
+                            ForEach(sports[num].benefits, id: \.self) {benefit in
+                                Text("- \(benefit)")
+                            }
                         }
                         .padding(10)
                     } else {
@@ -162,8 +166,8 @@ struct ActivityDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
         ActivityDescriptionView(
             placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", openingHours: "demo", link: ["demo"], image: ["demo"])]),
-            crafts: .constant([Craft(title: "demo", description: "demo", materials: "demo", link: ["demo"], image: ["demo"])]),
-            sports: .constant([Sport(title: "demo", description: "demo", benefits: "demo", equipment: "demo", link: ["demo"], image: ["demo"])]),
+            crafts: .constant([Craft(title: "demo", description: "demo", materials: ["demo"], link: ["demo"], image: ["demo"])]),
+            sports: .constant([Sport(title: "demo", description: "demo", benefits: ["demo"], equipment: ["demo"], link: ["demo"], image: ["demo"])]),
             num: .constant(0),
             cat: .constant(Category.sport))
     }

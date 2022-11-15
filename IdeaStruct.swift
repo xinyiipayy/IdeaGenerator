@@ -20,7 +20,7 @@ struct Craft: Identifiable, Codable, Equatable {
     var category: Category = .craft
     var title: String
     var description: String
-    var materials: String
+    var materials: [String]
     var link: [String]
     var otherInfo: String?
     var isSaved: Bool = false
@@ -33,8 +33,8 @@ struct Sport: Identifiable, Codable, Equatable {
     var category: Category = .sport
     var title: String
     var description: String
-    var benefits: String
-    var equipment: String
+    var benefits: [String]
+    var equipment: [String]
     var link: [String]
     var otherInfo: String?
     var isSaved: Bool = false
