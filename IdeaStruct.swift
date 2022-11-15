@@ -24,7 +24,7 @@ struct Craft: Identifiable, Codable {
     var link: [String]
     var otherInfo: String?
     var isSaved: Bool = false
-    var image: String
+    var image: [String]
 }
 
 struct Sport: Identifiable, Codable {
@@ -38,7 +38,7 @@ struct Sport: Identifiable, Codable {
     var link: [String]
     var otherInfo: String?
     var isSaved: Bool = false
-    var image: String
+    var image: [String]
 }
 
 struct Place: Identifiable, Codable {
@@ -52,5 +52,5 @@ struct Place: Identifiable, Codable {
     var link: [String]
     var otherInfo: String?
     var isSaved: Bool = false
-    var image: String
+    var image: [String]
 }
