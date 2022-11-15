@@ -27,7 +27,7 @@ struct ActivityDescriptionView: View {
                 if imageNum < 2 {
                     imageNum = imageNum + 1
                 } else {
-                    imageNum = 1
+                    imageNum = 0
                 }
             } label: {
                 Text("change picture")

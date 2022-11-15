@@ -14,7 +14,7 @@ enum Category: Codable {
 }
 
 
-struct Craft: Identifiable, Codable {
+struct Craft: Identifiable, Codable, Equatable {
     var id = UUID()
     
     var category: Category = .craft
@@ -27,7 +27,7 @@ struct Craft: Identifiable, Codable {
     var image: [String]
 }
 
-struct Sport: Identifiable, Codable {
+struct Sport: Identifiable, Codable, Equatable {
     var id = UUID()
     
     var category: Category = .sport
@@ -41,7 +41,7 @@ struct Sport: Identifiable, Codable {
     var image: [String]
 }
 
-struct Place: Identifiable, Codable {
+struct Place: Identifiable, Codable, Equatable {
     var id = UUID()
     
     var category: Category = .place
