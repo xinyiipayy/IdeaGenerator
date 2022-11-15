@@ -15,123 +15,156 @@ struct ActivityDescriptionView: View {
     @Binding var cat: Category
     
     @State var imageNum = 0
+    @State var imageNum2 = 1
     
     var body: some View {
-        VStack (alignment: .leading) {
-            Image(cat == .craft ? crafts[num].image[imageNum] : cat == .sport ? sports[num].image[imageNum] : placesToGo[num].image[imageNum])
-                .resizable()
-                .scaledToFit()
-                .padding()
-            
-            Button {
-                if imageNum < 2 {
-                    imageNum = imageNum + 1
-                } else {
-                    imageNum = 0
-                }
-            } label: {
-                Text("change picture")
-            }
-
-            
-            HStack {
-                Text(cat == .craft ? crafts[num].title : cat == .sport ? sports[num].title : placesToGo[num].title)
-                    .font(.title)
-                    .bold()
-                Spacer()
-                Image(systemName: cat == .craft ?
-                      crafts[num].isSaved ?  "bookmark.fill" : "bookmark"
-                      : cat == .place ?
-                      placesToGo[num].isSaved ? "bookmark.fill" : "bookmark"
-                      : sports[num].isSaved ? "bookmark.fill" : "bookmark")
-                .foregroundColor(.gray)
-                .font(.title)
-                .onTapGesture {
-                    if cat == .craft {
-                        crafts[num].isSaved.toggle()
-                    } else if cat == .sport {
-                        sports[num].isSaved.toggle()
-                    } else {
-                        placesToGo[num].isSaved.toggle()
-                    }
-                }
-                
-            }
-            .padding(25)
-            
+        ScrollView {
             VStack (alignment: .leading) {
-                VStack(alignment:.leading) {
-                    Text("Description")
-                        .bold()
-                    Text(cat == .craft ? crafts[num].description : cat == .sport ? sports[num].description : placesToGo[num].description)
-                }
-                .padding(10)
-                
-                if cat == .place {
-                    VStack(alignment:.leading) {
-                        Text("Address")
-                            .bold()
-                        Text(placesToGo[num].address)
+                HStack {
+                    Button {
+                        if imageNum != 0 {
+                            imageNum = imageNum - 1
+                        } else {
+                            if cat == .craft {
+                                imageNum = crafts[num].image.count - 1
+                            } else if cat == .sport {
+                                imageNum = sports[num].image.count - 1
+                            } else if cat == .place {
+                                imageNum = placesToGo[num].image.count - 1
+                            }
+                        }
+                    } label: {
+                        Image(systemName: "lessthan.circle.fill")
+                            .foregroundColor(.gray)
+                            .font(.title)
+                            .opacity(0.75)
                     }
-                    .padding(10)
-                    VStack(alignment:.leading) {
-                        Text("Opening Hours")
-                            .bold()
-                        Text(placesToGo[num].openingHours)
+                    Image(cat == .craft ? crafts[num].image[imageNum] : cat == .sport ? sports[num].image[imageNum] : placesToGo[num].image[imageNum])
+                        .resizable()
+                        .scaledToFit()
+                        .cornerRadius(10)
+                    Button {
+                        imageNum2 = imageNum + 1
+                        if imageNum2 < crafts[num].image.count && cat == .craft{
+                            imageNum += 1
+                        } else if imageNum2 < sports[num].image.count && cat == .sport {
+                            imageNum += 1
+                        } else if imageNum2 < placesToGo[num].image.count && cat == .place {
+                            imageNum += 1
+                        } else {
+                            imageNum = 0
+                        }
+                    } label: {
+                        Image(systemName: "lessthan.circle.fill")
+                            .foregroundColor(.gray)
+                            .font(.title)
+                            .opacity(0.75)
+                            .rotationEffect(Angle.degrees(180))
+                            
                     }
-                    .padding(10)
-                } else {
-                    EmptyView()
-                }
-                
-                if cat == .craft {
-                    VStack(alignment: .leading) {
-                        Text("Materials")
-                            .bold()
-                        Text(crafts[num].materials)
-                    }
-                    .padding(10)
-                } else {
-                    EmptyView()
-                }
-                
-                if cat == .sport {
-                    VStack(alignment: .leading) {
-                        Text("Equipment")
-                            .bold()
-                        Text(sports[num].equipment)
-                    }
-                    .padding(10)
-                    VStack(alignment: .leading) {
-                        Text("Benefits")
-                            .bold()
-                        Text(sports[num].benefits)
-                    }
-                    .padding(10)
-                } else {
-                    EmptyView()
-                }
-                
-                VStack(alignment: .leading) {
-                    Text("Link")
-                        .bold()
-                    
-                    Link((cat == .craft ? crafts[num].link[0] : cat == .sport ? sports[num].link[0] : placesToGo[num].link[0]), destination: URL(string: (cat == .craft ? crafts[num].link[1] : cat == .sport ? sports[num].link[1] : placesToGo[num].link[1]))!)
                     
                 }
-                .padding(10)
                 
-            }
-            .padding(15)
+                HStack {
+                    Text(cat == .craft ? crafts[num].title : cat == .sport ? sports[num].title : placesToGo[num].title)
+                        .font(.title)
+                        .bold()
+                    Spacer()
+                    Image(systemName: cat == .craft ?
+                          crafts[num].isSaved ?  "bookmark.fill" : "bookmark"
+                          : cat == .place ?
+                          placesToGo[num].isSaved ? "bookmark.fill" : "bookmark"
+                          : sports[num].isSaved ? "bookmark.fill" : "bookmark")
+                    .foregroundColor(.gray)
+                    .font(.title)
+                    .onTapGesture {
+                        if cat == .craft {
+                            crafts[num].isSaved.toggle()
+                        } else if cat == .sport {
+                            sports[num].isSaved.toggle()
+                        } else {
+                            placesToGo[num].isSaved.toggle()
+                        }
+                    }
+                    
+                }
+                .padding(25)
+                
+                VStack (alignment: .leading) {
+                    VStack(alignment:.leading) {
+                        Text("Description")
+                            .bold()
+                        Text(cat == .craft ? crafts[num].description : cat == .sport ? sports[num].description : placesToGo[num].description)
+                    }
+                    .padding(10)
+                    
+                    if cat == .place {
+                        VStack(alignment:.leading) {
+                            Text("Address")
+                                .bold()
+                            Text(placesToGo[num].address)
+                        }
+                        .padding(10)
+                        VStack(alignment:.leading) {
+                            Text("Opening Hours")
+                                .bold()
+                            Text(placesToGo[num].openingHours)
+                        }
+                        .padding(10)
+                    } else {
+                        EmptyView()
+                    }
+                    
+                    if cat == .craft {
+                        VStack(alignment: .leading) {
+                            Text("Materials")
+                                .bold()
+                            Text(crafts[num].materials)
+                        }
+                        .padding(10)
+                    } else {
+                        EmptyView()
+                    }
+                    
+                    if cat == .sport {
+                        VStack(alignment: .leading) {
+                            Text("Equipment")
+                                .bold()
+                            Text(sports[num].equipment)
+                        }
+                        .padding(10)
+                        VStack(alignment: .leading) {
+                            Text("Benefits")
+                                .bold()
+                            Text(sports[num].benefits)
+                        }
+                        .padding(10)
+                    } else {
+                        EmptyView()
+                    }
+                    
+                    VStack(alignment: .leading) {
+                        Text("Link")
+                            .bold()
+                        
+                        Link((cat == .craft ? crafts[num].link[0] : cat == .sport ? sports[num].link[0] : placesToGo[num].link[0]), destination: URL(string: (cat == .craft ? crafts[num].link[1] : cat == .sport ? sports[num].link[1] : placesToGo[num].link[1]))!)
+                        
+                    }
+                    .padding(10)
+                    
+                }
+            } .padding(15)
         }
     }
 }
 
 struct ActivityDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-        ActivityDescriptionView(placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", openingHours: "demo", link: ["demo"], image: ["demo"])]),
-                                crafts: .constant([Craft(title: "demo", description: "demo", materials: "demo", link: ["demo"], image: ["demo"])]),
-                                sports: .constant([Sport(title: "demo", description: "demo", benefits: "demo", equipment: "demo", link: ["demo"], image: ["demo"])]),
-                                num: .constant(0), cat: .constant(Category.sport))
+        ActivityDescriptionView(
+            placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", openingHours: "demo", link: ["demo"], image: ["demo"])]),
+            crafts: .constant([Craft(title: "demo", description: "demo", materials: "demo", link: ["demo"], image: ["demo"])]),
+            sports: .constant([Sport(title: "demo", description: "demo", benefits: "demo", equipment: "demo", link: ["demo"], image: ["demo"])]),
+            num: .constant(0),
+            cat: .constant(Category.sport))
     }
 }
