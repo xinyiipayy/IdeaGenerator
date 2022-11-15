@@ -134,6 +134,6 @@ struct SavedView: View {
 
 struct SavedView_Previews: PreviewProvider {
     static var previews: some View {
-        SavedView(placesToGo: .constant([Place (title: "demo", description: "demo", address: "demp", openingHours: "demo", link: "demo")]), crafts: .constant([Craft(title: "demo", description: "demo", materials: "demo", link: "demo")]), sports: .constant([Sport(title: "demo", description: "demo", benefits: "demo", equipment: "demo", link: "demo")]))
+        SavedView(placesToGo: .constant([Place (title: "demo", description: "demo", address: "demp", openingHours: "demo", link: ["demo"])]), crafts: .constant([Craft(title: "demo", description: "demo", materials: "demo", link: ["demo"])]), sports: .constant([Sport(title: "demo", description: "demo", benefits: "demo", equipment: "demo", link: ["demo"])]))
     }
 }
