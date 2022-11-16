@@ -26,8 +26,8 @@ struct ActivityDescriptionView: View {
                 VStack {
                     TabView(selection: $imageNum) {
                         if cat == .craft {
-                            ForEach(crafts) { craft in
-                                Image(crafts[num].image[imageNum])
+                            ForEach(0..<crafts[num].image.count) { imageNumber in
+                                Image(crafts[num].image[imageNumber])
                                     .resizable()
                                     .scaledToFit()
                                     .cornerRadius(10)
@@ -35,8 +35,8 @@ struct ActivityDescriptionView: View {
                         }
                         
                         if cat == .sport {
-                            ForEach(sports) { sport in
-                                Image(sports[num].image[imageNum])
+                            ForEach(0..<sports[num].image.count) { imageNumber in
+                                Image(sports[num].image[imageNumber])
                                     .resizable()
                                     .scaledToFit()
                                     .cornerRadius(10)
@@ -44,8 +44,8 @@ struct ActivityDescriptionView: View {
                         }
                         
                         if cat == .place {
-                            ForEach(placesToGo) { place in
-                                Image(placesToGo[num].image[imageNum])
+                            ForEach(0..<placesToGo[num].image.count) { imageNumber in
+                                Image(placesToGo[num].image[imageNumber])
                                     .resizable()
                                     .scaledToFit()
                                     .cornerRadius(10)
@@ -59,7 +59,7 @@ struct ActivityDescriptionView: View {
                 
                 HStack {
                     Spacer()
-                    ForEach(0..<3) { index in
+                    ForEach(0..<placesToGo[num].image.count) { index in
                         Circle()
                             .fill(index == imageNum ? Color.gray : Color.gray.opacity(0.5))
                             .frame(width: 10, height: 10)
