@@ -96,10 +96,10 @@ struct GeneratorView: View {
                     
                     HStack {
                         Image(systemName: "arrow.clockwise")
-                            .foregroundColor(Color("darkYellow"))
+                            .foregroundColor(Color(cat == .craft ? "darkYellow" : cat == .place ? "darkRed" : "darkBlue"))
                         Text("Reshuffle")
                             .font(.system(size: 20, weight: .medium))
-                            .foregroundColor(Color("darkYellow"))
+                            .foregroundColor(Color(cat == .craft ? "darkYellow" : cat == .place ? "darkRed" : "darkBlue"))
                     }
                 }
             }
