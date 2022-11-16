@@ -48,7 +48,7 @@ struct SavedView: View {
                     }
                     if showCrafts == true {
                         if crafts.filter { $0.isSaved }.count == 0 {
-                            Text("There are no saved ideas for this category.")
+                            Text("No Saved Ideas")
                                 .foregroundColor(.gray)
                                 .padding(5)
                         } else if showCrafts == true {
