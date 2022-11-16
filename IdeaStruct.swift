@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum Category: Codable {
     case craft
@@ -54,3 +55,4 @@ struct Place: Identifiable, Codable, Equatable {
     var isSaved: Bool = false
     var image: [String]
 }
+
