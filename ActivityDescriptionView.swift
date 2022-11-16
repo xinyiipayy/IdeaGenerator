@@ -22,7 +22,7 @@ struct ActivityDescriptionView: View {
     
     var body: some View {
         ScrollView {
-            VStack (alignment: .leading) {
+            VStack (alignment: .leading, spacing: 10) {
                 VStack {
                     TabView(selection: $imageNum) {
                         if cat == .craft {
@@ -58,6 +58,17 @@ struct ActivityDescriptionView: View {
                 .frame(height: 250)
                 
                 HStack {
+                    Spacer()
+                    ForEach(0..<3) { index in
+                        Circle()
+                            .fill(index == imageNum ? Color.gray : Color.gray.opacity(0.5))
+                            .frame(width: 10, height: 10)
+                    }
+                    Spacer()
+                }
+                
+                
+                HStack {
                     VStack {
                         Button {
                             if imageNum != 0 {
@@ -76,14 +87,6 @@ struct ActivityDescriptionView: View {
                                 .foregroundColor(.gray)
                                 .font(.title)
                         }
-                    }
-                    
-                    Spacer()
-                    
-                    ForEach(0..<3) { index in
-                        Circle()
-                            .fill(index == imageNum ? Color.gray : Color.gray.opacity(0.5))
-                            .frame(width: 10, height: 10)
                     }
                     
                     Spacer()

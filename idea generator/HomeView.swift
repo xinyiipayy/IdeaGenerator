@@ -33,7 +33,7 @@ struct HomeView: View {
                 NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, cat: $cat).onAppear {
                     cat = .sport
                 } ) {
-                    Image("Screenshot 2022-11-05 at 10.26.16 AM")
+                    Image("Screenshot 2022-11-16 at 8.41.56 AM")
                         .resizable()
                         .scaledToFit()
                         .padding(10)
