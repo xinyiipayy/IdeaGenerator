@@ -55,10 +55,24 @@ struct ActivityDescriptionView: View {
                 
                 HStack {
                     Spacer()
-                    ForEach(0..<placesToGo[num].image.count) { index in
-                        Circle()
-                            .fill(index == imageNum ? Color.gray : Color.gray.opacity(0.5))
-                            .frame(width: 10, height: 10)
+                    if cat == .place {
+                        ForEach(0..<placesToGo[num].image.count) { index in
+                            Circle()
+                                .fill(index == imageNum ? Color.gray : Color.gray.opacity(0.5))
+                                .frame(width: 10, height: 10)
+                        }
+                    }  else if cat == .craft {
+                        ForEach(0..<crafts[num].image.count) { index in
+                            Circle()
+                                .fill(index == imageNum ? Color.gray : Color.gray.opacity(0.5))
+                                .frame(width: 10, height: 10)
+                        }
+                    } else {
+                        ForEach(0..<sports[num].image.count) { index in
+                            Circle()
+                                .fill(index == imageNum ? Color.gray : Color.gray.opacity(0.5))
+                                .frame(width: 10, height: 10)
+                        }
                     }
                     Spacer()
                 }
