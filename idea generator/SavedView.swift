@@ -26,102 +26,123 @@ struct SavedView: View {
                         .font(.title)
                         .bold()
                     Spacer()
-                    
                 }
                 
-                HStack {
-                    Text("Arts & Craft")
-                        .bold()
-                        .padding()
-                        .font(.headline)
-                    Spacer()
-                }
-                ForEach(crafts) { craft in
-                    if craft.isSaved == true {
-                        Button {
-                            cat = .craft
-                            num = 0
-                            while crafts[num].title != craft.title {
-                                num += 1
-                            }
-                            isSheetShown = true
-                        } label: {
-                            Text(craft.title)
-                                .bold()
-                                .padding()
-                                .frame(width: 350, height: 55)
-                                .background(Color("lightYellow"))
-                                .cornerRadius(10)
-                                .foregroundColor(Color("darkYellow"))
-                        }
+                VStack {
+                    HStack {
+                        Text("Arts & Craft")
+                            .bold()
+                            .font(.headline)
+                        Spacer()
+                    }
+                    if crafts.filter { $0.isSaved }.count == 0 {
+                        Text("There are no saved ideas for this category.")
+                            .foregroundColor(.gray)
+                            .padding(5)
                     } else {
-                        EmptyView()
+                        ForEach(crafts) { craft in
+                            if craft.isSaved == true {
+                                Button {
+                                    cat = .craft
+                                    num = 0
+                                    while crafts[num].title != craft.title {
+                                        num += 1
+                                    }
+                                    isSheetShown = true
+                                } label: {
+                                    Text(craft.title)
+                                        .bold()
+                                        .padding()
+                                        .frame(width: 350, height: 55)
+                                        .background(Color("lightYellow"))
+                                        .cornerRadius(10)
+                                        .foregroundColor(Color("darkYellow"))
+                                }
+                            } else {
+                                EmptyView()
+                            }
+                        }
                     }
                 }
+                .padding(10)
                 
-                
-                HStack {
-                    Text("Sports")
-                        .bold()
-                        .padding()
-                        .font(.headline)
-                    Spacer()
-                }
-                ForEach(sports) { sport in
-                    if sport.isSaved == true {
-                        Button {
-                            cat = .sport
-                            num = 0
-                            while sports[num].title != sport.title {
-                                num += 1
-                            }
-                            isSheetShown = true
-                        } label: {
-                            Text(sport.title)
-                                .bold()
-                                .padding()
-                                .frame(width: 350, height: 55)
-                                .background(Color("lightBlue"))
-                                .cornerRadius(10)
-                                .foregroundColor(Color("darkBlue"))
-                        }
-                        
+                VStack {
+                    HStack {
+                        Text("Sports")
+                            .bold()
+                            .font(.headline)
+                        Spacer()
+                    }
+                    if sports.filter { $0.isSaved }.count == 0 {
+                        Text("There are no saved ideas for this category.")
+                            .foregroundColor(.gray)
+                            .padding(5)
                     } else {
-                        EmptyView()
+                        ForEach(sports) { sport in
+                            if sport.isSaved == true {
+                                Button {
+                                    cat = .sport
+                                    num = 0
+                                    while sports[num].title != sport.title {
+                                        num += 1
+                                    }
+                                    isSheetShown = true
+                                } label: {
+                                    Text(sport.title)
+                                        .bold()
+                                        .padding()
+                                        .frame(width: 350, height: 55)
+                                        .background(Color("lightBlue"))
+                                        .cornerRadius(10)
+                                        .foregroundColor(Color("darkBlue"))
+                                }
+                                
+                            } else {
+                                EmptyView()
+                            }
+                        }
                     }
                 }
+                .padding(10)
                 
-                HStack {
-                    Text("Places to Go")
-                        .bold()
-                        .padding()
-                        .font(.headline)
-                    Spacer()
-                }
-                ForEach(placesToGo) { placeToGo in
-                    
-                    if placeToGo.isSaved == true {
-                        Button {
-                            cat = .place
-                            num = 0
-                            while placesToGo[num].title != placeToGo.title {
-                                num += 1
-                            }
-                            isSheetShown = true
-                        } label: {
-                            Text(placeToGo.title)
-                                .bold()
-                                .padding()
-                                .frame(width: 350, height: 55)
-                                .background(Color("lightRed"))
-                                .cornerRadius(10)
-                                .foregroundColor(Color("darkRed"))
-                        }
-                        
+                VStack {
+                    HStack {
+                        Text("Places to Go")
+                            .bold()
+                            .font(.headline)
+                        Spacer()
+                    }
+                    if placesToGo.filter { $0.isSaved }.count == 0 {
+                        Text("There are no saved ideas for this category.")
+                            .foregroundColor(.gray)
+                            .padding(5)
                     } else {
-                        EmptyView()
+                        ForEach(placesToGo) { placeToGo in
+                            if placeToGo.isSaved == true {
+                                Button {
+                                    cat = .place
+                                    num = 0
+                                    while placesToGo[num].title != placeToGo.title {
+                                        num += 1
+                                    }
+                                    isSheetShown = true
+                                } label: {
+                                    Text(placeToGo.title)
+                                        .bold()
+                                        .padding()
+                                        .frame(width: 350, height: 55)
+                                        .background(Color("lightRed"))
+                                        .cornerRadius(10)
+                                        .foregroundColor(Color("darkRed"))
+                                }
+                                
+                            } else {
+                                EmptyView()
+                            }
+                        }
                     }
                 }
+                .padding(10)
                 
                 Spacer()
                 
