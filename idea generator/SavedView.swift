@@ -97,7 +97,7 @@ struct SavedView: View {
                     }
                     if showSports == true {
                         if sports.filter { $0.isSaved }.count == 0 {
-                            Text("There are no saved ideas for this category.")
+                            Text("No Saved Ideas")
                                 .foregroundColor(.gray)
                                 .padding(5)
                         } else {
@@ -146,7 +146,7 @@ struct SavedView: View {
                     }
                     if showPlaces == true {
                         if placesToGo.filter { $0.isSaved }.count == 0 {
-                            Text("There are no saved ideas for this category.")
+                            Text("No Saved Ideas")
                                 .foregroundColor(.gray)
                                 .padding(5)
                         } else {
