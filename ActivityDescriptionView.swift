@@ -160,12 +160,20 @@ struct ActivityDescriptionView: View {
                     VStack(alignment: .leading) {
                         Text("Notes")
                             .bold()
-                        TextField("Add notes here", text: cat ==  .craft ? $crafts[num].notes : cat == .place ? $placesToGo[num].notes : $sports[num].notes)
-                            .padding(10)
-                            .border(.gray)
+                        if #available(iOS 16.0, *) {
+                            TextField("Add notes here", text: cat ==  .craft ? $crafts[num].notes : cat == .place ? $placesToGo[num].notes : $sports[num].notes, axis: .vertical)
+                                .padding(10)
+                                .border(.gray)
+                        } else {
+                            TextField("Add notes here", text: cat == .craft ? $crafts[num].notes : cat == .place ? $placesToGo[num].notes : $sports[num].notes)
+                                .frame(height: 40)
+                                .padding(10)
+                                .border(.gray)
+                        }
                             
                     }
                     .padding(10)
+                    .lineLimit(/*@START_MENU_TOKEN@*/3/*@END_MENU_TOKEN@*/)
                 }
             }
         } .padding(15)
