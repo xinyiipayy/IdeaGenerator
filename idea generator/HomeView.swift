@@ -17,42 +17,45 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView{
-            VStack(spacing: 10) {
-                
-                // arts and craft
-                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, cat: $cat).onAppear {
-                    cat = .craft
-                } ){
-                    Image("Screenshot 2022-10-22 at 10.44.00 AM")
-                        .resizable()
-                        .scaledToFit()
-                        .padding(10)
+            
+            ScrollView {
+                VStack() {
+                    // arts and craft
+                    NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, cat: $cat).onAppear {
+                        cat = .craft
+                    } ){
+                        Image("Screenshot 2022-10-22 at 10.44.00 AM")
+                            .resizable()
+                            .scaledToFit()
+                            .padding(10)
+                    }
+                    
+                    // sports
+                    NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, cat: $cat).onAppear {
+                        cat = .sport
+                    } ) {
+                        Image("Screenshot 2022-11-16 at 8.41.56 AM")
+                            .resizable()
+                            .scaledToFit()
+                            .padding(10)
+                    }
+                    // places
+                    NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, cat: $cat).onAppear {
+                        cat = .place
+                    } ) {
+                        Image("Screenshot 2022-10-22 at 10.50.02 AM")
+                            .resizable()
+                            .scaledToFit()
+                            .padding(10)
+                    }
+                    
+                    
+                    Spacer(minLength: 75)
                 }
+                .navigationTitle("Categories")
                 
-                // sports
-                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, cat: $cat).onAppear {
-                    cat = .sport
-                } ) {
-                    Image("Screenshot 2022-11-16 at 8.41.56 AM")
-                        .resizable()
-                        .scaledToFit()
-                        .padding(10)
-                }
-                // places
-                NavigationLink(destination: GeneratorView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, cat: $cat).onAppear {
-                    cat = .place
-                } ) {
-                    Image("Screenshot 2022-10-22 at 10.50.02 AM")
-                        .resizable()
-                        .scaledToFit()
-                        .padding(10)
-                }
-                
-                
-                Spacer(minLength: 75)
             }
             
-            .navigationTitle("Categories")
         }
         
         
