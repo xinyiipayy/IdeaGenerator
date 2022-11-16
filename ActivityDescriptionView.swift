@@ -125,6 +125,7 @@ struct ActivityDescriptionView: View {
                             }
                         }
                         .padding(10)
+                        
                     } else {
                         EmptyView()
                     }
@@ -160,6 +161,15 @@ struct ActivityDescriptionView: View {
                     }
                     .padding(10)
                     
+                    VStack(alignment: .leading) {
+                        Text("Notes")
+                            .bold()
+                        TextField("Add notes here", text: cat ==  .craft ? $crafts[num].notes : cat == .place ? $placesToGo[num].notes : $sports[num].notes)
+                            .padding(10)
+                            .border(.gray)
+                            
+                    }
+                    .padding(10)
                 }
             }
         } .padding(15)
@@ -169,9 +179,9 @@ struct ActivityDescriptionView: View {
 struct ActivityDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
         ActivityDescriptionView(
-            placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", openingHours: "demo", link: ["demo"], image: ["demo"], mapsLink: "demo")]),
-            crafts: .constant([Craft(title: "demo", description: "demo", materials: ["demo"], link: ["demo"], image: ["demo"])]),
-            sports: .constant([Sport(title: "demo", description: "demo", benefits: ["demo"], equipment: ["demo"], link: ["demo"], image: ["demo"])]),
+            placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", openingHours: "demo", link: ["demo"], image: ["demo"], mapsLink: "demo", notes: "")]),
+            crafts: .constant([Craft(title: "demo", description: "demo", materials: ["demo"], link: ["demo"], image: ["demo"], notes: "")]),
+            sports: .constant([Sport(title: "demo", description: "demo", benefits: ["demo"], equipment: ["demo"], link: ["demo"], image: ["demo"], notes: "")]),
             num: .constant(0),
             cat: .constant(Category.sport))
     }

@@ -26,6 +26,7 @@ struct Craft: Identifiable, Codable, Equatable {
     var otherInfo: String?
     var isSaved: Bool = false
     var image: [String]
+    var notes: String
 }
 
 struct Sport: Identifiable, Codable, Equatable {
@@ -40,6 +41,7 @@ struct Sport: Identifiable, Codable, Equatable {
     var otherInfo: String?
     var isSaved: Bool = false
     var image: [String]
+    var notes: String
 }
 
 struct Place: Identifiable, Codable, Equatable {
@@ -55,5 +57,6 @@ struct Place: Identifiable, Codable, Equatable {
     var isSaved: Bool = false
     var image: [String]
     var mapsLink: String
+    var notes: String 
 }
 
