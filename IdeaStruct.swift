@@ -51,12 +51,12 @@ struct Place: Identifiable, Codable, Equatable {
     var title: String
     var description: String
     var address: String
+    var mapsLink: String
     var openingHours: String
     var link: [String]
     var otherInfo: String?
     var isSaved: Bool = false
     var image: [String]
-    var mapsLink: String
     var notes: String 
 }
 
