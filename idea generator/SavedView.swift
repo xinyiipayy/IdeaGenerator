@@ -21,14 +21,21 @@ struct SavedView: View {
         
         ScrollView {
             VStack (alignment: .leading) {
-                Text("Saved Ideas")
-                    .font(.title)
-                    .bold()
+                HStack {
+                    Text("Saved Ideas")
+                        .font(.title)
+                        .bold()
+                    Spacer()
+                    
+                }
                 
-                Text("Arts & Craft")
-                    .bold()
-                    .padding()
-                    .font(.headline)
+                HStack {
+                    Text("Arts & Craft")
+                        .bold()
+                        .padding()
+                        .font(.headline)
+                    Spacer()
+                }
                 ForEach(crafts) { craft in
                     if craft.isSaved == true {
                         Button {
@@ -53,10 +60,13 @@ struct SavedView: View {
                 }
                 
                 
-                Text("Sports")
-                    .bold()
-                    .padding()
-                    .font(.headline)
+                HStack {
+                    Text("Sports")
+                        .bold()
+                        .padding()
+                        .font(.headline)
+                    Spacer()
+                }
                 ForEach(sports) { sport in
                     if sport.isSaved == true {
                         Button {
@@ -81,10 +91,13 @@ struct SavedView: View {
                     }
                 }
                 
-                Text("Places to Go")
-                    .bold()
-                    .padding()
-                    .font(.headline)
+                HStack {
+                    Text("Places to Go")
+                        .bold()
+                        .padding()
+                        .font(.headline)
+                    Spacer()
+                }
                 ForEach(placesToGo) { placeToGo in
                     
                     if placeToGo.isSaved == true {
@@ -124,7 +137,7 @@ struct SavedView: View {
 
 struct SavedView_Previews: PreviewProvider {
     static var previews: some View {
-        SavedView(placesToGo: .constant([Place (title: "demo", description: "demo", address: "demp", openingHours: "demo", link: ["demo"], image: ["demo"])]),
+        SavedView(placesToGo: .constant([Place (title: "demo", description: "demo", address: "demp", openingHours: "demo", link: ["demo"], image: ["demo"], mapsLink: "demo")]),
                   crafts: .constant([Craft(title: "demo", description: "demo", materials: ["demo"], link: ["demo"], image: ["demo"])]),
                   sports: .constant([Sport(title: "demo", description: "demo", benefits: ["demo"], equipment: ["demo"], link: ["demo"], image: ["demo"])]))
     }

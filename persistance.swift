@@ -14,19 +14,22 @@ var defaultPlaces = [Place(title: "Universal Studios Singapore",
                            address: "8 Sentosa Gateway, 098269",
                            openingHours: "11am - 6pm, 7:30pm - 12:30am",
                            link: ["universal studios website", "https://www.rwsentosa.com/en/attractions/universal-studios-singapore"],
-                           image: ["a", "b", "c"]),
+                           image: ["a", "b", "c"],
+                           mapsLink: "https://www.google.com/maps/place/Universal+Studios+Singapore/@1.2564088,103.8133586,14.48z/data=!3m1!5s0x31da19042de382df:0x5bbfe003fe5e690!4m12!1m6!3m5!1s0x31da191c912bf9b1:0xdf24c36ca4cabf1a!2sMarina+Bay+Sands!8m2!3d1.284276!4d103.8600246!3m4!1s0x31da1955a615a343:0x3094037d34e6529f!8m2!3d1.2540421!4d103.8238084"),
                      Place(title: "Jewel Changi Airport",
                            description: "Lush, 10-floor retail complex with hundreds of shops & eateries, indoor gardens & a 40-m waterfall",
                            address: "78 Airport Blvd., Singapore 819666",
                            openingHours: "Open 24 hours",
                            link: ["jewel changi airport website", "https://www.jewelchangiairport.com/en/ticketing.html"],
-                           image: ["a", "b", "c"]),
+                           image: ["a", "b", "c"],
+                           mapsLink: "https://www.google.com/maps/place/Jewel+Changi+Airport/@1.3563107,103.9829797,14.59z/data=!3m1!5s0x31da3c8963249ae3:0xc4789872c75c8dc0!4m5!3m4!1s0x31da17be147e79c3:0xb809d0f172526ac3!8m2!3d1.3602082!4d103.9897593"),
                      Place(title: "Wild Wild Wet",
                            description: "Wild Wild Wet is one of Singapore's largest water parks that promises a day of thrills and spills for the whole family.",
                            address: "1 Pasir Ris Cl, Singapore 519599",
                            openingHours: "12pm - 6pm",
                            link: ["book tickets here!", "https://www.wildwildwet.com"],
-                           image: ["a", "b", "c"])]
+                           image: ["a", "b", "c"],
+                           mapsLink: "https://www.google.com/maps/place/Wild+Wild+Wet/@1.3775946,103.9522356,17z/data=!3m1!4b1!4m5!3m4!1s0x31da3db15183fc2b:0xb94e26060c533c72!8m2!3d1.3775946!4d103.9544243")]
 class PlacesToGoManager: ObservableObject {
     @Published var placesToGo: [Place] = defaultPlaces {
         didSet {
@@ -176,13 +179,7 @@ var defaultSports = [Sport(title: "Soccer",
                            benefits: ["Hone life skills", "understand theory through real life application"],
                            equipment: ["Drone"],
                            link: ["https://www.youtube.com/watch?v=GZDmhJ79wv0"],
-                           image: ["a","b","c"]),
-                     Sport(title: <#T##String#>,
-                           description: <#T##String#>,
-                           benefits: <#T##[String]#>,
-                           equipment: <#T##[String]#>,
-                           link: <#T##[String]#>,
-                           image: <#T##[String]#>)]
+                           image: ["a","b","c"]),]
 class SportsManager: ObservableObject {
     @Published var sports: [Sport] = defaultSports {
         didSet {

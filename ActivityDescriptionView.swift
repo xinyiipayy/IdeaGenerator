@@ -67,50 +67,6 @@ struct ActivityDescriptionView: View {
                     Spacer()
                 }
                 
-                
-                HStack {
-                    VStack {
-                        Button {
-                            if imageNum != 0 {
-                                imageNum = imageNum - 1
-                            } else {
-                                if cat == .craft {
-                                    imageNum = crafts[num].image.count - 1
-                                } else if cat == .sport {
-                                    imageNum = sports[num].image.count - 1
-                                } else if cat == .place {
-                                    imageNum = placesToGo[num].image.count - 1
-                                }
-                            }
-                        } label: {
-                            Image(systemName: "lessthan.circle.fill")
-                                .foregroundColor(.gray)
-                                .font(.title)
-                        }
-                    }
-                    
-                    Spacer()
-                    
-                    VStack {
-                        Button {
-                            imageNum2 = imageNum + 1
-                            if imageNum2 < crafts[num].image.count && cat == .craft{
-                                imageNum += 1
-                            } else if imageNum2 < sports[num].image.count && cat == .sport {
-                                imageNum += 1
-                            } else if imageNum2 < placesToGo[num].image.count && cat == .place {
-                                imageNum += 1
-                            } else {
-                                imageNum = 0
-                            }
-                        } label: {
-                            Image(systemName: "greaterthan.circle.fill")
-                                .foregroundColor(.gray)
-                                .font(.title)
-                        }
-                    }
-                }
-                
                 HStack {
                     Text(cat == .craft ? crafts[num].title : cat == .sport ? sports[num].title : placesToGo[num].title)
                         .font(.title)
@@ -147,7 +103,7 @@ struct ActivityDescriptionView: View {
                         VStack(alignment:.leading) {
                             Text("Address")
                                 .bold()
-                            Text(placesToGo[num].address)
+                            Link((placesToGo[num].address), destination: URL(string: (placesToGo[num].mapsLink))!)
                         }
                         .padding(10)
                         VStack(alignment:.leading) {
@@ -213,7 +169,7 @@ struct ActivityDescriptionView: View {
 struct ActivityDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
         ActivityDescriptionView(
-            placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", openingHours: "demo", link: ["demo"], image: ["demo"])]),
+            placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", openingHours: "demo", link: ["demo"], image: ["demo"], mapsLink: "demo")]),
             crafts: .constant([Craft(title: "demo", description: "demo", materials: ["demo"], link: ["demo"], image: ["demo"])]),
             sports: .constant([Sport(title: "demo", description: "demo", benefits: ["demo"], equipment: ["demo"], link: ["demo"], image: ["demo"])]),
             num: .constant(0),

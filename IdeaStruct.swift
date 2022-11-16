@@ -54,5 +54,6 @@ struct Place: Identifiable, Codable, Equatable {
     var otherInfo: String?
     var isSaved: Bool = false
     var image: [String]
+    var mapsLink: String
 }
 
