@@ -15,10 +15,6 @@ struct ActivityDescriptionView: View {
     @Binding var cat: Category
     
     @State var imageNum = 0
-    @State var imageNum2 = 1
-    @State var maxNum = 2
-    
-    let screenWidth = UIScreen.main.bounds.size.width
     
     var body: some View {
         ScrollView {
