@@ -14,6 +14,13 @@ struct GeneratorView: View {
     @Binding var sports: [Sport]
     @Binding var cat: Category
     
+    @State var animationAngle: Double = 0
+    @State var animationOpacity: Double = 1
+    @State var size: CGFloat = 1
+    @State var animationOffset1: CGFloat = 0
+    @State var animationOffset2: CGFloat = 0
+    @State var animationOffset3: CGFloat = 0
+    
     @State var num = 0
     
     var body: some View {
@@ -29,7 +36,6 @@ struct GeneratorView: View {
                     Rectangle()
                         .frame(width: 360, height: 80)
                         .cornerRadius(10)
-                    //.foregroundColor(Color("lightBlue"))
                         .foregroundColor(Color(cat == .craft ? "lightYellow" : cat == .place ? "lightRed" : "lightBlue"))
                         .opacity(0.5)
                     
@@ -38,6 +44,10 @@ struct GeneratorView: View {
                         .font(.system(size: 20, weight: .bold))
                         .padding()
                 }
+//                .rotation3DEffect(Angle(degrees: animationAngle), axis: (x: 1, y: 1, z: 1))
+//                .opacity(animationOpacity)
+//                .scaleEffect(size)
+                .offset(x: 0, y: animationOffset1)
             }
             
             Button {
@@ -57,7 +67,10 @@ struct GeneratorView: View {
                         .font(.system(size: 20, weight: .bold))
                         .padding()
                 }
-                
+//                .rotation3DEffect(Angle(degrees: animationAngle), axis: (x: 1, y: 1, z: 1))
+//                .opacity(animationOpacity)
+//                .scaleEffect(size)
+//                .offset(x: 0, y: animationOffset2)
             }
             
             Button {
@@ -77,6 +90,10 @@ struct GeneratorView: View {
                         .font(.system(size: 20, weight: .bold))
                         .padding()
                 }
+//                .rotation3DEffect(Angle(degrees: animationAngle), axis: (x: 1, y: 1, z: 1))
+//                .opacity(animationOpacity)
+//                .scaleEffect(size)
+                .offset(x: 0, y: animationOffset3)
             }
             
             Spacer()
@@ -85,6 +102,51 @@ struct GeneratorView: View {
                 placesToGo = placesToGo.shuffled()
                 crafts = crafts.shuffled()
                 sports = sports.shuffled()
+                withAnimation(.easeInOut(duration: 1)) {
+                    size = 0.2
+                }
+                withAnimation(.easeOut(duration: 2)) {
+                    animationOpacity = 0.0
+                }
+                withAnimation(.easeOut(duration: 2)) {
+                    animationOffset1 = 300
+                    animationOffset3 = -300
+                }
+//                withAnimation(.easeIn(duration: 5).delay(5)) {
+//                    animationOffset1 = 1000
+//                    animationOffset2 = 1000
+//                    animationOffset3 = 1000
+//                }
+                
+                
+                withAnimation(.easeInOut(duration: 1)) {
+                    animationAngle += 1.0
+                    while animationAngle != 0.0 && animationAngle != 360{
+                        animationAngle += 1
+                    }
+                }
+                animationAngle = 0
+                withAnimation(.easeOut(duration: 2)) {
+                    animationOpacity = 1.0
+                }
+                withAnimation(.easeInOut(duration: 1)) {
+                    size = 1
+                }
+                withAnimation(.easeOut(duration: 2)) {
+                    animationOffset1 = 0
+                    animationOffset3 = 0
+                }
+//                withAnimation(.easeIn(duration: 0).delay(10)) {
+//                    animationOffset1 = -1000
+//                    animationOffset2 = -1000
+//                    animationOffset3 = -1000
+//                }
+//                withAnimation(.easeOut(duration: 2).delay(15)) {
+//                    animationOffset1 = 0
+//                    animationOffset2 = 0
+//                    animationOffset3 = 0
+//                }
+                
                 
             } label: {
                 ZStack {
@@ -118,7 +180,7 @@ struct GeneratorView: View {
 
 struct GeneratorView_Previews: PreviewProvider {
     static var previews: some View {
-        GeneratorView(placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", openingHours: "demo", link: ["demo"], image: ["demo"], mapsLink: "demo", notes: "")]),
+        GeneratorView(placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", mapsLink: "demo", openingHours: "demo", link: ["demo"], image: ["demo"], notes: "")]),
                       crafts: .constant([Craft(title: "demo", description: "demo", materials: ["demo"], link: ["demo"], image: ["demo"], notes: "")]),
                       sports: .constant([Sport(title: "demo", description: "demo", benefits: ["demo"], equipment: ["demo"], link: ["demo"], image: ["demo"], notes: "")]),
                       cat: .constant(Category.place))

@@ -197,7 +197,7 @@ struct ActivityDescriptionView: View {
 struct ActivityDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
         ActivityDescriptionView(
-            placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", openingHours: "demo", link: ["demo"], image: ["demo"], mapsLink: "demo", notes: "")]),
+            placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", mapsLink: "demo", openingHours: "demo", link: ["demo"], image: ["demo"], notes: "")]),
             crafts: .constant([Craft(title: "demo", description: "demo", materials: ["demo"], link: ["demo"], image: ["demo"], notes: "")]),
             sports: .constant([Sport(title: "demo", description: "demo", benefits: ["demo"], equipment: ["demo"], link: ["demo"], image: ["demo"], notes: "")]),
             num: .constant(0),
