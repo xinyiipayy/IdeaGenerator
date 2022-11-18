@@ -38,7 +38,7 @@ struct Sport: Identifiable, Codable, Equatable {
     var benefits: [String]
     var equipment: [String]
     var link: [String]
-    var otherInfo: String?
+    var suggestedPlace: [String]
     var isSaved: Bool = false
     var image: [String]
     var notes: String
