@@ -107,11 +107,10 @@ struct GeneratorView: View {
                 }
             } label: {
                 ZStack {
-                    Rectangle()
+                    RoundedRectangle(cornerRadius: 15, style: .circular)
+                        .stroke(.gray, lineWidth: 1.5)
+                        .background(.clear)
                         .frame(width: 180, height: 50)
-                        .cornerRadius(15)
-                        .foregroundColor(.white)
-                        .shadow(color: .gray, radius: 3, x: 0, y: 2)
                     
                     HStack {
                         Image(systemName: "arrow.clockwise")
