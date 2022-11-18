@@ -16,6 +16,7 @@ struct GeneratorView: View {
     
     @State var animationOffset1: CGFloat = 0
     @State var animationOffset3: CGFloat = 0
+    @State var textOpacity: Double = 1
     
     @State var num = 0
     
@@ -39,6 +40,7 @@ struct GeneratorView: View {
                         .foregroundColor(Color(cat == .craft ? "darkYellow" : cat == .place ? "darkRed" : "darkBlue"))
                         .font(.system(size: 20, weight: .bold))
                         .padding()
+                        .opacity(textOpacity)
                 }
                 .offset(x: 0, y: animationOffset1)
             }
@@ -59,6 +61,7 @@ struct GeneratorView: View {
                         .foregroundColor(Color(cat == .craft ? "darkYellow" : cat == .place ? "darkRed" : "darkBlue"))
                         .font(.system(size: 20, weight: .bold))
                         .padding()
+                        .opacity(textOpacity)
                 }
             }
             
@@ -78,6 +81,7 @@ struct GeneratorView: View {
                         .foregroundColor(Color(cat == .craft ? "darkYellow" : cat == .place ? "darkRed" : "darkBlue"))
                         .font(.system(size: 20, weight: .bold))
                         .padding()
+                        .opacity(textOpacity)
                 }
                 .offset(x: 0, y: animationOffset3)
             }
@@ -85,20 +89,25 @@ struct GeneratorView: View {
             Spacer()
             
             Button {
-                withAnimation(.easeOut(duration: 1)) {
-                    animationOffset1 = 75
-                    animationOffset3 = -75
+                withAnimation(.easeIn(duration: 0.2)) {
+                    textOpacity = 0
+                }
+                withAnimation(.easeOut(duration: 1).delay(0.5)) {
+                    animationOffset1 = 120
+                    animationOffset3 = -120
                 }
                 
                 placesToGo = placesToGo.shuffled()
                 crafts = crafts.shuffled()
                 sports = sports.shuffled()
                 
-                withAnimation(.easeOut(duration: 1).delay(2)) {
+                withAnimation(.easeOut(duration: 1).delay(1)) {
                     animationOffset1 = 0
                     animationOffset3 = 0
                 }
-                
+                withAnimation(.easeOut(duration: 0.5).delay(2)) {
+                    textOpacity = 1
+                }
             } label: {
                 ZStack {
                     Rectangle()
