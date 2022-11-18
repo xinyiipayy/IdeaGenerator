@@ -63,13 +63,21 @@ struct NotesView: View {
                                         }
                                         isSheetShown = true
                                     } label: {
-                                        Text(craft.title)
-                                            .bold()
-                                            .padding()
-                                            .frame(width: 350, height: 55)
-                                            .background(Color("lightYellow"))
-                                            .cornerRadius(10)
-                                            .foregroundColor(Color("darkYellow"))
+                                        VStack (alignment: .leading) {
+                                            HStack {
+                                                Text(craft.title)
+                                                    .bold()
+                                                    .foregroundColor(Color("darkYellow"))
+                                                Spacer()
+                                            }
+                                            Text("Notes: \(craft.notes)")
+                                                .foregroundColor(Color("darkYellow"))
+                                                .padding(5)
+                                        }
+                                        .padding(15)
+                                        .frame(width: 350)
+                                        .background(Color("lightYellow"))
+                                        .cornerRadius(10)
                                     }
                                 } else {
                                     EmptyView()
@@ -112,13 +120,21 @@ struct NotesView: View {
                                         }
                                         isSheetShown = true
                                     } label: {
-                                        Text(sport.title)
-                                            .bold()
-                                            .padding()
-                                            .frame(width: 350, height: 55)
-                                            .background(Color("lightBlue"))
-                                            .cornerRadius(10)
-                                            .foregroundColor(Color("darkBlue"))
+                                        VStack (alignment: .leading) {
+                                            HStack {
+                                                Text(sport.title)
+                                                    .bold()
+                                                    .foregroundColor(Color("darkBlue"))
+                                                Spacer()
+                                            }
+                                            Text("Notes: \(sport.notes)")
+                                                .foregroundColor(Color("darkBlue"))
+                                                .padding(5)
+                                        }
+                                        .padding(15)
+                                        .frame(width: 350)
+                                        .background(Color("lightBlue"))
+                                        .cornerRadius(10)
                                     }
                                 } else {
                                     EmptyView()
@@ -159,13 +175,21 @@ struct NotesView: View {
                                         }
                                         isSheetShown = true
                                     } label: {
-                                        Text(placeToGo.title)
-                                            .bold()
-                                            .padding()
-                                            .frame(width: 350, height: 55)
-                                            .background(Color("lightRed"))
-                                            .cornerRadius(10)
-                                            .foregroundColor(Color("darkRed"))
+                                        VStack (alignment: .leading) {
+                                            HStack {
+                                                Text(placeToGo.title)
+                                                    .bold()
+                                                    .foregroundColor(Color("darkRed"))
+                                                Spacer()
+                                            }
+                                            Text("Notes: \(placeToGo.notes)")
+                                                .foregroundColor(Color("darkRed"))
+                                                .padding(5)
+                                        }
+                                        .padding(15)
+                                        .frame(width: 350)
+                                        .background(Color("lightRed"))
+                                        .cornerRadius(10)
                                     }
                                     
                                 } else {

@@ -45,6 +45,7 @@ struct SavedView: View {
                                 .foregroundColor(.gray)
                                 .onTapGesture {
                                     displaySearch = false
+                                    search = ""
                                 }
                         }
                         Image(systemName: "magnifyingglass")
