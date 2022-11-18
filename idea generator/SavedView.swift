@@ -20,6 +20,8 @@ struct SavedView: View {
     @State var showCrafts = true
     @State var showSports = true
     @State var showPlaces = true
+    @State var search = ""
+    @State var displaySearch = false
     
     var body: some View {
         
@@ -30,6 +32,28 @@ struct SavedView: View {
                         .font(.title)
                         .bold()
                     Spacer()
+                }
+                
+                ZStack {
+                    TextField("Search saved ideas", text: $search)
+                        .padding(10)
+                        .border(.gray)
+                    HStack {
+                        Spacer()
+                        if displaySearch == true {
+                            Image(systemName: "xmark.circle")
+                                .foregroundColor(.gray)
+                                .onTapGesture {
+                                    displaySearch = false
+                                }
+                        }
+                        Image(systemName: "magnifyingglass")
+                            .padding(10)
+                    }
+                }
+                .padding(10)
+                .onTapGesture {
+                    displaySearch = true
                 }
                 
                 VStack {
@@ -47,13 +71,30 @@ struct SavedView: View {
                         Spacer()
                     }
                     if showCrafts == true {
-                        if crafts.filter { $0.isSaved }.count == 0 {
+                        if crafts.filter { displaySearch ? $0.isSaved && $0.title.contains(search) : $0.isSaved }.count == 0 {
                             Text("No Saved Ideas")
                                 .foregroundColor(.gray)
                                 .padding(5)
                         } else if showCrafts == true {
                             ForEach(crafts) { craft in
-                                if craft.isSaved == true {
+                                if craft.isSaved == true && displaySearch == false {
+                                    Button {
+                                        cat = .craft
+                                        num = 0
+                                        while crafts[num].title != craft.title {
+                                            num += 1
+                                        }
+                                        isSheetShown = true
+                                    } label: {
+                                        Text(craft.title)
+                                            .bold()
+                                            .padding()
+                                            .frame(width: 350, height: 55)
+                                            .background(Color("lightYellow"))
+                                            .cornerRadius(10)
+                                            .foregroundColor(Color("darkYellow"))
+                                    }
+                                } else if craft.isSaved == true && displaySearch == true && craft.title.contains(search) {
                                     Button {
                                         cat = .craft
                                         num = 0
@@ -102,7 +143,24 @@ struct SavedView: View {
                                 .padding(5)
                         } else {
                             ForEach(sports) { sport in
-                                if sport.isSaved == true {
+                                if sport.isSaved == true && displaySearch == false {
+                                    Button {
+                                        cat = .sport
+                                        num = 0
+                                        while sports[num].title != sport.title {
+                                            num += 1
+                                        }
+                                        isSheetShown = true
+                                    } label: {
+                                        Text(sport.title)
+                                            .bold()
+                                            .padding()
+                                            .frame(width: 350, height: 55)
+                                            .background(Color("lightBlue"))
+                                            .cornerRadius(10)
+                                            .foregroundColor(Color("darkBlue"))
+                                    }
+                                } else if sport.isSaved == true && displaySearch == true && sport.title.contains(search) == true {
                                     Button {
                                         cat = .sport
                                         num = 0
@@ -151,7 +209,7 @@ struct SavedView: View {
                                 .padding(5)
                         } else {
                             ForEach(placesToGo) { placeToGo in
-                                if placeToGo.isSaved == true {
+                                if placeToGo.isSaved == true && displaySearch == false {
                                     Button {
                                         cat = .place
                                         num = 0
@@ -169,6 +227,23 @@ struct SavedView: View {
                                             .foregroundColor(Color("darkRed"))
                                     }
                                     
+                                } else if placeToGo.isSaved == true && displaySearch == true && placeToGo.title.contains(search) {
+                                    Button {
+                                        cat = .place
+                                        num = 0
+                                        while placesToGo[num].title != placeToGo.title {
+                                            num += 1
+                                        }
+                                        isSheetShown = true
+                                    } label: {
+                                        Text(placeToGo.title)
+                                            .bold()
+                                            .padding()
+                                            .frame(width: 350, height: 55)
+                                            .background(Color("lightRed"))
+                                            .cornerRadius(10)
+                                            .foregroundColor(Color("darkRed"))
+                                    }
                                 } else {
                                     EmptyView()
                                 }
