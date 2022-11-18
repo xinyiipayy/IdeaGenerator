@@ -175,14 +175,24 @@ struct ActivityDescriptionView: View {
                         Text("Notes")
                             .bold()
                         if #available(iOS 16.0, *) {
-                            TextField("Add notes here", text: cat ==  .craft ? $crafts[num].notes : cat == .place ? $placesToGo[num].notes : $sports[num].notes, axis: .vertical)
-                                .padding(10)
-                                .border(.gray)
+                            ZStack {
+                                TextField("Add notes here", text: cat ==  .craft ? $crafts[num].notes : cat == .place ? $placesToGo[num].notes : $sports[num].notes, axis: .vertical)
+                                    .padding(10)
+                                    .lineLimit(3)
+                                RoundedRectangle(cornerRadius: 10, style: .circular)
+                                    .stroke(.gray, lineWidth: 1)
+                                    .background(.clear)
+                                    .frame(width: 350, height: 80)
+                            }
                         } else {
-                            TextField("Add notes here", text: cat == .craft ? $crafts[num].notes : cat == .place ? $placesToGo[num].notes : $sports[num].notes)
-                                .frame(height: 40)
-                                .padding(10)
-                                .border(.gray)
+                            ZStack {
+                                TextField("Add notes here", text: cat == .craft ? $crafts[num].notes : cat == .place ? $placesToGo[num].notes : $sports[num].notes)
+                                    .padding(10)
+                                RoundedRectangle(cornerRadius: 10, style: .circular)
+                                    .stroke(.gray, lineWidth: 1)
+                                    .background(.clear)
+                                    .frame(width: 350, height: 40)
+                            }
                         }
                             
                     }

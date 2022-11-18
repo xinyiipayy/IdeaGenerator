@@ -72,6 +72,7 @@ struct NotesView: View {
                                             }
                                             Text("Notes: \(craft.notes)")
                                                 .foregroundColor(Color("darkYellow"))
+                                                .multilineTextAlignment(.leading)
                                                 .padding(5)
                                         }
                                         .padding(15)
@@ -129,6 +130,7 @@ struct NotesView: View {
                                             }
                                             Text("Notes: \(sport.notes)")
                                                 .foregroundColor(Color("darkBlue"))
+                                                .multilineTextAlignment(.leading)
                                                 .padding(5)
                                         }
                                         .padding(15)
@@ -184,6 +186,7 @@ struct NotesView: View {
                                             }
                                             Text("Notes: \(placeToGo.notes)")
                                                 .foregroundColor(Color("darkRed"))
+                                                .multilineTextAlignment(.leading)
                                                 .padding(5)
                                         }
                                         .padding(15)

@@ -37,7 +37,10 @@ struct SavedView: View {
                 ZStack {
                     TextField("Search saved ideas", text: $search)
                         .padding(10)
-                        .border(.gray)
+                    RoundedRectangle(cornerRadius: 10, style: .circular)
+                        .stroke(.gray, lineWidth: 1)
+                        .background(.clear)
+                        .frame(width: 350, height: 40)
                     HStack {
                         Spacer()
                         if displaySearch == true {

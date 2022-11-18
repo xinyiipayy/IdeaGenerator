@@ -28,13 +28,25 @@ struct NoteDescriptionView: View {
             }
             .padding(20)
             if #available(iOS 16.0, *) {
-                TextField("Add notes", text: cat == .craft ? $crafts[num].notes : cat == .sport ? $sports[num].notes : $placesToGo[num].notes, axis: .vertical)
-                    .padding(10)
-                    .border(.gray)
+                ZStack {
+                    TextField("Add notes", text: cat == .craft ? $crafts[num].notes : cat == .sport ? $sports[num].notes : $placesToGo[num].notes, axis: .vertical)
+                        .padding(10)
+                        .lineLimit(3)
+                    RoundedRectangle(cornerRadius: 10, style: .circular)
+                        .stroke(.gray, lineWidth: 1)
+                        .background(.clear)
+                        .frame(width: 350, height: 80)
+                }
             } else {
-                TextField("Add notes", text: cat == .craft ? $crafts[num].notes : cat == .sport ? $sports[num].notes : $placesToGo[num].notes)
-                    .padding(10)
-                    .border(.gray)
+                ZStack {
+                    TextField("Add notes", text: cat == .craft ? $crafts[num].notes : cat == .sport ? $sports[num].notes : $placesToGo[num].notes)
+                        .padding(10)
+                        .border(.gray)
+                    RoundedRectangle(cornerRadius: 10, style: .circular)
+                        .stroke(.gray, lineWidth: 1)
+                        .background(.clear)
+                        .frame(width: 350, height: 40)
+                }
             }
             HStack {
                 Spacer()
