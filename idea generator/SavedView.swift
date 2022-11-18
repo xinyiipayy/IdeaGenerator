@@ -36,6 +36,7 @@ struct SavedView: View {
                 
                 ZStack {
                     TextField("Search saved ideas", text: $search)
+                        .textInputAutocapitalization(.words)
                         .padding(10)
                     RoundedRectangle(cornerRadius: 10, style: .circular)
                         .stroke(.gray, lineWidth: 1)
