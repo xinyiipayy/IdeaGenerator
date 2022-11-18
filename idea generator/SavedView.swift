@@ -142,7 +142,7 @@ struct SavedView: View {
                         Spacer()
                     }
                     if showSports == true {
-                        if sports.filter { $0.isSaved }.count == 0 {
+                        if sports.filter { displaySearch ? $0.isSaved && $0.title.contains(search) : $0.isSaved }.count == 0 {
                             Text("No Saved Ideas")
                                 .foregroundColor(.gray)
                                 .padding(5)
@@ -208,7 +208,7 @@ struct SavedView: View {
                         Spacer()
                     }
                     if showPlaces == true {
-                        if placesToGo.filter { $0.isSaved }.count == 0 {
+                        if placesToGo.filter { displaySearch ? $0.isSaved && $0.title.contains(search) : $0.isSaved }.count == 0 {
                             Text("No Saved Ideas")
                                 .foregroundColor(.gray)
                                 .padding(5)
