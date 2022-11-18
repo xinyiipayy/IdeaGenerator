@@ -14,11 +14,7 @@ struct GeneratorView: View {
     @Binding var sports: [Sport]
     @Binding var cat: Category
     
-    @State var animationAngle: Double = 0
-    @State var animationOpacity: Double = 1
-    @State var size: CGFloat = 1
     @State var animationOffset1: CGFloat = 0
-    @State var animationOffset2: CGFloat = 0
     @State var animationOffset3: CGFloat = 0
     
     @State var num = 0
@@ -44,9 +40,6 @@ struct GeneratorView: View {
                         .font(.system(size: 20, weight: .bold))
                         .padding()
                 }
-//                .rotation3DEffect(Angle(degrees: animationAngle), axis: (x: 1, y: 1, z: 1))
-//                .opacity(animationOpacity)
-//                .scaleEffect(size)
                 .offset(x: 0, y: animationOffset1)
             }
             
@@ -67,10 +60,6 @@ struct GeneratorView: View {
                         .font(.system(size: 20, weight: .bold))
                         .padding()
                 }
-//                .rotation3DEffect(Angle(degrees: animationAngle), axis: (x: 1, y: 1, z: 1))
-//                .opacity(animationOpacity)
-//                .scaleEffect(size)
-//                .offset(x: 0, y: animationOffset2)
             }
             
             Button {
@@ -90,63 +79,25 @@ struct GeneratorView: View {
                         .font(.system(size: 20, weight: .bold))
                         .padding()
                 }
-//                .rotation3DEffect(Angle(degrees: animationAngle), axis: (x: 1, y: 1, z: 1))
-//                .opacity(animationOpacity)
-//                .scaleEffect(size)
                 .offset(x: 0, y: animationOffset3)
             }
             
             Spacer()
             
             Button {
+                withAnimation(.easeOut(duration: 1)) {
+                    animationOffset1 = 75
+                    animationOffset3 = -75
+                }
+                
                 placesToGo = placesToGo.shuffled()
                 crafts = crafts.shuffled()
                 sports = sports.shuffled()
-                withAnimation(.easeInOut(duration: 1)) {
-                    size = 0.2
-                }
-                withAnimation(.easeOut(duration: 2)) {
-                    animationOpacity = 0.0
-                }
-                withAnimation(.easeOut(duration: 2)) {
-                    animationOffset1 = 300
-                    animationOffset3 = -300
-                }
-//                withAnimation(.easeIn(duration: 5).delay(5)) {
-//                    animationOffset1 = 1000
-//                    animationOffset2 = 1000
-//                    animationOffset3 = 1000
-//                }
                 
-                
-                withAnimation(.easeInOut(duration: 1)) {
-                    animationAngle += 1.0
-                    while animationAngle != 0.0 && animationAngle != 360{
-                        animationAngle += 1
-                    }
-                }
-                animationAngle = 0
-                withAnimation(.easeOut(duration: 2)) {
-                    animationOpacity = 1.0
-                }
-                withAnimation(.easeInOut(duration: 1)) {
-                    size = 1
-                }
-                withAnimation(.easeOut(duration: 2)) {
+                withAnimation(.easeOut(duration: 1).delay(2)) {
                     animationOffset1 = 0
                     animationOffset3 = 0
                 }
-//                withAnimation(.easeIn(duration: 0).delay(10)) {
-//                    animationOffset1 = -1000
-//                    animationOffset2 = -1000
-//                    animationOffset3 = -1000
-//                }
-//                withAnimation(.easeOut(duration: 2).delay(15)) {
-//                    animationOffset1 = 0
-//                    animationOffset2 = 0
-//                    animationOffset3 = 0
-//                }
-                
                 
             } label: {
                 ZStack {

@@ -37,7 +37,7 @@ struct SavedView: View {
                         Image(systemName: "triangle")
                             .rotationEffect(showCrafts ? Angle(degrees: 180) : Angle(degrees: 90))
                             .onTapGesture {
-                                withAnimation {
+                                withAnimation(.easeOut(duration: 1)) {
                                     showCrafts.toggle()
                                 }
                             }
@@ -86,7 +86,7 @@ struct SavedView: View {
                         Image(systemName: "triangle")
                             .rotationEffect(showSports ? Angle(degrees: 180) : Angle(degrees: 90))
                             .onTapGesture {
-                                withAnimation {
+                                withAnimation(.easeOut(duration: 1)) {
                                     showSports.toggle()
                                 }
                             }
@@ -135,7 +135,7 @@ struct SavedView: View {
                         Image(systemName: "triangle")
                             .rotationEffect(showPlaces ? Angle(degrees: 180) : Angle(degrees: 90))
                             .onTapGesture {
-                                withAnimation {
+                                withAnimation(.easeOut(duration: 1)) {
                                     showPlaces.toggle()
                                 }
                             }
