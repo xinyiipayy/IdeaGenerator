@@ -34,7 +34,6 @@ struct GeneratorView: View {
                         .frame(width: 360, height: 80)
                         .cornerRadius(10)
                         .foregroundColor(Color(cat == .craft ? "lightYellow" : cat == .place ? "lightRed" : "lightBlue"))
-                        .opacity(0.5)
                     
                     Text(cat == .craft ? crafts[0].title : cat == .place ? placesToGo[0].title : sports[0].title)
                         .foregroundColor(Color(cat == .craft ? "darkYellow" : cat == .place ? "darkRed" : "darkBlue"))
@@ -55,7 +54,6 @@ struct GeneratorView: View {
                         .frame(width: 360, height: 80)
                         .cornerRadius(10)
                         .foregroundColor(Color(cat == .craft ? "lightYellow" : cat == .place ? "lightRed" : "lightBlue"))
-                        .opacity(0.5)
                     
                     Text(cat == .craft ? crafts[1].title : cat == .place ? placesToGo[1].title : sports[1].title)
                         .foregroundColor(Color(cat == .craft ? "darkYellow" : cat == .place ? "darkRed" : "darkBlue"))
@@ -75,7 +73,6 @@ struct GeneratorView: View {
                         .frame(width: 360, height: 80)
                         .cornerRadius(10)
                         .foregroundColor(Color(cat == .craft ? "lightYellow" : cat == .place ? "lightRed" : "lightBlue"))
-                        .opacity(0.5)
                     
                     Text(cat == .craft ? crafts[2].title : cat == .place ? placesToGo[2].title : sports[2].title)
                         .foregroundColor(Color(cat == .craft ? "darkYellow" : cat == .place ? "darkRed" : "darkBlue"))
