@@ -55,8 +55,26 @@ struct NoteDescriptionView: View {
             Spacer()
         }
         .padding(20)
-        .alert(isPresented: $isAlertShown) {
-            Alert(title: Text("Are you sure you want to delete this note?"), primaryButton: .default(Text("Delete")){
+//        .alert(isPresented: $isAlertShown) {
+//            Alert(title: Text("Are you sure you want to delete this note?"), primaryButton: .default(Text("Delete")){
+//                print("Delete note")
+//                if cat == .craft {
+//                    crafts[num].notes = ""
+//                } else if cat == .sport {
+//                    sports[num].notes = ""
+//                } else if cat == .place {
+//                    placesToGo[num].notes = ""
+//                } else {
+//                    print("idk why but nothing is deleted")
+//                }
+//                dismiss()
+//            }, secondaryButton: .default(Text("Cancel")) {
+//                print("Don't delete note")
+//            })
+//
+//            }
+        .alert("Are you sure you want to delete this note?", isPresented: $isAlertShown) {
+            Button(role: .destructive) {
                 print("Delete note")
                 if cat == .craft {
                     crafts[num].notes = ""
@@ -68,11 +86,11 @@ struct NoteDescriptionView: View {
                     print("idk why but nothing is deleted")
                 }
                 dismiss()
-            }, secondaryButton: .default(Text("Cancel")) {
-                print("Don't delete note")
-            })
-                
+            } label: {
+                Text("Delete")
             }
+            
+        }
         }
     }
 
