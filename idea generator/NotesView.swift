@@ -37,7 +37,7 @@ struct NotesView: View {
                         Image(systemName: "triangle")
                             .rotationEffect(showCrafts ? Angle(degrees: 180) : Angle(degrees: 90))
                             .onTapGesture {
-                                withAnimation {
+                                withAnimation(.easeOut(duration: 0.5)) {
                                     showCrafts.toggle()
                                 }
                             }
@@ -48,26 +48,32 @@ struct NotesView: View {
                     }
                     
                     if showCrafts == true {
-                        ForEach(crafts) { craft in
-                            if craft.notes != "" {
-                                Button {
-                                    cat = .craft
-                                    num = 0
-                                    while crafts[num].title != craft.title {
-                                        num += 1
+                        if crafts.filter { $0.notes != "" }.count == 0 {
+                            Text("No Ideas with Notes")
+                                .foregroundColor(.gray)
+                                .padding(5)
+                        } else {
+                            ForEach(crafts) { craft in
+                                if craft.notes != "" {
+                                    Button {
+                                        cat = .craft
+                                        num = 0
+                                        while crafts[num].title != craft.title {
+                                            num += 1
+                                        }
+                                        isSheetShown = true
+                                    } label: {
+                                        Text(craft.title)
+                                            .bold()
+                                            .padding()
+                                            .frame(width: 350, height: 55)
+                                            .background(Color("lightYellow"))
+                                            .cornerRadius(10)
+                                            .foregroundColor(Color("darkYellow"))
                                     }
-                                    isSheetShown = true
-                                } label: {
-                                    Text(craft.title)
-                                        .bold()
-                                        .padding()
-                                        .frame(width: 350, height: 55)
-                                        .background(Color("lightYellow"))
-                                        .cornerRadius(10)
-                                        .foregroundColor(Color("darkYellow"))
+                                } else {
+                                    EmptyView()
                                 }
-                            } else {
-                                EmptyView()
                             }
                         }
                     }
@@ -80,7 +86,7 @@ struct NotesView: View {
                         Image(systemName: "triangle")
                             .rotationEffect(showSports ? Angle(degrees: 180) : Angle(degrees: 90))
                             .onTapGesture {
-                                withAnimation {
+                                withAnimation(.easeOut(duration: 0.5)) {
                                     showSports.toggle()
                                 }
                             }
@@ -89,27 +95,34 @@ struct NotesView: View {
                             .font(.headline)
                         Spacer()
                     }
+                    
                     if showSports == true {
-                        ForEach(sports) { sport in
-                            if sport.isSaved == true {
-                                Button {
-                                    cat = .sport
-                                    num = 0
-                                    while sports[num].title != sport.title {
-                                        num += 1
+                        if sports.filter { $0.notes != "" }.count == 0 {
+                            Text("No Ideas with Notes")
+                                .foregroundColor(.gray)
+                                .padding(5)
+                        } else {
+                            ForEach(sports) { sport in
+                                if sport.notes != "" {
+                                    Button {
+                                        cat = .sport
+                                        num = 0
+                                        while sports[num].title != sport.title {
+                                            num += 1
+                                        }
+                                        isSheetShown = true
+                                    } label: {
+                                        Text(sport.title)
+                                            .bold()
+                                            .padding()
+                                            .frame(width: 350, height: 55)
+                                            .background(Color("lightBlue"))
+                                            .cornerRadius(10)
+                                            .foregroundColor(Color("darkBlue"))
                                     }
-                                    isSheetShown = true
-                                } label: {
-                                    Text(sport.title)
-                                        .bold()
-                                        .padding()
-                                        .frame(width: 350, height: 55)
-                                        .background(Color("lightBlue"))
-                                        .cornerRadius(10)
-                                        .foregroundColor(Color("darkBlue"))
+                                } else {
+                                    EmptyView()
                                 }
-                            } else {
-                                EmptyView()
                             }
                         }
                     }
@@ -121,7 +134,7 @@ struct NotesView: View {
                         Image(systemName: "triangle")
                             .rotationEffect(showPlaces ? Angle(degrees: 180) : Angle(degrees: 90))
                             .onTapGesture {
-                                withAnimation {
+                                withAnimation(.easeOut(duration: 0.5)) {
                                     showPlaces.toggle()
                                 }
                             }
@@ -131,27 +144,33 @@ struct NotesView: View {
                         Spacer()
                     }
                     if showPlaces == true {
-                        ForEach(placesToGo) { placeToGo in
-                            if placeToGo.isSaved == true {
-                                Button {
-                                    cat = .place
-                                    num = 0
-                                    while placesToGo[num].title != placeToGo.title {
-                                        num += 1
+                        if placesToGo.filter { $0.notes != "" }.count == 0 {
+                            Text("No Ideas with Notes")
+                                .foregroundColor(.gray)
+                                .padding(5)
+                        } else {
+                            ForEach(placesToGo) { placeToGo in
+                                if placeToGo.notes != "" {
+                                    Button {
+                                        cat = .place
+                                        num = 0
+                                        while placesToGo[num].title != placeToGo.title {
+                                            num += 1
+                                        }
+                                        isSheetShown = true
+                                    } label: {
+                                        Text(placeToGo.title)
+                                            .bold()
+                                            .padding()
+                                            .frame(width: 350, height: 55)
+                                            .background(Color("lightRed"))
+                                            .cornerRadius(10)
+                                            .foregroundColor(Color("darkRed"))
                                     }
-                                    isSheetShown = true
-                                } label: {
-                                    Text(placeToGo.title)
-                                        .bold()
-                                        .padding()
-                                        .frame(width: 350, height: 55)
-                                        .background(Color("lightRed"))
-                                        .cornerRadius(10)
-                                        .foregroundColor(Color("darkRed"))
+                                    
+                                } else {
+                                    EmptyView()
                                 }
-                                
-                            } else {
-                                EmptyView()
                             }
                         }
                     }
