@@ -23,6 +23,10 @@ struct ContentView: View {
                 .tabItem {
                     Label("Saved", systemImage: "bookmark.fill")
                 }
+            NotesView(placesToGo: $placesToGoManager.placesToGo, crafts: $craftsManager.crafts, sports: $sportsManager.sports)
+                .tabItem {
+                    Label("Notes", systemImage: "note.text")
+                }
         }
     }
 }
