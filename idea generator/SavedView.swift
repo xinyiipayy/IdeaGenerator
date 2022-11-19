@@ -23,6 +23,7 @@ struct SavedView: View {
     @State var search = ""
     @State var displaySearch = false
     
+    @FocusState var isTextFieldEditing: Bool    
     var body: some View {
         
         NavigationView {
@@ -33,6 +34,7 @@ struct SavedView: View {
                         TextField("Search saved ideas", text: $search)
                             .textInputAutocapitalization(.words)
                             .padding(10)
+                            .focused($isTextFieldEditing, equals: true)
                         RoundedRectangle(cornerRadius: 10, style: .circular)
                             .stroke(.gray, lineWidth: 1)
                             .background(.clear)
@@ -45,6 +47,7 @@ struct SavedView: View {
                                     .onTapGesture {
                                         displaySearch = false
                                         search = ""
+                                        isTextFieldEditing = false
                                     }
                             } else {
                                 EmptyView()
@@ -56,6 +59,7 @@ struct SavedView: View {
                     .padding(10)
                     .onTapGesture {
                         displaySearch = true
+                        isTextFieldEditing = true
                     }
                     
                     VStack {
@@ -278,6 +282,11 @@ struct SavedView: View {
                 .sheet(isPresented: $isSheetShown) {
                     ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num, cat: $cat)
                 }
+            }
+            .onTapGesture {
+                isTextFieldEditing = false
+                displaySearch = false
+                search = ""
             }
             .navigationTitle("Saved Ideas")
         }

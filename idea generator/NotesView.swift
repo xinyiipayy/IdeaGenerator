@@ -68,6 +68,7 @@ struct NotesView: View {
                                                     .foregroundColor(Color("darkYellow"))
                                                     .multilineTextAlignment(.leading)
                                                     .padding(5)
+                                                    .lineLimit(2)
                                             }
                                             .padding(15)
                                             .background(Color("lightYellow"))
@@ -125,6 +126,7 @@ struct NotesView: View {
                                                     .foregroundColor(Color("darkBlue"))
                                                     .multilineTextAlignment(.leading)
                                                     .padding(5)
+                                                    .lineLimit(2)
                                             }
                                             .padding(15)
                                             .background(Color("lightBlue"))
@@ -180,6 +182,7 @@ struct NotesView: View {
                                                     .foregroundColor(Color("darkRed"))
                                                     .multilineTextAlignment(.leading)
                                                     .padding(5)
+                                                    .lineLimit(2)
                                             }
                                             .padding(15)
                                             .background(Color("lightRed"))
