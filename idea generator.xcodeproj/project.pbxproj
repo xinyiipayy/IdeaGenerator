@@ -25,7 +25,7 @@
 		519FF78229270881008468B9 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 		519FF7842927101D008468B9 /* NoteDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDescriptionView.swift; sourceTree = "<group>"; };
 		87A556592903957C00A990D3 /* IdeaStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaStruct.swift; sourceTree = "<group>"; };
-		87DAF52529160AE30026F107 /* persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = persistance.swift; sourceTree = "<group>"; };
+		87DAF52529160AE30026F107 /* persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = persistance.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		D9CFF77629037E68006F2B50 /* idea generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "idea generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9CFF77929037E68006F2B50 /* idea_generatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = idea_generatorApp.swift; sourceTree = "<group>"; };
 		D9CFF77B29037E68006F2B50 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };

@@ -26,6 +26,7 @@ struct HomeView: View {
                         Image("Screenshot 2022-10-22 at 10.44.00 AM")
                             .resizable()
                             .scaledToFit()
+                            .cornerRadius(10)
                             .padding(10)
                     }
                     
@@ -36,6 +37,7 @@ struct HomeView: View {
                         Image("Screenshot 2022-11-16 at 8.41.56 AM")
                             .resizable()
                             .scaledToFit()
+                            .cornerRadius(10)
                             .padding(10)
                     }
                     // places
@@ -45,6 +47,7 @@ struct HomeView: View {
                         Image("Screenshot 2022-10-22 at 10.50.02 AM")
                             .resizable()
                             .scaledToFit()
+                            .cornerRadius(10)
                             .padding(10)
                     }
                     

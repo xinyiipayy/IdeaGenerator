@@ -114,6 +114,7 @@ struct ActivityDescriptionView: View {
                             Text("Address")
                                 .bold()
                             Link((placesToGo[num].address), destination: URL(string: (placesToGo[num].mapsLink))!)
+                                .multilineTextAlignment(.leading)
                         }
                         .padding(10)
                         VStack(alignment:.leading) {
@@ -131,7 +132,10 @@ struct ActivityDescriptionView: View {
                             Text("Materials")
                                 .bold()
                             ForEach(crafts[num].materials, id: \.self) { material in
-                                Text("  - \(material)")
+                                HStack (alignment: .top) {
+                                    Text(" -")
+                                    Text(material)
+                                }
                             }
                         }
                         .padding(10)
@@ -145,7 +149,10 @@ struct ActivityDescriptionView: View {
                             Text("Benefits")
                                 .bold()
                             ForEach(sports[num].benefits, id: \.self) {benefit in
-                                Text("  - \(benefit)")
+                                HStack (alignment: .top) {
+                                    Text(" -")
+                                    Text(benefit)
+                                }
                             }
                         }
                         .padding(10)
@@ -154,7 +161,10 @@ struct ActivityDescriptionView: View {
                             Text("Equipment")
                                 .bold()
                             ForEach(sports[num].equipment, id: \.self) { equipment in
-                                Text("  - \(equipment)")
+                                HStack (alignment: .top) {
+                                    Text(" -")
+                                    Text(equipment)
+                                }
                             }
                         }
                         .padding(10)

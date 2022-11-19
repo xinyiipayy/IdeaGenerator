@@ -20,6 +20,8 @@ struct GeneratorView: View {
     
     @State var num = 0
     
+    @Environment(\.colorScheme) var colourScheme
+    
     var body: some View {
         VStack {
             Spacer()
@@ -114,11 +116,10 @@ struct GeneratorView: View {
                     
                     HStack {
                         Image(systemName: "arrow.clockwise")
-                            .foregroundColor(Color(cat == .craft ? "darkYellow" : cat == .place ? "darkRed" : "darkBlue"))
+                            .foregroundColor(Color(colourScheme == .light ? cat == .craft ? "darkYellow" : cat == .place ? "darkRed" : "darkBlue": cat == .craft ? "lightYellow" : cat == .place ? "lightRed" : "lightBlue"))
                         Text("Reshuffle")
                             .font(.system(size: 20, weight: .medium))
-                            .foregroundColor(Color(cat == .craft ? "darkYellow" : cat == .place ? "darkRed" : "darkBlue"))
-                    }
+                        .foregroundColor(Color(colourScheme == .light ? cat == .craft ? "darkYellow" : cat == .place ? "darkRed" : "darkBlue": cat == .craft ? "lightYellow" : cat == .place ? "lightRed" : "lightBlue"))                    }
                 }
             }
             
