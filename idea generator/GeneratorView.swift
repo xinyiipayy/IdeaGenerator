@@ -89,7 +89,7 @@ struct GeneratorView: View {
                 withAnimation(.easeIn(duration: 0.2)) {
                     textOpacity = 0
                 }
-                withAnimation(.easeOut(duration: 1).delay(0.5)) {
+                withAnimation(.easeOut(duration: 0.5).delay(0.5)) {
                     animationOffset1 = 120
                     animationOffset3 = -120
                 }
@@ -98,11 +98,11 @@ struct GeneratorView: View {
                 crafts = crafts.shuffled()
                 sports = sports.shuffled()
                 
-                withAnimation(.easeOut(duration: 1).delay(1)) {
+                withAnimation(.easeOut(duration: 0.5).delay(1)) {
                     animationOffset1 = 0
                     animationOffset3 = 0
                 }
-                withAnimation(.easeOut(duration: 0.5).delay(2)) {
+                withAnimation(.easeOut(duration: 0.2).delay(1.5)) {
                     textOpacity = 1
                 }
             } label: {
