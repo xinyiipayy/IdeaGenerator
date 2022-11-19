@@ -192,7 +192,7 @@ struct ActivityDescriptionView: View {
                                 RoundedRectangle(cornerRadius: 10, style: .circular)
                                     .stroke(.gray, lineWidth: 1)
                                     .background(.clear)
-                                    .frame(width: 350, height: 80)
+                                    .frame(height: 80)
                             }
                         } else {
                             ZStack {
@@ -201,7 +201,7 @@ struct ActivityDescriptionView: View {
                                 RoundedRectangle(cornerRadius: 10, style: .circular)
                                     .stroke(.gray, lineWidth: 1)
                                     .background(.clear)
-                                    .frame(width: 350, height: 40)
+                                    .frame(height: 40)
                             }
                         }
                             

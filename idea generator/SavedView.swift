@@ -36,7 +36,7 @@ struct SavedView: View {
                         RoundedRectangle(cornerRadius: 10, style: .circular)
                             .stroke(.gray, lineWidth: 1)
                             .background(.clear)
-                            .frame(width: 350, height: 40)
+                            .frame(height: 40)
                         HStack {
                             Spacer()
                             if displaySearch == true {
@@ -46,6 +46,8 @@ struct SavedView: View {
                                         displaySearch = false
                                         search = ""
                                     }
+                            } else {
+                                EmptyView()
                             }
                             Image(systemName: "magnifyingglass")
                                 .padding(10)
@@ -86,13 +88,15 @@ struct SavedView: View {
                                             }
                                             isSheetShown = true
                                         } label: {
-                                            Text(craft.title)
-                                                .bold()
-                                                .padding()
-                                                .frame(width: 350, height: 55)
-                                                .background(Color("lightYellow"))
-                                                .cornerRadius(10)
-                                                .foregroundColor(Color("darkYellow"))
+                                            ZStack {
+                                                Rectangle()
+                                                    .cornerRadius(10)
+                                                    .frame(height: 55)
+                                                    .foregroundColor(Color("lightYellow"))
+                                                Text(craft.title)
+                                                    .bold()
+                                                    .foregroundColor(Color("darkYellow"))
+                                            }
                                         }
                                     } else if craft.isSaved == true && displaySearch == true && craft.title.contains(search) {
                                         Button {
@@ -103,13 +107,15 @@ struct SavedView: View {
                                             }
                                             isSheetShown = true
                                         } label: {
-                                            Text(craft.title)
-                                                .bold()
-                                                .padding()
-                                                .frame(width: 350, height: 55)
-                                                .background(Color("lightYellow"))
-                                                .cornerRadius(10)
-                                                .foregroundColor(Color("darkYellow"))
+                                            ZStack {
+                                                Rectangle()
+                                                    .cornerRadius(10)
+                                                    .frame(height: 55)
+                                                    .foregroundColor(Color("lightYellow"))
+                                                Text(craft.title)
+                                                    .bold()
+                                                    .foregroundColor(Color("darkYellow"))
+                                            }
                                         }
                                     } else {
                                         EmptyView()
@@ -152,13 +158,15 @@ struct SavedView: View {
                                             }
                                             isSheetShown = true
                                         } label: {
-                                            Text(sport.title)
-                                                .bold()
-                                                .padding()
-                                                .frame(width: 350, height: 55)
-                                                .background(Color("lightBlue"))
-                                                .cornerRadius(10)
-                                                .foregroundColor(Color("darkBlue"))
+                                            ZStack {
+                                                Rectangle()
+                                                    .cornerRadius(10)
+                                                    .frame(height: 55)
+                                                    .foregroundColor(Color("lightBlue"))
+                                                Text(sport.title)
+                                                    .bold()
+                                                    .foregroundColor(Color("darkBlue"))
+                                            }
                                         }
                                     } else if sport.isSaved == true && displaySearch == true && sport.title.contains(search) == true {
                                         Button {
@@ -169,13 +177,15 @@ struct SavedView: View {
                                             }
                                             isSheetShown = true
                                         } label: {
-                                            Text(sport.title)
-                                                .bold()
-                                                .padding()
-                                                .frame(width: 350, height: 55)
-                                                .background(Color("lightBlue"))
-                                                .cornerRadius(10)
-                                                .foregroundColor(Color("darkBlue"))
+                                            ZStack {
+                                                Rectangle()
+                                                    .cornerRadius(10)
+                                                    .frame(height: 55)
+                                                    .foregroundColor(Color("lightBlue"))
+                                                Text(sport.title)
+                                                    .bold()
+                                                    .foregroundColor(Color("darkBlue"))
+                                            }
                                         }
                                     } else {
                                         EmptyView()
@@ -218,13 +228,15 @@ struct SavedView: View {
                                             }
                                             isSheetShown = true
                                         } label: {
-                                            Text(placeToGo.title)
-                                                .bold()
-                                                .padding()
-                                                .frame(width: 350, height: 55)
-                                                .background(Color("lightRed"))
-                                                .cornerRadius(10)
-                                                .foregroundColor(Color("darkRed"))
+                                            ZStack {
+                                                Rectangle()
+                                                    .cornerRadius(10)
+                                                    .frame(height: 55)
+                                                    .foregroundColor(Color("lightRed"))
+                                                Text(placeToGo.title)
+                                                    .bold()
+                                                    .foregroundColor(Color("darkRed"))
+                                            }
                                         }
                                         
                                     } else if placeToGo.isSaved == true && displaySearch == true && placeToGo.title.contains(search) {
@@ -236,13 +248,15 @@ struct SavedView: View {
                                             }
                                             isSheetShown = true
                                         } label: {
-                                            Text(placeToGo.title)
-                                                .bold()
-                                                .padding()
-                                                .frame(width: 350, height: 55)
-                                                .background(Color("lightRed"))
-                                                .cornerRadius(10)
-                                                .foregroundColor(Color("darkRed"))
+                                            ZStack {
+                                                Rectangle()
+                                                    .cornerRadius(10)
+                                                    .frame(height: 55)
+                                                    .foregroundColor(Color("lightRed"))
+                                                Text(placeToGo.title)
+                                                    .bold()
+                                                    .foregroundColor(Color("darkRed"))
+                                            }
                                         }
                                     } else {
                                         EmptyView()

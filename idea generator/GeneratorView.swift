@@ -33,7 +33,7 @@ struct GeneratorView: View {
             } label: {
                 ZStack {
                     Rectangle()
-                        .frame(width: 360, height: 80)
+                        .frame(height: 80)
                         .cornerRadius(10)
                         .foregroundColor(Color(cat == .craft ? "lightYellow" : cat == .place ? "lightRed" : "lightBlue"))
                     
@@ -53,7 +53,7 @@ struct GeneratorView: View {
             } label: {
                 ZStack {
                     Rectangle()
-                        .frame(width: 360, height: 80)
+                        .frame(height: 80)
                         .cornerRadius(10)
                         .foregroundColor(Color(cat == .craft ? "lightYellow" : cat == .place ? "lightRed" : "lightBlue"))
                     
@@ -72,7 +72,7 @@ struct GeneratorView: View {
             } label: {
                 ZStack {
                     Rectangle()
-                        .frame(width: 360, height: 80)
+                        .frame(height: 80)
                         .cornerRadius(10)
                         .foregroundColor(Color(cat == .craft ? "lightYellow" : cat == .place ? "lightRed" : "lightBlue"))
                     
@@ -125,6 +125,8 @@ struct GeneratorView: View {
             
             Spacer()
         }
+        .padding(.horizontal, 15
+        )
         .navigationTitle(cat == .craft ? "Arts & Craft" : cat == .sport ? "Sports" : "Places to Go")
         .sheet(isPresented: $isSheetPresented) {
             ActivityDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num, cat: $cat)

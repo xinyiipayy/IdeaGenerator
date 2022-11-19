@@ -70,7 +70,6 @@ struct NotesView: View {
                                                     .padding(5)
                                             }
                                             .padding(15)
-                                            .frame(width: 350)
                                             .background(Color("lightYellow"))
                                             .cornerRadius(10)
                                         }
@@ -128,7 +127,6 @@ struct NotesView: View {
                                                     .padding(5)
                                             }
                                             .padding(15)
-                                            .frame(width: 350)
                                             .background(Color("lightBlue"))
                                             .cornerRadius(10)
                                         }
@@ -184,7 +182,6 @@ struct NotesView: View {
                                                     .padding(5)
                                             }
                                             .padding(15)
-                                            .frame(width: 350)
                                             .background(Color("lightRed"))
                                             .cornerRadius(10)
                                         }

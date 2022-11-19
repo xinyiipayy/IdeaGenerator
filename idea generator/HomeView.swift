@@ -54,6 +54,7 @@ struct HomeView: View {
                     
                     Spacer(minLength: 75)
                 }
+                .padding(10)
             }
             .navigationTitle("Categories")
         }
