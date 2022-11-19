@@ -17,7 +17,6 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView{
-            
             ScrollView {
                 VStack() {
                     // arts and craft
@@ -52,13 +51,9 @@ struct HomeView: View {
                     
                     Spacer(minLength: 75)
                 }
-                .navigationTitle("Categories")
-                
             }
-            
+            .navigationTitle("Categories")
         }
-        
-        
     }
 }
 
