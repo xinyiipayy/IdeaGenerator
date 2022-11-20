@@ -49,14 +49,14 @@ struct NotesView: View {
                             } else {
                                 ForEach(crafts) { craft in
                                     if craft.notes != "" {
-                                        Button {
+                                        
+                                        NavigationLink(destination: NoteDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num, cat: $cat).onAppear {
                                             cat = .craft
                                             num = 0
                                             while crafts[num].title != craft.title {
                                                 num += 1
                                             }
-                                            isSheetShown = true
-                                        } label: {
+                                        }) {
                                             VStack (alignment: .leading) {
                                                 HStack {
                                                     Text(craft.title)
@@ -69,7 +69,7 @@ struct NotesView: View {
                                                     .multilineTextAlignment(.leading)
                                                     .padding(5)
                                                     .lineLimit(2)
-                                            }
+                                        }
                                             .padding(15)
                                             .background(Color("lightYellow"))
                                             .cornerRadius(10)
@@ -107,14 +107,13 @@ struct NotesView: View {
                             } else {
                                 ForEach(sports) { sport in
                                     if sport.notes != "" {
-                                        Button {
+                                        NavigationLink(destination: NoteDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num, cat: $cat).onAppear {
                                             cat = .sport
                                             num = 0
                                             while sports[num].title != sport.title {
                                                 num += 1
                                             }
-                                            isSheetShown = true
-                                        } label: {
+                                        }) {
                                             VStack (alignment: .leading) {
                                                 HStack {
                                                     Text(sport.title)
@@ -132,6 +131,7 @@ struct NotesView: View {
                                             .background(Color("lightBlue"))
                                             .cornerRadius(10)
                                         }
+                                        
                                     } else {
                                         EmptyView()
                                     }
@@ -163,14 +163,13 @@ struct NotesView: View {
                             } else {
                                 ForEach(placesToGo) { placeToGo in
                                     if placeToGo.notes != "" {
-                                        Button {
+                                        NavigationLink(destination: NoteDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num, cat: $cat).onAppear {
                                             cat = .place
                                             num = 0
                                             while placesToGo[num].title != placeToGo.title {
                                                 num += 1
                                             }
-                                            isSheetShown = true
-                                        } label: {
+                                        }) {
                                             VStack (alignment: .leading) {
                                                 HStack {
                                                     Text(placeToGo.title)
@@ -188,7 +187,6 @@ struct NotesView: View {
                                             .background(Color("lightRed"))
                                             .cornerRadius(10)
                                         }
-                                        
                                     } else {
                                         EmptyView()
                                     }
@@ -207,6 +205,17 @@ struct NotesView: View {
                 }
             }
             .navigationTitle("Notes")
+            .toolbar {
+                ToolbarItem() {
+                    Button {
+                        isSheetShown.toggle()
+                    } label: {
+                        Image(systemName: "square.and.pencil")
+                    }
+
+                }
+
+            }
         }
     }
 }
