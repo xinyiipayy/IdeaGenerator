@@ -244,6 +244,15 @@ struct ActivityDescriptionView: View {
             }
         }
         .padding(15)
+        .onDisappear {
+            if cat == .craft {
+                crafts[num].notes = crafts[num].notes.filter { $0.isEmpty ==  false }
+            } else if cat == .sport {
+                sports[num].notes = sports[num].notes.filter { $0.isEmpty == false }
+            } else {
+                placesToGo[num].notes = placesToGo[num].notes.filter { $0.isEmpty == false}
+            }
+        }
     }
 }
 
