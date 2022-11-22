@@ -83,7 +83,7 @@ struct NoteDescriptionView: View {
                 Button {
                     isAlertShown = true
                 } label: {
-                    Text("Delete note")
+                    Text("Delete notes")
                         .font(.subheadline)
                         .bold()
                         .foregroundColor(Color(cat == .craft ? "darkYellow" : cat == .sport ? "darkBlue" : "darkRed"))

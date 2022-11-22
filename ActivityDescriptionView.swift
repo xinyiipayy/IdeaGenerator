@@ -15,6 +15,7 @@ struct ActivityDescriptionView: View {
     @Binding var cat: Category
     
     @State var imageNum = 0
+    @State var otherNum = 0
     
     var body: some View {
         ScrollView {
@@ -182,8 +183,31 @@ struct ActivityDescriptionView: View {
                     .padding(10)
                     
                     VStack(alignment: .leading) {
-                        Text("Notes")
-                            .bold()
+                        HStack {
+                            Text("Notes")
+                                .bold()
+                            Spacer()
+                            Image(systemName: "plus.circle")
+                                .padding(.horizontal, 15)
+                                .onTapGesture {
+                                    if cat == .craft {
+                                        otherNum = crafts[num].notes.count - 1
+                                        if crafts[num].notes[otherNum].isEmpty == false {
+                                            crafts[num].notes.append("")
+                                        }
+                                    } else if cat == .sport {
+                                        otherNum = sports[num].notes.count - 1
+                                        if sports[num].notes[otherNum].isEmpty == false {
+                                            sports[num].notes.append("")
+                                        }
+                                    } else {
+                                        otherNum = placesToGo[num].notes.count - 1
+                                        if placesToGo[num].notes[otherNum].isEmpty == false {
+                                            placesToGo[num].notes.append("")
+                                        }
+                                    }
+                                }
+                        }
                         if #available(iOS 16.0, *) {
                             VStack {
                                 ForEach(cat ==  .craft ? $crafts[num].notes : cat == .place ? $placesToGo[num].notes : $sports[num].notes, id: \.self) { note in
