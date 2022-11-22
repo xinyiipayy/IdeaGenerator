@@ -25,7 +25,7 @@ struct Craft: Identifiable, Codable, Equatable {
     var link: [String]
     var isSaved: Bool = false
     var image: [String]
-    var notes: String = ""
+    var notes: [String] = [""]
 }
 
 struct Sport: Identifiable, Codable, Equatable {
@@ -40,7 +40,7 @@ struct Sport: Identifiable, Codable, Equatable {
     var suggestedPlace: [String]
     var isSaved: Bool = false
     var image: [String]
-    var notes: String = ""
+    var notes: [String] = [""]
 }
 
 struct Place: Identifiable, Codable, Equatable {
@@ -55,6 +55,6 @@ struct Place: Identifiable, Codable, Equatable {
     var link: [String]
     var isSaved: Bool = false
     var image: [String]
-    var notes: String = ""
+    var notes: [String] = [""]
 }
 

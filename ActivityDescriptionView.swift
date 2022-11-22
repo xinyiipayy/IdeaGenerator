@@ -185,23 +185,31 @@ struct ActivityDescriptionView: View {
                         Text("Notes")
                             .bold()
                         if #available(iOS 16.0, *) {
-                            ZStack {
-                                TextField("Add notes here", text: cat ==  .craft ? $crafts[num].notes : cat == .place ? $placesToGo[num].notes : $sports[num].notes, axis: .vertical)
-                                    .padding(10)
-                                    .lineLimit(3)
-                                RoundedRectangle(cornerRadius: 10, style: .circular)
-                                    .stroke(.gray, lineWidth: 1)
-                                    .background(.clear)
-                                    .frame(height: 80)
+                            VStack {
+                                ForEach(cat ==  .craft ? $crafts[num].notes : cat == .place ? $placesToGo[num].notes : $sports[num].notes, id: \.self) { note in
+                                    ZStack {
+                                        TextField("Add notes here", text: note, axis: .vertical)
+                                            .padding(10)
+                                            .lineLimit(3)
+                                        RoundedRectangle(cornerRadius: 10, style: .circular)
+                                            .stroke(.gray, lineWidth: 1)
+                                            .background(.clear)
+                                            .frame(height: 80)
+                                    }
+                                }
                             }
                         } else {
-                            ZStack {
-                                TextField("Add notes here", text: cat == .craft ? $crafts[num].notes : cat == .place ? $placesToGo[num].notes : $sports[num].notes)
-                                    .padding(10)
-                                RoundedRectangle(cornerRadius: 10, style: .circular)
-                                    .stroke(.gray, lineWidth: 1)
-                                    .background(.clear)
-                                    .frame(height: 40)
+                            VStack {
+                                ForEach(cat ==  .craft ? $crafts[num].notes : cat == .place ? $placesToGo[num].notes : $sports[num].notes, id: \.self) { note in
+                                    ZStack {
+                                        TextField("Add notes here", text: note)
+                                            .padding(10)
+                                        RoundedRectangle(cornerRadius: 10, style: .circular)
+                                            .stroke(.gray, lineWidth: 1)
+                                            .background(.clear)
+                                            .frame(height: 40)
+                                    }
+                                }
                             }
                         }
                             
@@ -210,16 +218,17 @@ struct ActivityDescriptionView: View {
                     .lineLimit(/*@START_MENU_TOKEN@*/3/*@END_MENU_TOKEN@*/)
                 }
             }
-        } .padding(15)
+        }
+        .padding(15)
     }
 }
 
 struct ActivityDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
         ActivityDescriptionView(
-            placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", mapsLink: "demo", openingHours: "demo", link: ["demo"], image: ["demo"], notes: "")]),
-            crafts: .constant([Craft(title: "demo", description: "demo", materials: ["demo"], link: ["demo"], image: ["demo"], notes: "")]),
-            sports: .constant([Sport(title: "demo", description: "demo", benefits: ["demo"], equipment: ["demo"], link: ["demo"], suggestedPlace: ["demo"], image: ["demo"], notes: "")]),
+            placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", mapsLink: "demo", openingHours: "demo", link: ["demo"], image: ["demo"], notes: [""])]),
+            crafts: .constant([Craft(title: "demo", description: "demo", materials: ["demo"], link: ["demo"], image: ["demo"], notes: [""])]),
+            sports: .constant([Sport(title: "demo", description: "demo", benefits: ["demo"], equipment: ["demo"], link: ["demo"], suggestedPlace: ["demo"], image: ["demo"], notes: [""])]),
             num: .constant(0),
             cat: .constant(Category.sport))
     }

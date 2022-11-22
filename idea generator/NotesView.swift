@@ -42,13 +42,13 @@ struct NotesView: View {
                         }
                         
                         if showCrafts == true {
-                            if crafts.filter { $0.notes != "" }.count == 0 {
+                            if crafts.filter { $0.notes != [""] }.count == 0 {
                                 Text("No Ideas with Notes")
                                     .foregroundColor(.gray)
                                     .padding(5)
                             } else {
                                 ForEach(crafts) { craft in
-                                    if craft.notes != "" {
+                                    if craft.notes != [""] {
                                         
                                         NavigationLink(destination: NoteDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num, cat: $cat).onAppear {
                                             cat = .craft
@@ -64,7 +64,7 @@ struct NotesView: View {
                                                         .foregroundColor(Color("darkYellow"))
                                                     Spacer()
                                                 }
-                                                Text(craft.notes)
+                                                Text(craft.notes[0])
                                                     .foregroundColor(Color("darkYellow"))
                                                     .multilineTextAlignment(.leading)
                                                     .padding(5)
@@ -100,13 +100,13 @@ struct NotesView: View {
                         }
                         
                         if showSports == true {
-                            if sports.filter { $0.notes != "" }.count == 0 {
+                            if sports.filter { $0.notes != [""] }.count == 0 {
                                 Text("No Ideas with Notes")
                                     .foregroundColor(.gray)
                                     .padding(5)
                             } else {
                                 ForEach(sports) { sport in
-                                    if sport.notes != "" {
+                                    if sport.notes != [""] {
                                         NavigationLink(destination: NoteDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num, cat: $cat).onAppear {
                                             cat = .sport
                                             num = 0
@@ -121,7 +121,7 @@ struct NotesView: View {
                                                         .foregroundColor(Color("darkBlue"))
                                                     Spacer()
                                                 }
-                                                Text(sport.notes)
+                                                Text(sport.notes[0])
                                                     .foregroundColor(Color("darkBlue"))
                                                     .multilineTextAlignment(.leading)
                                                     .padding(5)
@@ -156,13 +156,13 @@ struct NotesView: View {
                             Spacer()
                         }
                         if showPlaces == true {
-                            if placesToGo.filter { $0.notes != "" }.count == 0 {
+                            if placesToGo.filter { $0.notes != [""] }.count == 0 {
                                 Text("No Ideas with Notes")
                                     .foregroundColor(.gray)
                                     .padding(5)
                             } else {
                                 ForEach(placesToGo) { placeToGo in
-                                    if placeToGo.notes != "" {
+                                    if placeToGo.notes != [""] {
                                         NavigationLink(destination: NoteDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num, cat: $cat).onAppear {
                                             cat = .place
                                             num = 0
@@ -177,7 +177,7 @@ struct NotesView: View {
                                                         .foregroundColor(Color("darkRed"))
                                                     Spacer()
                                                 }
-                                                Text(placeToGo.notes)
+                                                Text(placeToGo.notes[0])
                                                     .foregroundColor(Color("darkRed"))
                                                     .multilineTextAlignment(.leading)
                                                     .padding(5)
@@ -222,8 +222,8 @@ struct NotesView: View {
 
 struct NotesView_Previews: PreviewProvider {
     static var previews: some View {
-        NotesView(placesToGo: .constant([Place (title: "demo", description: "demo", address: "demp", mapsLink: "demo", openingHours: "demo", link: ["demo"], image: ["demo"], notes: "")]),
-                  crafts: .constant([Craft(title: "demo", description: "demo", materials: ["demo"], link: ["demo"], image: ["demo"], notes: "")]),
-                  sports: .constant([Sport(title: "demo", description: "demo", benefits: ["demo"], equipment: ["demo"], link: ["demo"],suggestedPlace: ["demo"], image: ["demo"], notes: "")]))
+        NotesView(placesToGo: .constant([Place (title: "demo", description: "demo", address: "demp", mapsLink: "demo", openingHours: "demo", link: ["demo"], image: ["demo"], notes: [""])]),
+                  crafts: .constant([Craft(title: "demo", description: "demo", materials: ["demo"], link: ["demo"], image: ["demo"], notes: [""])]),
+                  sports: .constant([Sport(title: "demo", description: "demo", benefits: ["demo"], equipment: ["demo"], link: ["demo"],suggestedPlace: ["demo"], image: ["demo"], notes: [""])]))
     }
 }
