@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "knitting-as-a-hobby-2021-12-01-13-15-52-utc-2.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

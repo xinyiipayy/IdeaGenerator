@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "woman-making-epoxy-resin-arts-and-crafts-2022-10-31-22-20-11-utc.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

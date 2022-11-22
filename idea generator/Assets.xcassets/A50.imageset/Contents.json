@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "hands-cutting-rose-of-paper-on-the-paper-cutting-b-2022-11-08-00-04-06-utc.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

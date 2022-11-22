@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "closeup-of-calligraphic-artwork-2022-09-16-09-09-08-utc.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
