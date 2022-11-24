@@ -134,7 +134,7 @@ struct ActivityDescriptionView: View {
                                 .bold()
                             ForEach(crafts[num].materials, id: \.self) { material in
                                 HStack (alignment: .top) {
-                                    Text(" -")
+                                    Text(" •")
                                     Text(material)
                                 }
                             }
@@ -151,7 +151,7 @@ struct ActivityDescriptionView: View {
                                 .bold()
                             ForEach(sports[num].benefits, id: \.self) {benefit in
                                 HStack (alignment: .top) {
-                                    Text(" -")
+                                    Text(" •")
                                     Text(benefit)
                                 }
                             }
@@ -163,7 +163,7 @@ struct ActivityDescriptionView: View {
                                 .bold()
                             ForEach(sports[num].equipment, id: \.self) { equipment in
                                 HStack (alignment: .top) {
-                                    Text(" -")
+                                    Text(" •")
                                     Text(equipment)
                                 }
                             }
@@ -189,7 +189,7 @@ struct ActivityDescriptionView: View {
                             Spacer()
                         }
                         .padding(.horizontal, 10)
-                        ZStack {
+                        ZStack(alignment: .top) {
                             if #available(iOS 16.0, *) {
                                 TextField("Add notes here", text: cat ==  .craft ? $crafts[num].notes[0] : cat == .place ? $placesToGo[num].notes[0] : $sports[num].notes[0], axis: .vertical)
                                     .padding(10)

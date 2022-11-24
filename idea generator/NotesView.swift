@@ -205,17 +205,6 @@ struct NotesView: View {
                 }
             }
             .navigationTitle("Notes")
-            .toolbar {
-                ToolbarItem() {
-                    Button {
-                        isSheetShown.toggle()
-                    } label: {
-                        Image(systemName: "square.and.pencil")
-                    }
-
-                }
-
-            }
         }
     }
 }

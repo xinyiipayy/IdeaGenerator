@@ -54,9 +54,10 @@ struct SavedView: View {
                             }
                             Image(systemName: "magnifyingglass")
                                 .padding(10)
+                                .opacity(0.5)
                         }
                     }
-                    .padding(10)
+                    .padding(.horizontal, 10)
                     .onTapGesture {
                         displaySearch = true
                         isTextFieldEditing = true
