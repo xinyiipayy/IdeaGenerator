@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "group-of-friends-playing-volleyball-on-beach-2022-03-07-23-56-40-utc.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

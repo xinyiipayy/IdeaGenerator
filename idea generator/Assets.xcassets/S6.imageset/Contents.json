@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "football-player-shooting-the-ball-on-football-fiel-2022-11-06-23-10-01-utc.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
