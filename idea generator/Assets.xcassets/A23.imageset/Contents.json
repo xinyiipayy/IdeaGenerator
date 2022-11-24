@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "close-up-of-women-s-hands-weaving-macrame-in-a-hom-2022-11-09-20-26-38-utc.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

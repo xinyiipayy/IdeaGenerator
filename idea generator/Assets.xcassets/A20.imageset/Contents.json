@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "sketching-in-square-notebook-2022-11-02-00-06-15-utc.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
