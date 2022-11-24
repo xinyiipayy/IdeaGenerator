@@ -26,64 +26,18 @@ struct NoteDescriptionView: View {
                     .font(.title)
                     .bold()
                 Spacer()
-                Image(systemName: "plus.circle")
-                    .font(.title)
-                    .padding(5)
-                    .onTapGesture {
-                        if cat == .craft {
-                            otherNum = crafts[num].notes.count - 1
-                            if crafts[num].notes[otherNum].isEmpty == false {
-                                crafts[num].notes.append("")
-                            }
-                        } else if cat == .sport {
-                            otherNum = sports[num].notes.count - 1
-                            if sports[num].notes[otherNum].isEmpty == false {
-                                sports[num].notes.append("")
-                            }
-                        } else {
-                            otherNum = placesToGo[num].notes.count - 1
-                            if placesToGo[num].notes[otherNum].isEmpty == false {
-                                placesToGo[num].notes.append("")
-                            }
-                        }
-                    }
             }
             .padding(20)
-            if #available(iOS 16.0, *) {
-                VStack {
-                    ForEach(cat ==  .craft ? $crafts[num].notes : cat == .place ? $placesToGo[num].notes : $sports[num].notes, id: \.self) { note in
-                        ZStack {
-                            TextField("Add notes", text: note, axis: .vertical)
-                                .padding(10)
-                                .lineLimit(3)
-                            RoundedRectangle(cornerRadius: 10, style: .circular)
-                                .stroke(.gray, lineWidth: 1)
-                                .background(.clear)
-                                .frame(height: 80)
-                        }
-                    }
-                }
-            } else {
-                VStack {
-                    ForEach(cat ==  .craft ? $crafts[num].notes : cat == .place ? $placesToGo[num].notes : $sports[num].notes, id: \.self) { note in
-                        ZStack {
-                            TextField("Add notes", text: note)
-                                .padding(10)
-                                .border(.gray)
-                            RoundedRectangle(cornerRadius: 10, style: .circular)
-                                .stroke(.gray, lineWidth: 1)
-                                .background(.clear)
-                                .frame(height: 40)
-                        }
-                    }
-                }
-            }
+            
+            TextEditor(text: cat ==  .craft ? $crafts[num].notes[0] : cat == .place ? $placesToGo[num].notes[0] : $sports[num].notes[0])
+                .padding(10)
+            
             HStack {
                 Spacer()
                 Button {
                     isAlertShown = true
                 } label: {
-                    Text("Delete notes")
+                    Text("Delete note")
                         .font(.subheadline)
                         .bold()
                         .foregroundColor(Color(cat == .craft ? "darkYellow" : cat == .sport ? "darkBlue" : "darkRed"))
@@ -97,24 +51,6 @@ struct NoteDescriptionView: View {
             Spacer()
         }
         .padding(20)
-//        .alert(isPresented: $isAlertShown) {
-//            Alert(title: Text("Are you sure you want to delete this note?"), primaryButton: .default(Text("Delete")){
-//                print("Delete note")
-//                if cat == .craft {
-//                    crafts[num].notes = ""
-//                } else if cat == .sport {
-//                    sports[num].notes = ""
-//                } else if cat == .place {
-//                    placesToGo[num].notes = ""
-//                } else {
-//                    print("idk why but nothing is deleted")
-//                }
-//                dismiss()
-//            }, secondaryButton: .default(Text("Cancel")) {
-//                print("Don't delete note")
-//            })
-//
-//            }
         .alert("Are you sure you want to delete all notes attached to this idea?", isPresented: $isAlertShown) {
             Button(role: .destructive) {
                 print("Delete note")

@@ -23,7 +23,7 @@
 
 /* Begin PBXFileReference section */
 		519FF78229270881008468B9 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
-		519FF7842927101D008468B9 /* NoteDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDescriptionView.swift; sourceTree = "<group>"; };
+		519FF7842927101D008468B9 /* NoteDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDescriptionView.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		87A556592903957C00A990D3 /* IdeaStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaStruct.swift; sourceTree = "<group>"; };
 		87DAF52529160AE30026F107 /* persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = persistance.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		D9CFF77629037E68006F2B50 /* idea generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "idea generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };

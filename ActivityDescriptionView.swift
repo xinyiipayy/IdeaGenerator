@@ -187,59 +187,27 @@ struct ActivityDescriptionView: View {
                             Text("Notes")
                                 .bold()
                             Spacer()
-                            Image(systemName: "plus.circle")
-                                .padding(.horizontal, 15)
-                                .onTapGesture {
-                                    if cat == .craft {
-                                        otherNum = crafts[num].notes.count - 1
-                                        if crafts[num].notes[otherNum].isEmpty == false {
-                                            crafts[num].notes.append("")
-                                        }
-                                    } else if cat == .sport {
-                                        otherNum = sports[num].notes.count - 1
-                                        if sports[num].notes[otherNum].isEmpty == false {
-                                            sports[num].notes.append("")
-                                        }
-                                    } else {
-                                        otherNum = placesToGo[num].notes.count - 1
-                                        if placesToGo[num].notes[otherNum].isEmpty == false {
-                                            placesToGo[num].notes.append("")
-                                        }
-                                    }
-                                }
                         }
-                        if #available(iOS 16.0, *) {
-                            VStack {
-                                ForEach(cat ==  .craft ? $crafts[num].notes : cat == .place ? $placesToGo[num].notes : $sports[num].notes, id: \.self) { note in
-                                    ZStack {
-                                        TextField("Add notes here", text: note, axis: .vertical)
-                                            .padding(10)
-                                            .lineLimit(3)
-                                        RoundedRectangle(cornerRadius: 10, style: .circular)
-                                            .stroke(.gray, lineWidth: 1)
-                                            .background(.clear)
-                                            .frame(height: 80)
-                                    }
-                                }
+                        .padding(.horizontal, 10)
+                        ZStack {
+                            if #available(iOS 16.0, *) {
+                                TextField("Add notes here", text: cat ==  .craft ? $crafts[num].notes[0] : cat == .place ? $placesToGo[num].notes[0] : $sports[num].notes[0], axis: .vertical)
+                                    .padding(10)
+                                    .lineLimit(3)
+                            } else {
+                                // Fallback on earlier versions
+                                TextField("Add notes here", text: cat ==  .craft ? $crafts[num].notes[0] : cat == .place ? $placesToGo[num].notes[0] : $sports[num].notes[0])
+                                    .padding(10)
+                                    .lineLimit(3)
                             }
-                        } else {
-                            VStack {
-                                ForEach(cat ==  .craft ? $crafts[num].notes : cat == .place ? $placesToGo[num].notes : $sports[num].notes, id: \.self) { note in
-                                    ZStack {
-                                        TextField("Add notes here", text: note)
-                                            .padding(10)
-                                        RoundedRectangle(cornerRadius: 10, style: .circular)
-                                            .stroke(.gray, lineWidth: 1)
-                                            .background(.clear)
-                                            .frame(height: 40)
-                                    }
-                                }
-                            }
+                            RoundedRectangle(cornerRadius: 10, style: .circular)
+                                .stroke(.gray, lineWidth: 1)
+                                .background(.clear)
+                                .frame(height: 80)
                         }
-                            
+                        .lineLimit(3)
+                        .padding(.horizontal, 10)
                     }
-                    .padding(10)
-                    .lineLimit(/*@START_MENU_TOKEN@*/3/*@END_MENU_TOKEN@*/)
                 }
             }
         }
