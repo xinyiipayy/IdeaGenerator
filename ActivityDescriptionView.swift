@@ -246,11 +246,23 @@ struct ActivityDescriptionView: View {
         .padding(15)
         .onDisappear {
             if cat == .craft {
-                crafts[num].notes = crafts[num].notes.filter { $0.isEmpty ==  false }
+                if crafts[num].notes.filter({ $0.isEmpty == false }).count != 0 {
+                    crafts[num].notes = crafts[num].notes.filter { $0.isEmpty ==  false }
+                } else {
+                    crafts[num].notes = [""]
+                }
             } else if cat == .sport {
-                sports[num].notes = sports[num].notes.filter { $0.isEmpty == false }
+                if sports[num].notes.filter({ $0.isEmpty == false }).count != 0 {
+                    sports[num].notes = sports[num].notes.filter { $0.isEmpty ==  false }
+                } else {
+                    sports[num].notes = [""]
+                }
             } else {
-                placesToGo[num].notes = placesToGo[num].notes.filter { $0.isEmpty == false}
+                if placesToGo[num].notes.filter({ $0.isEmpty == false }).count != 0 {
+                    placesToGo[num].notes = placesToGo[num].notes.filter { $0.isEmpty ==  false }
+                } else {
+                    placesToGo[num].notes = [""]
+                }
             }
         }
     }
