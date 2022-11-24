@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "a-friendly-game-of-volleyball-2022-10-31-07-55-51-utc.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

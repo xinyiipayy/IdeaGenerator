@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "female-rugby-players-on-the-field-2022-09-16-08-33-35-utc.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "young-serious-man-aikido-master-in-traditional-cos-2022-02-22-17-35-46-utc.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
