@@ -21,45 +21,31 @@ struct NoteDescriptionView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
-                Text(cat == .craft ? crafts[num].title : cat == .sport ? sports[num].title : placesToGo[num].title)
-                    .font(.title)
-                    .bold()
-                Spacer()
-            }
-            .padding(20)
-            
-            TextEditor(text: cat ==  .craft ? $crafts[num].notes[0] : cat == .place ? $placesToGo[num].notes[0] : $sports[num].notes[0])
-                .padding(10)
-            
-            HStack {
-                Spacer()
-                Button {
-                    isAlertShown = true
-                } label: {
-                    Text("Delete note")
-                        .font(.subheadline)
-                        .bold()
-                        .foregroundColor(Color(cat == .craft ? "darkYellow" : cat == .sport ? "darkBlue" : "darkRed"))
-                        .padding(15)
-                        .background(Color(cat == .craft ? "lightYellow" : cat == .sport ? "lightBlue" : "lightRed"))
-                        .cornerRadius(10)
-                }
-                Spacer()
-            }
-            .padding(15)
+            TextEditor(text: cat ==  .craft ? $crafts[num].notes : cat == .place ? $placesToGo[num].notes : $sports[num].notes)
+                .padding(.horizontal, 10)
             Spacer()
         }
+        .navigationTitle(cat == .craft ? crafts[num].title : cat == .sport ? sports[num].title : placesToGo[num].title)
+        .toolbar {
+            ToolbarItem {
+                Image(systemName: "trash")
+//                    .font(.title2)
+                    .foregroundColor(.blue)
+                    .onTapGesture {
+                        isAlertShown = true
+                    }
+            }
+        }
         .padding(20)
-        .alert("Are you sure you want to delete all notes attached to this idea?", isPresented: $isAlertShown) {
+        .alert("Are you sure you want to delete this note?", isPresented: $isAlertShown) {
             Button(role: .destructive) {
                 print("Delete note")
                 if cat == .craft {
-                    crafts[num].notes = [""]
+                    crafts[num].notes = ""
                 } else if cat == .sport {
-                    sports[num].notes = [""]
+                    sports[num].notes = ""
                 } else if cat == .place {
-                    placesToGo[num].notes = [""]
+                    placesToGo[num].notes = ""
                 } else {
                     print("idk why but nothing is deleted")
                 }
@@ -68,36 +54,15 @@ struct NoteDescriptionView: View {
                 Text("Delete")
             }
         }
-        .onDisappear {
-            if cat == .craft {
-                if crafts[num].notes.filter({ $0.isEmpty == false }).count != 0 {
-                    crafts[num].notes = crafts[num].notes.filter { $0.isEmpty ==  false }
-                } else {
-                    crafts[num].notes = [""]
-                }
-            } else if cat == .sport {
-                if sports[num].notes.filter({ $0.isEmpty == false }).count != 0 {
-                    sports[num].notes = sports[num].notes.filter { $0.isEmpty ==  false }
-                } else {
-                    sports[num].notes = [""]
-                }
-            } else {
-                if placesToGo[num].notes.filter({ $0.isEmpty == false }).count != 0 {
-                    placesToGo[num].notes = placesToGo[num].notes.filter { $0.isEmpty ==  false }
-                } else {
-                    placesToGo[num].notes = [""]
-                }
-            }
-        }
     }
 }
 
 
 struct NoteDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-        NoteDescriptionView(placesToGo: .constant([Place (title: "demo", description: "demo", address: "demp", mapsLink: "demo", openingHours: "demo", link: ["demo"], image: ["demo"], notes: [""])]),
-                            crafts: .constant([Craft(title: "demo", description: "demo", materials: ["demo"], link: ["demo"], image: ["demo"], notes: [""])]),
-                            sports: .constant([Sport(title: "demo", description: "demo", benefits: ["demo"], equipment: ["demo"], link: ["demo"],suggestedPlace: ["demo"], image: ["demo"], notes: [""])]),
+        NoteDescriptionView(placesToGo: .constant([Place (title: "demo", description: "demo", address: "demp", mapsLink: "demo", openingHours: "demo", link: ["demo"], image: ["demo"], notes: "")]),
+                            crafts: .constant([Craft(title: "demo", description: "demo", materials: ["demo"], link: ["demo"], image: ["demo"], notes: "")]),
+                            sports: .constant([Sport(title: "demo", description: "demo", benefits: ["demo"], equipment: ["demo"], link: ["demo"],suggestedPlace: ["demo"], image: ["demo"], notes: "")]),
                             num: .constant(0),
                             cat: .constant(Category.sport))
     }

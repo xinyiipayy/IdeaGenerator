@@ -191,12 +191,12 @@ struct ActivityDescriptionView: View {
                         .padding(.horizontal, 10)
                         ZStack(alignment: .top) {
                             if #available(iOS 16.0, *) {
-                                TextField("Add notes here", text: cat ==  .craft ? $crafts[num].notes[0] : cat == .place ? $placesToGo[num].notes[0] : $sports[num].notes[0], axis: .vertical)
+                                TextField("Add notes here", text: cat ==  .craft ? $crafts[num].notes : cat == .place ? $placesToGo[num].notes : $sports[num].notes, axis: .vertical)
                                     .padding(10)
                                     .lineLimit(3)
                             } else {
                                 // Fallback on earlier versions
-                                TextField("Add notes here", text: cat ==  .craft ? $crafts[num].notes[0] : cat == .place ? $placesToGo[num].notes[0] : $sports[num].notes[0])
+                                TextField("Add notes here", text: cat ==  .craft ? $crafts[num].notes : cat == .place ? $placesToGo[num].notes : $sports[num].notes)
                                     .padding(10)
                                     .lineLimit(3)
                             }
@@ -212,36 +212,15 @@ struct ActivityDescriptionView: View {
             }
         }
         .padding(15)
-        .onDisappear {
-            if cat == .craft {
-                if crafts[num].notes.filter({ $0.isEmpty == false }).count != 0 {
-                    crafts[num].notes = crafts[num].notes.filter { $0.isEmpty ==  false }
-                } else {
-                    crafts[num].notes = [""]
-                }
-            } else if cat == .sport {
-                if sports[num].notes.filter({ $0.isEmpty == false }).count != 0 {
-                    sports[num].notes = sports[num].notes.filter { $0.isEmpty ==  false }
-                } else {
-                    sports[num].notes = [""]
-                }
-            } else {
-                if placesToGo[num].notes.filter({ $0.isEmpty == false }).count != 0 {
-                    placesToGo[num].notes = placesToGo[num].notes.filter { $0.isEmpty ==  false }
-                } else {
-                    placesToGo[num].notes = [""]
-                }
-            }
-        }
     }
 }
 
 struct ActivityDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
         ActivityDescriptionView(
-            placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", mapsLink: "demo", openingHours: "demo", link: ["demo"], image: ["demo"], notes: [""])]),
-            crafts: .constant([Craft(title: "demo", description: "demo", materials: ["demo"], link: ["demo"], image: ["demo"], notes: [""])]),
-            sports: .constant([Sport(title: "demo", description: "demo", benefits: ["demo"], equipment: ["demo"], link: ["demo"], suggestedPlace: ["demo"], image: ["demo"], notes: [""])]),
+            placesToGo: .constant([Place(title: "demo", description: "demo", address: "demo", mapsLink: "demo", openingHours: "demo", link: ["demo"], image: ["demo"], notes: "")]),
+            crafts: .constant([Craft(title: "demo", description: "demo", materials: ["demo"], link: ["demo"], image: ["demo"], notes: "")]),
+            sports: .constant([Sport(title: "demo", description: "demo", benefits: ["demo"], equipment: ["demo"], link: ["demo"], suggestedPlace: ["demo"], image: ["demo"], notes: "")]),
             num: .constant(0),
             cat: .constant(Category.sport))
     }
