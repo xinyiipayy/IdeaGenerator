@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "the-gray-desk-with-laptop-notepad-with-blank-shee-2021-08-26-17-40-47-utc.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

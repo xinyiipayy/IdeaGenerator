@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "a-tabletop-with-jewellery-making-equipment-hands-2022-03-04-02-30-06-utc.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "monthly-calendar-on-a-bullet-journal-page-against-2022-11-07-21-57-51-utc.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

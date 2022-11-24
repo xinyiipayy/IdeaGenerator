@@ -23,7 +23,7 @@ struct ActivityDescriptionView: View {
                 VStack {
                     TabView(selection: $imageNum) {
                         if cat == .craft {
-                            ForEach(0..<crafts[num].image.count) { imageNumber in
+                            ForEach(0..<crafts[num].image.count, id: \.self) { imageNumber in
                                 Image(crafts[num].image[imageNumber])
                                     .resizable()
                                     .scaledToFit()
@@ -32,7 +32,7 @@ struct ActivityDescriptionView: View {
                         }
                         
                         if cat == .sport {
-                            ForEach(0..<sports[num].image.count) { imageNumber in
+                            ForEach(0..<sports[num].image.count, id: \.self) { imageNumber in
                                 Image(sports[num].image[imageNumber])
                                     .resizable()
                                     .scaledToFit()
@@ -41,7 +41,7 @@ struct ActivityDescriptionView: View {
                         }
                         
                         if cat == .place {
-                            ForEach(0..<placesToGo[num].image.count) { imageNumber in
+                            ForEach(0..<placesToGo[num].image.count, id: \.self) { imageNumber in
                                 Image(placesToGo[num].image[imageNumber])
                                     .resizable()
                                     .scaledToFit()
@@ -57,19 +57,19 @@ struct ActivityDescriptionView: View {
                 HStack {
                     Spacer()
                     if cat == .place {
-                        ForEach(0..<placesToGo[num].image.count) { index in
+                        ForEach(0..<placesToGo[num].image.count, id: \.self) { index in
                             Circle()
                                 .fill(index == imageNum ? Color.gray : Color.gray.opacity(0.5))
                                 .frame(width: 10, height: 10)
                         }
                     }  else if cat == .craft {
-                        ForEach(0..<crafts[num].image.count) { index in
+                        ForEach(0..<crafts[num].image.count, id: \.self) { index in
                             Circle()
                                 .fill(index == imageNum ? Color.gray : Color.gray.opacity(0.5))
                                 .frame(width: 10, height: 10)
                         }
                     } else {
-                        ForEach(0..<sports[num].image.count) { index in
+                        ForEach(0..<sports[num].image.count, id: \.self) { index in
                             Circle()
                                 .fill(index == imageNum ? Color.gray : Color.gray.opacity(0.5))
                                 .frame(width: 10, height: 10)

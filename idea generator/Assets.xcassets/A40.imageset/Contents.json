@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "background-with-embroidery-sewing-accessories-ca-2022-09-29-18-01-11-utc.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

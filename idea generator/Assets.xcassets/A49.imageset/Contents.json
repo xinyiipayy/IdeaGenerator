@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "paper-cut-for-world-ocean-day-deep-underwater-sea-2021-09-02-02-45-27-utc.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
