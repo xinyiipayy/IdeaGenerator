@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "experienced-florist-selecting-natural-rocks-for-a-2022-03-08-16-57-35-utc.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

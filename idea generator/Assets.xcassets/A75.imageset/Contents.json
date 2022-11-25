@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "process-of-making-a-mountain-in-the-papier-mache-t-2022-10-05-21-08-12-utc.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
