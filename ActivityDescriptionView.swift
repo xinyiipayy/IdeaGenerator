@@ -174,8 +174,12 @@ struct ActivityDescriptionView: View {
                             Text("Suggested Place")
                                 .bold()
                             
-                            Link(destination: URL(string: (sports[num].suggestedPlace[1]))!) {
-                                Text(sports[num].suggestedPlace[0])
+                            if sports[num].suggestedPlace[1].contains("https://") {
+                                Link(destination: URL(string: (sports[num].suggestedPlace[1]))!) {
+                                    Text(sports[num].suggestedPlace[0])
+                                }
+                            } else {
+                                Text(sports[num].suggestedPlace[1])
                             }
                         }
                         .padding(10)
