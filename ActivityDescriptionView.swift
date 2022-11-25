@@ -169,6 +169,18 @@ struct ActivityDescriptionView: View {
                             }
                         }
                         .padding(10)
+                        
+                        VStack(alignment: .leading) {
+                            Text("Suggested Place")
+                                .bold()
+                            
+                            Link(destination: URL(string: (sports[num].suggestedPlace[1]))!) {
+                                Text(sports[num].suggestedPlace[0])
+                            }
+                        }
+                        .padding(10)
+                        
+                        
                     } else {
                         EmptyView()
                     }
