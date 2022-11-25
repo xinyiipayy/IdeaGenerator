@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "women-s-hands-hold-a-homemade-papier-mache-pumpkin-2022-10-03-19-59-36-utc.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
