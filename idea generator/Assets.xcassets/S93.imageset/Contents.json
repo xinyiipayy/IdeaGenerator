@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "squash-rackets-and-ball-on-court-floor-top-view-2021-08-27-09-58-26-utc.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

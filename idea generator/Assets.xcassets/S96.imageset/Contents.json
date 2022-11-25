@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "full-length-of-young-woman-skateboarding-on-ramp-i-2022-02-02-03-57-36-utc.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

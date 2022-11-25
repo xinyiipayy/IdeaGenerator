@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "very-pensive-men-on-the-squash-court-2021-08-26-20-15-35-utc.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
