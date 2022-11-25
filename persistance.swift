@@ -371,11 +371,26 @@ var defaultCrafts = [Craft(title: "Origami",
                            materials: ["Learn wood carving in a workshop (eg. Everyday Canoe workshops)"],
                            link: ["How To Start Wood Carving", "https://youtu.be/YagSZ4A6GvE"],
                            image: ["art22.1", "art22.2", "art22.3"]),
-                     Craft(title: "Candle making",
+                     Craft(title: "Candle Making",
                            description: "Candle Making is making a light source from a flammable wick surrounded by a combustible material (usually wax). Candles have been used to light people's homes and journeys since long before the advent of electricity.",
                            materials: ["Wax", "Boiling water", "Silicon mould/container to store candle", "Wick", "Colouring and scents (optional)"],
                            link: ["How To Make Candles", "https://www.proflowers.com/blog/how-to-make-candles/"],
-                           image: ["art23.1", "art23.3"])]
+                           image: ["art23.1", "art23.3"]),
+                     Craft(title: "Soap Making",
+                           description: "Soap can either be made from scratch or by melting and pouring premade soap bases.",
+                           materials: ["Soap base (premade) / lye and oil(from scratch)", "Silicon mould", "Essential oil or fragrance (optional)", "Try soap making in a workshop (eg. Soap Art workshops)"],
+                           link: ["Soap Making Tutorial (video)", "https://youtu.be/Kc7duzDEa6Y"],
+                           image: ["art24.1", "art24.2", "art24.3"]),
+                     Craft(title: "Terrarium Art",
+                           description: "Terrariums are glass enclosures that can be arranged to display plants, typically for decorative purposes.",
+                           materials: ["Transparent container", "Plant", "Soil", "Decorations (pebbles, figurines, etc.)"],
+                           link: ["How To Make A Terrarium", "https://youtu.be/s6DnKCnlSxE"],
+                           image: ["a"]),
+                     Craft(title: "Papier-mâché",
+                           description: "Papier-mâché is a composite material consisting of paper pieces or pulp, sometimes reinforced with textiles, bound with an adhesive, such as glue, starch, or wallpaper paste.",
+                           materials: ["Newspaper strips", "Flour and salt, PVA glue or wallpaper paste", "Vaseline", "Paintbrush", "Acrylic paint, swatches of fabric or patterned paper to decorate", "Clear varnish"],
+                           link: ["Papier-mâché Basics (video)", "https://youtu.be/4nJL4xARaZA"],
+                           image: ["a"]),]
 
 class CraftsManager: ObservableObject {
     @Published var crafts: [Craft] = defaultCrafts {

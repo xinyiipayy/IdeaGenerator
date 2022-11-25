@@ -29,7 +29,6 @@ struct NoteDescriptionView: View {
         .toolbar {
             ToolbarItem {
                 Image(systemName: "trash")
-//                    .font(.title2)
                     .foregroundColor(.blue)
                     .padding(10)
                     .onTapGesture {
