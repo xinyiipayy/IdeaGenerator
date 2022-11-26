@@ -22,10 +22,47 @@ struct NotesView: View {
     @State var showSports = true
     @State var showPlaces = true
     
+    @State var search = ""
+    @State var displaySearch = false
+    
+    @FocusState var isTextFieldEditing: Bool
+    
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack (alignment: .leading) {
+                    ZStack {
+                        TextField("Search saved ideas", text: $search)
+                            .textInputAutocapitalization(.words)
+                            .padding(10)
+                            .focused($isTextFieldEditing, equals: true)
+                        RoundedRectangle(cornerRadius: 10, style: .circular)
+                            .stroke(.gray, lineWidth: 1)
+                            .background(.clear)
+                            .frame(height: 40)
+                        HStack {
+                            Spacer()
+                            if displaySearch == true {
+                                Image(systemName: "xmark.circle")
+                                    .foregroundColor(.gray)
+                                    .onTapGesture {
+                                        displaySearch = false
+                                        search = ""
+                                        isTextFieldEditing = false
+                                    }
+                            } else {
+                                EmptyView()
+                            }
+                            Image(systemName: "magnifyingglass")
+                                .padding(10)
+                                .opacity(0.5)
+                        }
+                    }
+                    .padding(.horizontal, 10)
+                    .onTapGesture {
+                        displaySearch = true
+                        isTextFieldEditing = true
+                    }
                     VStack {
                         HStack {
                             Image(systemName: "triangle")
@@ -42,14 +79,39 @@ struct NotesView: View {
                         }
                         
                         if showCrafts == true {
-                            if crafts.filter { $0.notes != "" }.count == 0 {
+                            if crafts.filter { displaySearch ? $0.notes != "" && $0.title.contains(search) : $0.notes != "" }.count == 0 {
                                 Text("No Ideas with Notes")
                                     .foregroundColor(.gray)
                                     .padding(5)
                             } else {
                                 ForEach(crafts) { craft in
-                                    if craft.notes != "" {
+                                    if craft.notes != "" && displaySearch == false{
                                         
+                                        NavigationLink(destination: NoteDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num, cat: $cat).onAppear {
+                                            cat = .craft
+                                            num = 0
+                                            while crafts[num].title != craft.title {
+                                                num += 1
+                                            }
+                                        }) {
+                                            VStack (alignment: .leading) {
+                                                HStack {
+                                                    Text(craft.title)
+                                                        .bold()
+                                                        .foregroundColor(Color("darkYellow"))
+                                                    Spacer()
+                                                }
+                                                Text(craft.notes)
+                                                    .foregroundColor(Color("darkYellow"))
+                                                    .multilineTextAlignment(.leading)
+                                                    .padding(5)
+                                                    .lineLimit(2)
+                                        }
+                                            .padding(15)
+                                            .background(Color("lightYellow"))
+                                            .cornerRadius(10)
+                                        }
+                                    } else if craft.title.contains(search) && displaySearch == true && craft.notes != "" {
                                         NavigationLink(destination: NoteDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num, cat: $cat).onAppear {
                                             cat = .craft
                                             num = 0
@@ -100,13 +162,14 @@ struct NotesView: View {
                         }
                         
                         if showSports == true {
-                            if sports.filter { $0.notes != "" }.count == 0 {
+                            if sports.filter { displaySearch ? $0.notes != "" && $0.title.contains(search) : $0.notes != "" }.count == 0 {
                                 Text("No Ideas with Notes")
                                     .foregroundColor(.gray)
                                     .padding(5)
                             } else {
                                 ForEach(sports) { sport in
-                                    if sport.notes != "" {
+                                    if sport.notes != "" && displaySearch == false{
+                                        
                                         NavigationLink(destination: NoteDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num, cat: $cat).onAppear {
                                             cat = .sport
                                             num = 0
@@ -126,12 +189,36 @@ struct NotesView: View {
                                                     .multilineTextAlignment(.leading)
                                                     .padding(5)
                                                     .lineLimit(2)
-                                            }
+                                        }
                                             .padding(15)
                                             .background(Color("lightBlue"))
                                             .cornerRadius(10)
                                         }
-                                        
+                                    } else if sport.title.contains(search) && displaySearch == true && sport.notes != ""{
+                                        NavigationLink(destination: NoteDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num, cat: $cat).onAppear {
+                                            cat = .sport
+                                            num = 0
+                                            while sports[num].title != sport.title {
+                                                num += 1
+                                            }
+                                        }) {
+                                            VStack (alignment: .leading) {
+                                                HStack {
+                                                    Text(sport.title)
+                                                        .bold()
+                                                        .foregroundColor(Color("darkBlue"))
+                                                    Spacer()
+                                                }
+                                                Text(sport.notes)
+                                                    .foregroundColor(Color("darkBlue"))
+                                                    .multilineTextAlignment(.leading)
+                                                    .padding(5)
+                                                    .lineLimit(2)
+                                        }
+                                            .padding(15)
+                                            .background(Color("lightBlue"))
+                                            .cornerRadius(10)
+                                        }
                                     } else {
                                         EmptyView()
                                     }
@@ -156,33 +243,59 @@ struct NotesView: View {
                             Spacer()
                         }
                         if showPlaces == true {
-                            if placesToGo.filter { $0.notes != "" }.count == 0 {
+                            if placesToGo.filter { displaySearch ? $0.notes != "" && $0.title.contains(search) : $0.notes != "" }.count == 0 {
                                 Text("No Ideas with Notes")
                                     .foregroundColor(.gray)
                                     .padding(5)
                             } else {
-                                ForEach(placesToGo) { placeToGo in
-                                    if placeToGo.notes != "" {
+                                ForEach(placesToGo) { place in
+                                    if place.notes != "" && displaySearch == false{
+                                        
                                         NavigationLink(destination: NoteDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num, cat: $cat).onAppear {
                                             cat = .place
                                             num = 0
-                                            while placesToGo[num].title != placeToGo.title {
+                                            while placesToGo[num].title != place.title {
                                                 num += 1
                                             }
                                         }) {
                                             VStack (alignment: .leading) {
                                                 HStack {
-                                                    Text(placeToGo.title)
+                                                    Text(place.title)
                                                         .bold()
                                                         .foregroundColor(Color("darkRed"))
                                                     Spacer()
                                                 }
-                                                Text(placeToGo.notes)
+                                                Text(place.notes)
                                                     .foregroundColor(Color("darkRed"))
                                                     .multilineTextAlignment(.leading)
                                                     .padding(5)
                                                     .lineLimit(2)
+                                        }
+                                            .padding(15)
+                                            .background(Color("lightRed"))
+                                            .cornerRadius(10)
+                                        }
+                                    } else if place.title.contains(search) && displaySearch == true && place.notes != "" {
+                                        NavigationLink(destination: NoteDescriptionView(placesToGo: $placesToGo, crafts: $crafts, sports: $sports, num: $num, cat: $cat).onAppear {
+                                            cat = .place
+                                            num = 0
+                                            while placesToGo[num].title != place.title {
+                                                num += 1
                                             }
+                                        }) {
+                                            VStack (alignment: .leading) {
+                                                HStack {
+                                                    Text(place.title)
+                                                        .bold()
+                                                        .foregroundColor(Color("darkRed"))
+                                                    Spacer()
+                                                }
+                                                Text(place.notes)
+                                                    .foregroundColor(Color("darkRed"))
+                                                    .multilineTextAlignment(.leading)
+                                                    .padding(5)
+                                                    .lineLimit(2)
+                                        }
                                             .padding(15)
                                             .background(Color("lightRed"))
                                             .cornerRadius(10)
